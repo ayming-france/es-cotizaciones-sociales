@@ -49,6 +49,9 @@
     .fee-table { font-size: .95rem; }
     .fee-table td:last-child { font-weight: 700; color: #11a9e6; text-align: right; }
     .fee-note { margin-top: 18px; background: #f2f9fd; border-left: 4px solid #11a9e6; padding: 14px 18px; border-radius: 0 8px 8px 0; font-size: .85rem; color: #3d4d5a; text-align: left; }
+    .fee-example { margin-top: 14px; background: #f4fbf8; border-left: 4px solid #0ab38c; padding: 12px 18px; border-radius: 0 8px 8px 0; text-align: left; }
+    .fee-example-label { font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #0ab38c; margin-bottom: 4px; }
+    .fee-example p { font-size: .85rem; color: #3d4d5a; margin: 0; }
     .doc-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; margin-top: 18px; text-align: left; }
     .doc-cols h4 { color: #00456d; font-size: .95rem; margin-bottom: 10px; }
     .doc-cols ul { text-align: left; padding-left: 18px; }
@@ -150,6 +153,23 @@
     .team-role { font-size: 12.5px; color: #11a9e6; font-weight: 600; margin: 3px 0 8px; }
     .team-detail { font-size: 12px; color: #5a6b78; line-height: 1.5; text-align: center; }
     .team-detail em { color: #9aa8b3; font-style: normal; }
+
+    .team-org { display: flex; gap: 22px; align-items: flex-start; max-width: 1120px; margin: 10px auto 0; }
+    .team-band { background: #11a9e6; color: #fff; font-weight: 700; font-size: 12px; text-transform: uppercase;
+      letter-spacing: .06em; text-align: center; border-radius: 999px; padding: 7px 12px; margin-bottom: 12px; }
+    .team-org-lead { flex: 0 0 30%; }
+    .team-org-team { flex: 1 1 70%; }
+    .team-org-lead .team-card { padding: 22px 16px; }
+    .team-photo-cut { width: 100%; max-width: 150px; height: 118px; object-fit: contain; object-position: bottom;
+      border-radius: 10px; background: #f4f8fb; filter: grayscale(1); margin: 0 auto 12px; display: block; box-shadow: none; }
+    .team-org-lead .team-photo-cut { max-width: 170px; height: 150px; }
+    .team-grid-6 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px 14px; margin-top: 0; max-width: none; }
+    .team-grid-6 .team-card { padding: 12px 12px 14px; }
+    .team-grid-6 .team-name { font-size: 13px; }
+    .team-grid-6 .team-role { font-size: 11px; margin: 2px 0 5px; }
+    .team-grid-6 .team-detail { font-size: 10.5px; line-height: 1.4; }
+    .team-grid-6 .team-photo-cut { max-width: 78px; height: 62px; margin-bottom: 8px; }
+    .team-grid-6 .team-initials { width: 62px; height: 62px; margin-bottom: 8px; }
 
     .geo-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 12px; max-width: 1080px; margin: 22px auto 0; }
     .geo-item { background: #fff; border: 1px solid #e9f0f5; border-radius: 12px; padding: 14px 8px;
@@ -1109,48 +1129,56 @@
     <div class="slide-inner">
       <h1 class="slide-title" style="margin-bottom:4px">Equipo del proyecto</h1>
       <p class="content-paragraph" style="margin:0 0 6px; font-size:13.5px">Equipo hispanohablante para el trabajo de campo y la relaci&oacute;n con la administraci&oacute;n, con direcci&oacute;n desde la pr&aacute;ctica de RR. HH. internacional.</p>
-      <div class="team-grid">
-        <div class="team-card">
-          <img class="team-photo" src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/equipo-olivier.png" alt="Olivier Meynard">
-          <div class="team-name">Olivier Meynard</div>
-          <div class="team-role">Direcci&oacute;n del proyecto</div>
-          <p class="team-detail">Director Asociado Internacional. M&aacute;s de 28 a&ntilde;os en externalizaci&oacute;n de procesos, gesti&oacute;n de la calidad y direcci&oacute;n de proyectos.</p>
+      <div class="team-org">
+        <div class="team-org-lead">
+          <div class="team-band">Direcci&oacute;n del proyecto</div>
+          <div class="team-card">
+            <img class="team-photo-cut" src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/equipo-olivier-cut.png" alt="Olivier Meynard">
+            <div class="team-name">Olivier Meynard</div>
+            <div class="team-role">Direcci&oacute;n del proyecto</div>
+            <p class="team-detail">Director Asociado Internacional. M&aacute;s de 28 a&ntilde;os en externalizaci&oacute;n de procesos, gesti&oacute;n de la calidad y direcci&oacute;n de proyectos.</p>
+          </div>
         </div>
-        <div class="team-card">
-          <img class="team-photo" src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/equipo-lola.png" alt="Lola Brayard">
-          <div class="team-name">Lola Brayard</div>
-          <div class="team-role">Especialista en Seguridad Social</div>
-          <p class="team-detail">Consultora en costes sociales y fiscalidad. Diagn&oacute;stico, cuantificaci&oacute;n y regularizaci&oacute;n ante organismos p&uacute;blicos.</p>
-        </div>
-        <div class="team-card">
-          <img class="team-photo" src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/equipo-jose.png" alt="Jos&eacute; Encarnaci&oacute;n Saiter">
-          <div class="team-name">Jos&eacute; Encarnaci&oacute;n Saiter</div>
-          <div class="team-role">Responsable comercial de la oferta RR. HH.</div>
-          <p class="team-detail">Interlocutor comercial de la misi&oacute;n, con trayectoria en la gama de ofertas de RR. HH. de Ayming. Especializado en prevenci&oacute;n de riesgos profesionales, cotizaciones AT/EP y el software de RR. HH. del grupo. Traslada la necesidad del cliente a los equipos t&eacute;cnicos y coordina el acompa&ntilde;amiento de principio a fin.</p>
-        </div>
-        <div class="team-card">
-          <img class="team-photo" src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/equipo-axel.jpg" alt="Axel Mart&iacute;nez">
-          <div class="team-name">Axel Mart&iacute;nez</div>
-          <div class="team-role">Analista de datos y n&oacute;mina</div>
-          <p class="team-detail">Tratamiento de los datos de n&oacute;mina y cotizaci&oacute;n. Cuantificaci&oacute;n de los importes y preparaci&oacute;n de los expedientes de regularizaci&oacute;n.</p>
-        </div>
-        <div class="team-card">
-          <img class="team-photo" src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/equipo-maddalena.png" alt="Maddalena Iadarola">
-          <div class="team-name">Maddalena Iadarola</div>
-          <div class="team-role">Consultora, soporte al proyecto</div>
-          <p class="team-detail">Consultora del equipo Ayming. Soporte al diagn&oacute;stico y al trabajo de campo, en coordinaci&oacute;n con la direcci&oacute;n del proyecto.</p>
-        </div>
-        <div class="team-card pending">
-          <div class="team-initials"><i data-lucide="user-round"></i></div>
-          <div class="team-name">Por designar</div>
-          <div class="team-role">Experto en derecho laboral</div>
-          <p class="team-detail"><em>Perfil exigido por el pliego, pendiente de nombrar</em></p>
-        </div>
-        <div class="team-card pending">
-          <div class="team-initials"><i data-lucide="user-round"></i></div>
-          <div class="team-name">Por designar</div>
-          <div class="team-role">Abogado contencioso administrativo</div>
-          <p class="team-detail"><em>Colegiaci&oacute;n a indicar. Perfil exigido por el pliego.</em></p>
+        <div class="team-org-team">
+          <div class="team-band">Equipo del proyecto</div>
+          <div class="team-grid team-grid-6">
+            <div class="team-card">
+              <img class="team-photo-cut" src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/equipo-lola-cut.png" alt="Lola Brayard">
+              <div class="team-name">Lola Brayard</div>
+              <div class="team-role">Especialista en Seguridad Social</div>
+              <p class="team-detail">Consultora en costes sociales y fiscalidad. Diagn&oacute;stico, cuantificaci&oacute;n y regularizaci&oacute;n ante organismos p&uacute;blicos.</p>
+            </div>
+            <div class="team-card">
+              <img class="team-photo-cut" src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/equipo-jose-cut.png" alt="Jos&eacute; Encarnaci&oacute;n Saiter">
+              <div class="team-name">Jos&eacute; Encarnaci&oacute;n Saiter</div>
+              <div class="team-role">Responsable comercial de la oferta RR. HH.</div>
+              <p class="team-detail">Interlocutor comercial de la misi&oacute;n, con trayectoria en la gama de ofertas de RR. HH. de Ayming. Especializado en prevenci&oacute;n de riesgos profesionales, cotizaciones AT/EP y el software de RR. HH. del grupo. Traslada la necesidad del cliente a los equipos t&eacute;cnicos y coordina el acompa&ntilde;amiento de principio a fin.</p>
+            </div>
+            <div class="team-card">
+              <img class="team-photo-cut" src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/equipo-axel-cut.png" alt="Axel Mart&iacute;nez">
+              <div class="team-name">Axel Mart&iacute;nez</div>
+              <div class="team-role">Analista de datos y n&oacute;mina</div>
+              <p class="team-detail">Tratamiento de los datos de n&oacute;mina y cotizaci&oacute;n. Cuantificaci&oacute;n de los importes y preparaci&oacute;n de los expedientes de regularizaci&oacute;n.</p>
+            </div>
+            <div class="team-card">
+              <img class="team-photo-cut" src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/equipo-maddalena-cut.png" alt="Maddalena Iadarola">
+              <div class="team-name">Maddalena Iadarola</div>
+              <div class="team-role">Consultora, soporte al proyecto</div>
+              <p class="team-detail">Consultora del equipo Ayming. Soporte al diagn&oacute;stico y al trabajo de campo, en coordinaci&oacute;n con la direcci&oacute;n del proyecto.</p>
+            </div>
+            <div class="team-card pending">
+              <div class="team-initials"><i data-lucide="user-round"></i></div>
+              <div class="team-name">Por designar</div>
+              <div class="team-role">Experto en derecho laboral</div>
+              <p class="team-detail"><em>Perfil exigido por el pliego, pendiente de nombrar</em></p>
+            </div>
+            <div class="team-card pending">
+              <div class="team-initials"><i data-lucide="user-round"></i></div>
+              <div class="team-name">Por designar</div>
+              <div class="team-role">Abogado contencioso administrativo</div>
+              <p class="team-detail"><em>Colegiaci&oacute;n a indicar. Perfil exigido por el pliego.</em></p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1352,10 +1380,10 @@
 
   <section class="slide" data-chapter="oferta">
     <div class="slide-inner">
-      <h1 class="slide-title">Oferta económica</h1>
-      <p class="content-paragraph">Honorarios exclusivamente a éxito, sobre los ahorros efectivamente realizados por Alstom.</p>
+      <h1 class="slide-title" style="margin-bottom:4px">Oferta económica</h1>
+      <p class="content-paragraph" style="margin:0 0 8px; font-size:13.5px">Honorarios a éxito sobre las economías generadas para Alstom. Sin resultado, no hay honorarios.</p>
       <table class="fee-table">
-        <thead><tr><th>Importe total de ahorros generados</th><th>Honorarios</th></tr></thead>
+        <thead><tr><th>Tramo de economías generadas</th><th>Honorarios</th></tr></thead>
         <tbody>
           <tr><td>Hasta 500.000 €</td><td>20 %</td></tr>
           <tr><td>De 500.001 € a 1.000.000 €</td><td>17 %</td></tr>
@@ -1363,10 +1391,13 @@
           <tr><td>Más de 2.000.000 €</td><td>10 %</td></tr>
         </tbody>
       </table>
-      <div class="fee-note">
-        Los honorarios aplicables a un tramo no podrán ser en ningún caso inferiores a los que resultarían de aplicar el tipo del tramo anterior a su límite superior. La escala es decreciente y nunca penaliza un hallazgo mayor.
+      <div class="fee-example">
+        <div class="fee-example-label">Ejemplo</div>
+        <p>Identificamos 1.050 k€ de economías totales para Alstom. La facturación de Ayming sería: 500 × 20 % + 500 × 17 % + 50 × 14 % = 100 + 85 + 7 = 192 k€.</p>
       </div>
-      <p class="content-paragraph" style="margin-top:16px">Se integran en los ahorros generados los créditos confirmados por la administración y los importes recuperados. Para las regularizaciones con efecto futuro, la remuneración se limita a dos años de ahorro. Nada se debe sobre ahorros estimados, potenciales o en litigio.</p>
+      <div class="fee-note">
+        Se integran en las economías generadas todos los avisos de crédito confirmados por la Administración, o los importes recuperados por Ayming en los meses anteriores. Para los reprocesamientos iniciados por Ayming con efectos futuros, la remuneración de Ayming se limita a dos años de economías.
+      </div>
     </div>
     <div class="company-logo"><img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming"></div>
   </section>
