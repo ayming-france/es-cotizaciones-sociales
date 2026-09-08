@@ -478,6 +478,19 @@
     .rp-foot .rp-dot { width: 10px; height: 10px; border-radius: 3px; }
     .rp-foot .rp-dot.ay { background: #0ab38c; } .rp-foot .rp-dot.al { background: #00456d; }
     .rp-foot .rp-dot.bo { background: linear-gradient(135deg,#12aeea,#0ab38c); }
+
+    /* Global y local : 4 colonnes photo, style Feu Vert en marque Ayming. */
+    .gl-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 1200px; margin: 20px auto 0; }
+    .gl-col { display: flex; flex-direction: column; text-align: left; }
+    .gl-photo { position: relative; }
+    .gl-img { border-radius: 16px; overflow: hidden; aspect-ratio: 4 / 3.1; box-shadow: 0 10px 26px rgba(0,69,109,.15); }
+    .gl-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .gl-cross { position: absolute; right: 14px; bottom: -16px; width: 36px; height: 36px; border-radius: 10px;
+      background: linear-gradient(135deg,#0fa7e2,#0ab38c); display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 7px 16px rgba(10,179,140,.34); z-index: 2; }
+    .gl-cross::before { content: '+'; color: #fff; font-weight: 800; font-size: 24px; line-height: 1; margin-top: -2px; }
+    .gl-col h4 { font-size: 16px; color: #00456d; margin: 26px 0 6px; }
+    .gl-col p { font-size: 12.5px; color: #4a5b68; line-height: 1.5; margin: 0; text-align: left; }
   </style>
 </head>
 <body data-audience="client" data-no-partners>
@@ -1171,11 +1184,27 @@
     <div class="slide-inner">
       <h1 class="slide-title" style="margin-bottom:4px">Global y local, un solo interlocutor</h1>
       <p class="content-paragraph" style="margin:0 0 12px; font-size:14px">Sea cual sea el pa&iacute;s, hablamos el mismo idioma, el del rendimiento de RR. HH.</p>
-      <div class="feature-grid-4">
-        <div class="feature-item"><div class="feature-icon"><i data-lucide="user-round"></i></div><div class="feature-content"><h4>Equipos locales</h4><p>Consultores nativos que hablan con sus equipos, sus empleados y las administraciones.</p></div></div>
-        <div class="feature-item"><div class="feature-icon"><i data-lucide="workflow"></i></div><div class="feature-content"><h4>Procesos armonizados</h4><p>Un mismo m&eacute;todo aplicado en cada pa&iacute;s, con las normas locales respetadas.</p></div></div>
-        <div class="feature-item"><div class="feature-icon"><i data-lucide="phone-call"></i></div><div class="feature-content"><h4>Interlocutor &uacute;nico</h4><p>Un solo contacto global que coordina, con seguimiento del avance en tiempo real.</p></div></div>
-        <div class="feature-item"><div class="feature-icon"><i data-lucide="layers"></i></div><div class="feature-content"><h4>Consolidaci&oacute;n</h4><p>Vista de grupo, pa&iacute;s, centro o equipo, con la granularidad que ustedes decidan.</p></div></div>
+      <div class="gl-grid">
+        <div class="gl-col">
+          <div class="gl-photo"><div class="gl-img"><img src="https://ayming-france.github.io/assets/imagery/stock/unsplash-1521737711867-e3b97375f902-600x400.jpg" alt=""></div><div class="gl-cross"></div></div>
+          <h4>Equipos locales</h4>
+          <p>Consultores nativos que hablan con sus equipos, sus empleados y las administraciones.</p>
+        </div>
+        <div class="gl-col">
+          <div class="gl-photo"><div class="gl-img"><img src="https://ayming-france.github.io/assets/imagery/stock/unsplash-1454165804606-c3d57bc86b40-600x400.jpg" alt=""></div><div class="gl-cross"></div></div>
+          <h4>Procesos armonizados</h4>
+          <p>Un mismo m&eacute;todo aplicado en cada pa&iacute;s, con las normas locales respetadas.</p>
+        </div>
+        <div class="gl-col">
+          <div class="gl-photo"><div class="gl-img"><img src="https://ayming-france.github.io/assets/imagery/stock/unsplash-1521791136064-7986c2920216-600x400.jpg" alt=""></div><div class="gl-cross"></div></div>
+          <h4>Interlocutor &uacute;nico</h4>
+          <p>Un solo contacto global que coordina, con seguimiento del avance en tiempo real.</p>
+        </div>
+        <div class="gl-col">
+          <div class="gl-photo"><div class="gl-img"><img src="https://ayming-france.github.io/assets/imagery/stock/unsplash-1551288049-bebda4e38f71-600x400.jpg" alt=""></div><div class="gl-cross"></div></div>
+          <h4>Consolidaci&oacute;n</h4>
+          <p>Vista de grupo, pa&iacute;s, centro o equipo, con la granularidad que ustedes decidan.</p>
+        </div>
       </div>
     </div>
     <div class="company-logo"><img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming"></div>
