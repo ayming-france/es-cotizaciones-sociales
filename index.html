@@ -584,23 +584,22 @@
     .mt-rows { position: relative; display: flex; flex-direction: column; gap: 24px; }
     .mt-rows::before {
       content: ''; position: absolute; z-index: 0; pointer-events: none; opacity: 0;
-      left: -760px; top: -213.21px; width: 840px; height: 840px; border-radius: 50%;
+      left: -760px; top: -235.77px; width: 840px; height: 840px; border-radius: 50%;
       border: 2px solid rgba(17, 169, 230, .18);
     }
     .slide[data-chapter="gobernanza"].active .mt-rows::before { animation: mtArcFadeIn .4s ease forwards; }
     @keyframes mtArcFadeIn { from { opacity: 0; } to { opacity: 1; } }
-    /* Chaque ligne se cale sur la tangente du cercle a son point d'arc (angle =
-       atan2(y-cy, x-cx)), plafonnee a 10deg pour rester lisible : ligne 1 a -25.5deg
-       brut -> -10deg, ligne 3 a +18.85deg brut -> +10deg, ligne 2 exactement sur cy
-       donc 0deg. Le point d'arrivee de l'animation existante porte cette inclinaison
-       au lieu d'un simple retour a 0. */
+    /* L'arc (centre -340, 184.24, rayon 420) passe par le CENTRE de chaque icone :
+       cy a mi-chemin des lignes 1 et 3, donc lignes 1 et 3 alignees (marge 23px)
+       et ligne 2 a l'apex (marge 53.4px). Les lignes restent droites, la rotation
+       n'existe que pendant l'entree et retombe a 0. */
     @keyframes mtRowSwingIn { from { opacity: 0; transform: rotate(-7deg); } to { opacity: 1; transform: rotate(0deg); } }
     @keyframes mtRowSwingIn1 { from { opacity: 0; transform: rotate(-7deg); } to { opacity: 1; transform: rotate(0deg); } }
     @keyframes mtRowSwingIn3 { from { opacity: 0; transform: rotate(7deg); } to { opacity: 1; transform: rotate(0deg); } }
     .mt-row { position: relative; z-index: 1; display: grid; grid-template-columns: 52px 1fr; gap: 20px; align-items: start; opacity: 0; }
-    .mt-row:nth-child(1) { margin-left: 39.10px; width: calc(100% - 39.10px); transform-origin: -379.10px 206.79px; }
-    .mt-row:nth-child(2) { margin-left: 80px; width: calc(100% - 80px); transform-origin: -420px 26px; }
-    .mt-row:nth-child(3) { margin-left: 57.48px; width: calc(100% - 57.48px); transform-origin: -397.48px -109.68px; }
+    .mt-row:nth-child(1) { margin-left: 23px; width: calc(100% - 23px); transform-origin: -363.05px 184.24px; }
+    .mt-row:nth-child(2) { margin-left: 53.4px; width: calc(100% - 53.4px); transform-origin: -393.39px 3.45px; }
+    .mt-row:nth-child(3) { margin-left: 23px; width: calc(100% - 23px); transform-origin: -363.05px -132.24px; }
     .slide[data-chapter="gobernanza"].active .mt-row { animation: mtRowSwingIn .6s cubic-bezier(.22,1,.36,1) forwards; }
     .slide[data-chapter="gobernanza"].active .mt-row:nth-child(1) { animation-name: mtRowSwingIn1; animation-delay: .1s; }
     .slide[data-chapter="gobernanza"].active .mt-row:nth-child(2) { animation-delay: .28s; }
