@@ -497,6 +497,32 @@
     .value-detail-list.vd-titled li h4 { font-size: 18px; font-weight: 700; color: #00456d; margin: 0 0 4px; line-height: 1.25; }
     .value-detail-list.vd-titled li p { font-size: 15px; color: #4a5b68; line-height: 1.5; margin: 0; }
 
+    /* Metodologia : timeline verticale, titre a gauche, etapes a droite (style Acciline). */
+    .mt-layout { display: grid; grid-template-columns: .82fr 1.55fr; gap: 54px; max-width: 1200px; margin: 6px auto 0; align-items: center; }
+    .mt-title { font-size: 34px; font-weight: 700; line-height: 1.2; text-align: left;
+      background: linear-gradient(90deg,#0fa7e2,#0ab38c); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .mt-rows { position: relative; display: flex; flex-direction: column; gap: 24px; }
+    .mt-rows::before { content: ''; position: absolute; left: 25px; top: 34px; bottom: 34px; width: 2px; background: #dfeaf1; z-index: 0; }
+    .mt-row { position: relative; z-index: 1; display: grid; grid-template-columns: 52px 1fr; gap: 20px; align-items: start; }
+    .mt-ic { width: 52px; height: 52px; border-radius: 14px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg,#12c19b,#0ab38c); box-shadow: 0 6px 16px rgba(10,179,140,.28); }
+    .mt-ic svg { width: 26px; height: 26px; color: #fff; }
+    .mt-body h4 { font-size: 18px; color: #00456d; margin: 5px 0 8px; }
+    .mt-body ul { list-style: none; margin: 0; padding: 0; }
+    .mt-body li { position: relative; padding-left: 17px; margin-bottom: 6px; font-size: 13.5px; color: #4a5b68; line-height: 1.45; text-align: left; }
+    .mt-body li::before { content: ''; position: absolute; left: 0; top: 8px; width: 6px; height: 6px; border-radius: 50%; background: #0ab38c; }
+
+    /* Continuite : l'en-tete metodo reprend l'en-tete icone de la slide Dos areas. */
+    .value-detail-content .area-head { display: flex; align-items: center; gap: 15px; margin-bottom: 26px; padding-bottom: 0; border-bottom: none; }
+    .value-detail-content .area-ic { width: 54px; height: 54px; border-radius: 14px; }
+    .value-detail-content .area-ic svg { width: 28px; height: 28px; }
+    .slide[data-chapter="metodo-1"] .value-detail-content .area-ic { background: #e9f5fc; }
+    .slide[data-chapter="metodo-1"] .value-detail-content .area-ic svg { color: #11a9e6; }
+    .slide[data-chapter="metodo-2"] .value-detail-content .area-ic { background: #e4f6ef; }
+    .slide[data-chapter="metodo-2"] .value-detail-content .area-ic svg { color: #0ab38c; }
+    .value-detail-content .area-num { font-size: 12px; }
+    .value-detail-content .area-title { font-size: 27px; line-height: 1.15; }
+
     /* Slide Documentos necesarios : deux colonnes, une par aire. */
     .docs2 { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; max-width: 1180px; margin: 22px auto 0; }
     .docs2-card { background: #fff; border: 1px solid #e9f0f5; border-radius: 16px; padding: 22px 26px;
@@ -553,26 +579,26 @@
       <div class="nav-item" data-slide="3"><span class="nav-item-number">03</span>El insight</div>
       <div class="nav-item" data-slide="4"><span class="nav-item-number">04</span>Retos</div>
       <div class="nav-item" data-slide="5"><span class="nav-item-number">05</span>Contexto</div>
-      <div class="nav-item" data-slide="6"><span class="nav-item-number">06</span>Dos &aacute;reas</div>
-      <div class="nav-item" data-slide="7"><span class="nav-item-number">07</span>Situaci&oacute;n resuelta</div>
+      <div class="nav-item" data-slide="6"><span class="nav-item-number">06</span>Situaci&oacute;n resuelta</div>
     </div>
     <div class="nav-section">
       <div class="nav-section-title">Nuestra propuesta</div>
-      <div class="nav-item" data-slide="9"><span class="nav-item-number">08</span>Ayming</div>
+      <div class="nav-item" data-slide="8"><span class="nav-item-number">07</span>Ayming</div>
+      <div class="nav-item" data-slide="9"><span class="nav-item-number">08</span>Dos &aacute;reas</div>
       <div class="nav-item" data-slide="10"><span class="nav-item-number">09</span>Metodolog&iacute;a</div>
-      <div class="nav-item" data-slide="16"><span class="nav-item-number">10</span>Planning</div>
-      <div class="nav-item" data-slide="17"><span class="nav-item-number">11</span>Calendario</div>
-      <div class="nav-item" data-slide="18"><span class="nav-item-number">12</span>KPI y SLA</div>
-      <div class="nav-item" data-slide="20"><span class="nav-item-number">13</span>Equipo</div>
-      <div class="nav-item" data-slide="21"><span class="nav-item-number">14</span>Referencias</div>
-      <div class="nav-item" data-slide="23"><span class="nav-item-number">15</span>Internacional</div>
-      <div class="nav-item" data-slide="29"><span class="nav-item-number">16</span>Preguntas</div>
-      <div class="nav-item" data-slide="30"><span class="nav-item-number">17</span>Oferta econ&oacute;mica</div>
-      <div class="nav-item" data-slide="31"><span class="nav-item-number">18</span>Condiciones generales</div>
+      <div class="nav-item" data-slide="14"><span class="nav-item-number">10</span>Planning</div>
+      <div class="nav-item" data-slide="15"><span class="nav-item-number">11</span>Calendario</div>
+      <div class="nav-item" data-slide="16"><span class="nav-item-number">12</span>KPI y SLA</div>
+      <div class="nav-item" data-slide="18"><span class="nav-item-number">13</span>Equipo</div>
+      <div class="nav-item" data-slide="19"><span class="nav-item-number">14</span>Referencias</div>
+      <div class="nav-item" data-slide="20"><span class="nav-item-number">15</span>Internacional</div>
+      <div class="nav-item" data-slide="27"><span class="nav-item-number">16</span>Preguntas</div>
+      <div class="nav-item" data-slide="28"><span class="nav-item-number">17</span>Oferta econ&oacute;mica</div>
+      <div class="nav-item" data-slide="29"><span class="nav-item-number">18</span>Condiciones generales</div>
     </div>
   </nav>
 
-  <div class="slide-counter"><span class="current">1</span>/33</div>
+  <div class="slide-counter"><span class="current">1</span>/30</div>
 
   <main class="presentation">
 
@@ -692,68 +718,6 @@
     <div class="company-logo"><img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming"></div>
   </section>
 
-  <section class="slide" data-chapter="mecanismos">
-    <div class="slide-inner">
-      <h1 class="slide-title" style="margin-bottom:2px">Dos &aacute;reas de estudio</h1>
-      <p class="content-paragraph" style="margin:0; font-size:14px">Dos mec&aacute;nicas distintas, un mismo conjunto de datos.</p>
-      <div class="area-grid">
-
-        <div class="area-card">
-          <div class="area-head">
-            <div class="area-badge b1">1</div>
-            <div class="area-htext"><div class="area-num">&Aacute;rea 1</div><div class="area-title">Tipos de cotizaci&oacute;n AT/EP</div></div>
-            <div class="area-ic"><i data-lucide="percent"></i></div>
-          </div>
-          <p class="area-lead"><strong>Seg&uacute;n el c&oacute;digo CNAE,</strong> por la actividad econ&oacute;mica principal. Pueden coexistir varios si corresponden a actividades claramente separadas.</p>
-          <p class="area-lead"><strong>Seg&uacute;n la ocupaci&oacute;n de cada empleado,</strong> la normativa prev&eacute; tipos espec&iacute;ficos que pueden ser inferiores al de la actividad de la empresa.</p>
-          <p class="area-lead"><strong>Migraci&oacute;n CNAE-2025.</strong> Quien no la comunic&oacute; cotiza de oficio al tipo m&aacute;s alto de su familia.</p>
-          <div class="area-foot">
-            <div class="imp-cap">La clasificaci&oacute;n pesa dos veces</div>
-            <div class="imp2">
-              <div class="imp2-card">
-                <div class="imp2-when">En el d&iacute;a a d&iacute;a</div>
-                <div class="imp2-rates"><b>1,50 %</b><span class="to">&rarr;</span><b>3,85 %</b></div>
-                <div class="imp2-sub">Oficina frente a industria, +2,35 pts seg&uacute;n la clasificaci&oacute;n.</div>
-              </div>
-              <div class="imp2-card">
-                <div class="imp2-when">En la baja, desde 2026</div>
-                <div class="imp2-rates"><b>1,10 %</b><span class="to">&rarr;</span><b>3,85 %</b></div>
-                <div class="imp2-sub">Al desaparecer la clave propia, la baja cotiza al tipo real, +2,75 pts.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="area-card green">
-          <div class="area-head">
-            <div class="area-badge b2">2</div>
-            <div class="area-htext"><div class="area-num">&Aacute;rea 2</div><div class="area-title">Pagos delegados de incapacidad temporal</div></div>
-            <div class="area-ic"><i data-lucide="calendar-days"></i></div>
-          </div>
-          <p class="area-lead">La empresa <strong>adelanta la prestaci&oacute;n</strong> y la deduce de su liquidaci&oacute;n hasta el reintegro efectivo. La l&iacute;nea muestra, por d&iacute;as de baja, qu&eacute; recupera y qu&eacute; soporta.</p>
-          <div class="ds-row">
-            <div class="ds-lab"><i data-lucide="thermometer"></i>Enfermedad com&uacute;n &middot; d&iacute;as de baja</div>
-            <div class="dayscale">
-              <div class="ds-seg cp"><div class="ds-d">1 a 3</div><div class="ds-w">Sin prestaci&oacute;n</div></div>
-              <div class="ds-seg cp"><div class="ds-d">4 a 15</div><div class="ds-w">60 %, coste empresa</div></div>
-              <div class="ds-seg sr"><div class="ds-d">16 a 20</div><div class="ds-w">60 %, coste INSS/Mutua</div></div>
-              <div class="ds-seg sr"><div class="ds-d">Desde el 21</div><div class="ds-w">75 %, coste INSS/Mutua</div></div>
-            </div>
-          </div>
-          <div class="ds-row">
-            <div class="ds-lab"><i data-lucide="alert-triangle"></i>Accidente y EP &middot; d&iacute;as de baja</div>
-            <div class="dayscale at">
-              <div class="ds-seg cp"><div class="ds-d">D&iacute;a 1</div><div class="ds-w">Salario &iacute;ntegro</div></div>
-              <div class="ds-seg sr"><div class="ds-d">Desde el d&iacute;a 2</div><div class="ds-w">75 %, coste INSS/Mutua, sin carencia</div></div>
-            </div>
-          </div>
-          <div class="ds-foot">El porcentaje es la prestaci&oacute;n de IT sobre la base reguladora. El coste INSS/Mutua se adelanta en pago delegado y se recupera de la liquidaci&oacute;n.</div>
-        </div>
-
-      </div>
-    </div>
-    <div class="company-logo"><img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming"></div>
-  </section>
 
   <section class="slide" data-chapter="monde-ideal">
     <div class="slide-inner">
@@ -828,10 +792,71 @@
     </div>
   </section>
 
+  <section class="slide" data-chapter="mecanismos">
+    <div class="slide-inner">
+      <h1 class="slide-title" style="margin-bottom:2px">Dos &aacute;reas de estudio</h1>
+      <p class="content-paragraph" style="margin:0; font-size:14px">Dos mec&aacute;nicas distintas, un mismo conjunto de datos.</p>
+      <div class="area-grid">
+
+        <div class="area-card">
+          <div class="area-head">
+            <div class="area-ic"><i data-lucide="percent"></i></div>
+            <div class="area-htext"><div class="area-num">&Aacute;rea 1</div><div class="area-title">Tipos de cotizaci&oacute;n AT/EP</div></div>
+          </div>
+          <p class="area-lead"><strong>Seg&uacute;n el c&oacute;digo CNAE,</strong> por la actividad econ&oacute;mica principal. Pueden coexistir varios si corresponden a actividades claramente separadas.</p>
+          <p class="area-lead"><strong>Seg&uacute;n la ocupaci&oacute;n de cada empleado,</strong> la normativa prev&eacute; tipos espec&iacute;ficos que pueden ser inferiores al de la actividad de la empresa.</p>
+          <p class="area-lead"><strong>Migraci&oacute;n CNAE-2025.</strong> Quien no la comunic&oacute; cotiza de oficio al tipo m&aacute;s alto de su familia.</p>
+          <div class="area-foot">
+            <div class="imp-cap">La clasificaci&oacute;n pesa dos veces</div>
+            <div class="imp2">
+              <div class="imp2-card">
+                <div class="imp2-when">En el d&iacute;a a d&iacute;a</div>
+                <div class="imp2-rates"><b>1,50 %</b><span class="to">&rarr;</span><b>3,85 %</b></div>
+                <div class="imp2-sub">Oficina frente a industria, +2,35 pts seg&uacute;n la clasificaci&oacute;n.</div>
+              </div>
+              <div class="imp2-card">
+                <div class="imp2-when">En la baja, desde 2026</div>
+                <div class="imp2-rates"><b>1,10 %</b><span class="to">&rarr;</span><b>3,85 %</b></div>
+                <div class="imp2-sub">Al desaparecer la clave propia, la baja cotiza al tipo real, +2,75 pts.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="area-card green">
+          <div class="area-head">
+            <div class="area-ic"><i data-lucide="calendar-days"></i></div>
+            <div class="area-htext"><div class="area-num">&Aacute;rea 2</div><div class="area-title">Pagos delegados de incapacidad temporal</div></div>
+          </div>
+          <p class="area-lead">La empresa <strong>adelanta la prestaci&oacute;n</strong> y la deduce de su liquidaci&oacute;n hasta el reintegro efectivo. La l&iacute;nea muestra, por d&iacute;as de baja, qu&eacute; recupera y qu&eacute; soporta.</p>
+          <div class="ds-row">
+            <div class="ds-lab"><i data-lucide="thermometer"></i>Enfermedad com&uacute;n &middot; d&iacute;as de baja</div>
+            <div class="dayscale">
+              <div class="ds-seg cp"><div class="ds-d">1 a 3</div><div class="ds-w">Sin prestaci&oacute;n</div></div>
+              <div class="ds-seg cp"><div class="ds-d">4 a 15</div><div class="ds-w">60 %, coste empresa</div></div>
+              <div class="ds-seg sr"><div class="ds-d">16 a 20</div><div class="ds-w">60 %, coste INSS/Mutua</div></div>
+              <div class="ds-seg sr"><div class="ds-d">Desde el 21</div><div class="ds-w">75 %, coste INSS/Mutua</div></div>
+            </div>
+          </div>
+          <div class="ds-row">
+            <div class="ds-lab"><i data-lucide="alert-triangle"></i>Accidente y EP &middot; d&iacute;as de baja</div>
+            <div class="dayscale at">
+              <div class="ds-seg cp"><div class="ds-d">D&iacute;a 1</div><div class="ds-w">Salario &iacute;ntegro</div></div>
+              <div class="ds-seg sr"><div class="ds-d">Desde el d&iacute;a 2</div><div class="ds-w">75 %, coste INSS/Mutua, sin carencia</div></div>
+            </div>
+          </div>
+          <div class="ds-foot">El porcentaje es la prestaci&oacute;n de IT sobre la base reguladora. El coste INSS/Mutua se adelanta en pago delegado y se recupera de la liquidaci&oacute;n.</div>
+        </div>
+
+      </div>
+    </div>
+    <div class="company-logo"><img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming"></div>
+  </section>
+
   <section class="slide" data-chapter="metodo-1">
     <div class="value-detail-layout">
       <div class="value-detail-content">
-        <h2>1. Tipos de cotización AT/EP</h2>
+        <div class="area-head"><div class="area-ic"><i data-lucide="percent"></i></div><div class="area-htext"><div class="area-num">Área 1</div><div class="area-title">Tipos de cotización AT/EP</div></div></div>
         <ul class="value-detail-list vd-titled">
           <li><h4>Cartografía de actividades</h4><p>Analizar las prácticas de Alstom e identificar las actividades realmente desarrolladas en cada centro.</p></li>
           <li><h4>Mapping de ocupaciones</h4><p>Identificar las ocupaciones del Cuadro II que pueden dar lugar a un tipo AT/EP específico distinto del derivado del CNAE.</p></li>
@@ -849,7 +874,7 @@
   <section class="slide" data-chapter="metodo-2">
     <div class="value-detail-layout">
       <div class="value-detail-content">
-        <h2>2. Pagos delegados de incapacidad temporal</h2>
+        <div class="area-head"><div class="area-ic"><i data-lucide="calendar-days"></i></div><div class="area-htext"><div class="area-num">Área 2</div><div class="area-title">Pagos delegados de incapacidad temporal</div></div></div>
         <ul class="value-detail-list vd-titled">
           <li><h4>Identificación del perímetro</h4><p>Identificar todas las situaciones de IT del periodo no prescrito, con carácter general hasta los últimos 4 años.</p></li>
           <li><h4>Clasificación de prestaciones</h4><p>Clasificar cada expediente según su contingencia y determinar el periodo de pago delegado y el importe asociado.</p></li>
@@ -902,27 +927,42 @@
 
   <section class="slide" data-chapter="gobernanza">
     <div class="slide-inner">
-      <h1 class="slide-title">Metodolog&iacute;a de trabajo</h1>
-      <div class="feature-grid-3">
-        <div class="feature-item">
-          <div class="feature-icon"><i data-lucide="calendar-check"></i></div>
-          <div class="feature-content">
-            <h4>Seguimiento del servicio</h4>
-            <p>Reuniones peri&oacute;dicas y comit&eacute; de direcci&oacute;n trimestral para revisar el avance, los casos litigiosos y los riesgos.</p>
+      <div class="mt-layout">
+        <div class="mt-title">Metodolog&iacute;a de trabajo</div>
+        <div class="mt-rows">
+          <div class="mt-row">
+            <div class="mt-ic"><i data-lucide="calendar-check"></i></div>
+            <div class="mt-body">
+              <h4>Seguimiento del servicio</h4>
+              <ul>
+                <li>Reuniones peri&oacute;dicas para revisar el estado de los proyectos.</li>
+                <li>Revisi&oacute;n de los casos litigiosos: prestaciones de IT no deducidas a tiempo, c&oacute;digo CNAE por centro, sobrecotizaci&oacute;n del Cuadro II o puestos mal definidos.</li>
+                <li>Transparencia sobre los riesgos.</li>
+                <li>Steering Committee: reuniones trimestrales de alto nivel para alinear objetivos y decisiones.</li>
+              </ul>
+            </div>
           </div>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon"><i data-lucide="bar-chart-3"></i></div>
-          <div class="feature-content">
-            <h4>Reporting estructurado</h4>
-            <p>Informe peri&oacute;dico con los indicadores acordados con Alstom y un interlocutor t&eacute;cnico &uacute;nico en contacto constante.</p>
+          <div class="mt-row">
+            <div class="mt-ic"><i data-lucide="bar-chart-3"></i></div>
+            <div class="mt-body">
+              <h4>Reporting estructurado</h4>
+              <ul>
+                <li>Informe bisemanal de seguimiento con actividades realizadas y pr&oacute;ximos hitos.</li>
+                <li>Visibilidad del avance mediante indicadores acordados con Alstom.</li>
+                <li>Comunicaci&oacute;n continua con un interlocutor t&eacute;cnico &uacute;nico en contacto constante.</li>
+              </ul>
+            </div>
           </div>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon"><i data-lucide="folder-lock"></i></div>
-          <div class="feature-content">
-            <h4>Control y trazabilidad</h4>
-            <p>Repositorio documental seguro, posiciones documentadas en cada caso y consultas jur&iacute;dicas sobre supuestos sin jurisprudencia.</p>
+          <div class="mt-row">
+            <div class="mt-ic"><i data-lucide="folder-lock"></i></div>
+            <div class="mt-body">
+              <h4>Control y trazabilidad</h4>
+              <ul>
+                <li>Repositorio documental centralizado mediante plataforma colaborativa segura.</li>
+                <li>Documentaci&oacute;n de las posiciones adoptadas en los casos litigiosos.</li>
+                <li>Consultas jur&iacute;dicas sobre casos complejos sin jurisprudencia existente.</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -930,57 +970,8 @@
     <div class="company-logo"><img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming"></div>
   </section>
 
-  <section class="slide" data-chapter="gobernanza-1">
-    <div class="value-detail-layout">
-      <div class="value-detail-content">
-        <h2>Seguimiento del servicio</h2>
-        <ul class="value-detail-list">
-          <li><i data-lucide="check" class="check-icon"></i>Reuniones peri&oacute;dicas para revisar el estado de los proyectos.</li>
-          <li><i data-lucide="check" class="check-icon"></i>Revisi&oacute;n de los casos litigiosos: prestaciones de IT no deducidas a tiempo, c&oacute;digo CNAE aplicado a cada centro, sobrecotizaci&oacute;n vinculada al Cuadro II no identificada o puestos mal definidos.</li>
-          <li><i data-lucide="check" class="check-icon"></i>Transparencia sobre los riesgos.</li>
-          <li><i data-lucide="check" class="check-icon"></i>Steering Committee: reuniones trimestrales de alto nivel, para alinear objetivos y tomar decisiones estrat&eacute;gicas.</li>
-        </ul>
-      </div>
-      <div class="value-detail-visual">
-        <div class="value-image-container"><img src="https://ayming-france.github.io/assets/imagery/charges-sociales/charges-1.jpg" alt="Seguimiento del servicio"></div>
-      </div>
-    </div>
-    <div class="company-logo"><img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming"></div>
-  </section>
 
-  <section class="slide" data-chapter="gobernanza-2">
-    <div class="value-detail-layout">
-      <div class="value-detail-content">
-        <h2>Reporting estructurado</h2>
-        <ul class="value-detail-list">
-          <li><i data-lucide="check" class="check-icon"></i>Informe bisemanal de seguimiento con actividades realizadas y pr&oacute;ximos hitos.</li>
-          <li><i data-lucide="check" class="check-icon"></i>Visibilidad del avance del servicio mediante indicadores acordados con Alstom.</li>
-          <li><i data-lucide="check" class="check-icon"></i>Comunicaci&oacute;n continua a trav&eacute;s de la designaci&oacute;n de un interlocutor t&eacute;cnico &uacute;nico, que estar&aacute; en contacto constante.</li>
-        </ul>
-      </div>
-      <div class="value-detail-visual">
-        <div class="value-image-container"><img src="https://ayming-france.github.io/assets/imagery/cotisations-atmp/at-mp-1.jpg" alt="Reporting estructurado"></div>
-      </div>
-    </div>
-    <div class="company-logo"><img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming"></div>
-  </section>
 
-  <section class="slide" data-chapter="gobernanza-3">
-    <div class="value-detail-layout">
-      <div class="value-detail-content">
-        <h2>Control y trazabilidad</h2>
-        <ul class="value-detail-list">
-          <li><i data-lucide="check" class="check-icon"></i>Repositorio documental centralizado mediante plataforma colaborativa segura.</li>
-          <li><i data-lucide="check" class="check-icon"></i>Documentaci&oacute;n de las posiciones adoptadas en los casos litigiosos o que requieran un mayor nivel de detalle en las descripciones de los puestos.</li>
-          <li><i data-lucide="check" class="check-icon"></i>Consultas jur&iacute;dicas sobre casos complejos sin jurisprudencia existente.</li>
-        </ul>
-      </div>
-      <div class="value-detail-visual">
-        <div class="value-image-container"><img src="https://ayming-france.github.io/assets/imagery/charges-sociales/charges-4.jpg" alt="Control y trazabilidad"></div>
-      </div>
-    </div>
-    <div class="company-logo"><img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming"></div>
-  </section>
 
   <section class="slide" data-chapter="planning">
     <div class="slide-inner">
