@@ -491,6 +491,65 @@
     .gl-cross::before { content: '+'; color: #fff; font-weight: 800; font-size: 24px; line-height: 1; margin-top: -2px; }
     .gl-col h4 { font-size: 16px; color: #00456d; margin: 26px 0 6px; }
     .gl-col p { font-size: 12.5px; color: #4a5b68; line-height: 1.5; margin: 0; text-align: left; }
+
+    /* Metodo, style Feu Vert : liste numerotee a gauche, visuel photo a droite. */
+    .mx-split { display: grid; grid-template-columns: 1.05fr .95fr; gap: 46px; max-width: 1200px; margin: 22px auto 0; align-items: center; }
+    .mx-list { display: flex; flex-direction: column; gap: 17px; }
+    .mx-item { display: grid; grid-template-columns: 30px 1fr; gap: 15px; align-items: start; text-align: left; }
+    .mx-num { width: 30px; height: 30px; border-radius: 9px; display: flex; align-items: center; justify-content: center;
+      font-size: 15px; font-weight: 800; color: #fff; margin-top: 1px; }
+    .slide[data-chapter="metodo-1"] .mx-num { background: linear-gradient(135deg,#12aeea,#1a7fc2); }
+    .slide[data-chapter="metodo-2"] .mx-num { background: linear-gradient(135deg,#12c19b,#0a9b74); }
+    .mx-item h4 { font-size: 15px; color: #00456d; margin: 2px 0 4px; }
+    .mx-item p { font-size: 12.5px; color: #4a5b68; line-height: 1.5; margin: 0; text-align: left; }
+    .mx-visual { position: relative; }
+    .mx-img { border-radius: 18px; overflow: hidden; box-shadow: 0 12px 30px rgba(0,69,109,.16); aspect-ratio: 4 / 3.3; }
+    .mx-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .mx-cross { position: absolute; width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center;
+      justify-content: center; box-shadow: 0 8px 18px rgba(10,179,140,.3); z-index: 2; }
+    .mx-cross::before { content: '+'; color: #fff; font-weight: 800; font-size: 27px; line-height: 1; margin-top: -3px; }
+    .mx-cross.c1 { top: -16px; right: 32px; background: linear-gradient(135deg,#12aeea,#0c93d4); }
+    .mx-cross.c2 { bottom: -16px; left: 26px; background: linear-gradient(135deg,#12c19b,#0ab38c); }
+
+    /* Slide Documentos necesarios : deux colonnes, une par aire. */
+    .docs2 { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; max-width: 1180px; margin: 22px auto 0; }
+    .docs2-card { background: #fff; border: 1px solid #e9f0f5; border-radius: 16px; padding: 22px 26px;
+      box-shadow: 0 8px 24px rgba(0,69,109,.06); text-align: left; }
+    .docs2-card.a { border-top: 3px solid #0fa7e2; }
+    .docs2-card.b { border-top: 3px solid #0ab38c; }
+    .docs2-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .docs2-ic { width: 40px; height: 40px; border-radius: 11px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+    .docs2-ic svg { width: 21px; height: 21px; }
+    .docs2-card.a .docs2-ic { background: #e9f5fc; } .docs2-card.a .docs2-ic svg { color: #11a9e6; }
+    .docs2-card.b .docs2-ic { background: #e4f6ef; } .docs2-card.b .docs2-ic svg { color: #0ab38c; }
+    .docs2-head .n { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #9aa8b3; }
+    .docs2-head h4 { font-size: 16px; color: #00456d; margin: 1px 0 0; }
+    .docs2-card ul { list-style: none; margin: 0; padding: 0; }
+    .docs2-card li { position: relative; padding-left: 20px; margin-bottom: 9px; font-size: 13px; color: #3d4d5a; line-height: 1.5; }
+    .docs2-card li::before { content: ''; position: absolute; left: 0; top: 8px; width: 7px; height: 7px; border-radius: 2px; }
+    .docs2-card.a li::before { background: #11a9e6; }
+    .docs2-card.b li::before { background: #0ab38c; }
+
+    /* Animation d'entree du retroplanning (slide calendario). */
+    @keyframes rpIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+    @keyframes rpBarGrow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+    .slide[data-chapter="calendario"] .rp-trans,
+    .slide[data-chapter="calendario"] .rp-phase,
+    .slide[data-chapter="calendario"] .rp-wp { opacity: 0; }
+    .slide[data-chapter="calendario"] .rp-bar { transform: scaleX(0); transform-origin: left center; }
+    .slide[data-chapter="calendario"].active .rp > :nth-child(2) { animation: rpIn .5s cubic-bezier(.22,1,.36,1) .05s forwards; }
+    .slide[data-chapter="calendario"].active .rp > :nth-child(3) { animation: rpIn .5s cubic-bezier(.22,1,.36,1) .16s forwards; }
+    .slide[data-chapter="calendario"].active .rp > :nth-child(4) { animation: rpIn .5s cubic-bezier(.22,1,.36,1) .26s forwards; }
+    .slide[data-chapter="calendario"].active .rp > :nth-child(5) { animation: rpIn .5s cubic-bezier(.22,1,.36,1) .36s forwards; }
+    .slide[data-chapter="calendario"].active .rp > :nth-child(6) { animation: rpIn .5s cubic-bezier(.22,1,.36,1) .46s forwards; }
+    .slide[data-chapter="calendario"].active .rp > :nth-child(7) { animation: rpIn .5s cubic-bezier(.22,1,.36,1) .58s forwards; }
+    .slide[data-chapter="calendario"].active .rp > :nth-child(8) { animation: rpIn .5s cubic-bezier(.22,1,.36,1) .68s forwards; }
+    .slide[data-chapter="calendario"].active .rp > :nth-child(9) { animation: rpIn .5s cubic-bezier(.22,1,.36,1) .78s forwards; }
+    .slide[data-chapter="calendario"].active .rp > :nth-child(4) .rp-bar { animation: rpBarGrow .55s cubic-bezier(.22,1,.36,1) .40s forwards; }
+    .slide[data-chapter="calendario"].active .rp > :nth-child(5) .rp-bar { animation: rpBarGrow .55s cubic-bezier(.22,1,.36,1) .50s forwards; }
+    .slide[data-chapter="calendario"].active .rp > :nth-child(6) .rp-bar { animation: rpBarGrow .55s cubic-bezier(.22,1,.36,1) .60s forwards; }
+    .slide[data-chapter="calendario"].active .rp > :nth-child(8) .rp-bar { animation: rpBarGrow .55s cubic-bezier(.22,1,.36,1) .80s forwards; }
+    .slide[data-chapter="calendario"].active .rp > :nth-child(9) .rp-bar { animation: rpBarGrow .55s cubic-bezier(.22,1,.36,1) .90s forwards; }
   </style>
 </head>
 <body data-audience="client" data-no-partners>
@@ -527,7 +586,7 @@
     </div>
   </nav>
 
-  <div class="slide-counter"><span class="current">1</span>/32</div>
+  <div class="slide-counter"><span class="current">1</span>/33</div>
 
   <main class="presentation">
 
@@ -786,23 +845,15 @@
   <section class="slide" data-chapter="metodo-1">
     <div class="slide-inner">
       <h1 class="slide-title" style="margin-bottom:2px">1. Tipos de cotización AT/EP</h1>
-      <div class="chev-row">
-        <div class="chev chev-start">1. Cartografía de actividades</div>
-        <div class="chev">2. Mapping de ocupaciones</div>
-        <div class="chev">3. Cuantificación del impacto</div>
-        <div class="chev">4. Solicitud y regularización</div>
-      </div>
-      <div class="chev-cols four-steps">
-        <div class="chev-col"><ul><li>Analizar las prácticas de Alstom.</li><li>Identificar las actividades realmente desarrolladas en cada centro.</li></ul></div>
-        <div class="chev-col"><ul><li>Identificar las ocupaciones del Cuadro II que pueden dar lugar a un tipo AT/EP específico distinto del derivado del CNAE.</li></ul></div>
-        <div class="chev-col"><ul><li>Comparar el tipo efectivamente aplicado con el tipo que habría correspondido y cuantificar las posibles sobrecotizaciones históricas y el ahorro futuro.</li></ul></div>
-        <div class="chev-col"><ul><li>Preparar las solicitudes de devolución / regularización ante la Seguridad Social, con soporte documental.</li></ul></div>
-      </div>
-      <div class="doc-band">
-        <h4><i data-lucide="folder-open"></i>Documentos necesarios</h4>
-        <div class="doc-cols" style="margin-top:8px">
-          <ul><li>Listado de centros de trabajo, y lista de empleados + su ocupación para cada uno</li><li>Licencias de actividad, cualquier documentación describiendo las operaciones de cada centro</li><li>Listado/catálogo de puestos</li></ul>
-          <ul><li>Descripciones de los puestos</li><li>Evaluaciones de riesgos laborales por puesto</li><li>Resolución, acta de inspección, requerimiento o correspondencia en relación con la actividad aplicada en el 2019</li></ul>
+      <div class="mx-split">
+        <div class="mx-list">
+          <div class="mx-item"><div class="mx-num">1</div><div><h4>Cartografía de actividades</h4><p>Analizar las prácticas de Alstom e identificar las actividades realmente desarrolladas en cada centro.</p></div></div>
+          <div class="mx-item"><div class="mx-num">2</div><div><h4>Mapping de ocupaciones</h4><p>Identificar las ocupaciones del Cuadro II que pueden dar lugar a un tipo AT/EP específico distinto del derivado del CNAE.</p></div></div>
+          <div class="mx-item"><div class="mx-num">3</div><div><h4>Cuantificación del impacto</h4><p>Comparar el tipo efectivamente aplicado con el que habría correspondido y cuantificar las sobrecotizaciones históricas y el ahorro futuro.</p></div></div>
+          <div class="mx-item"><div class="mx-num">4</div><div><h4>Solicitud y regularización</h4><p>Preparar las solicitudes de devolución y regularización ante la Seguridad Social, con soporte documental.</p></div></div>
+        </div>
+        <div class="mx-visual">
+          <div class="mx-img"><img src="https://ayming-france.github.io/assets/imagery/cotisations-atmp/at-mp-1.jpg" alt=""></div>
         </div>
       </div>
     </div>
@@ -812,25 +863,52 @@
   <section class="slide" data-chapter="metodo-2">
     <div class="slide-inner">
       <h1 class="slide-title" style="margin-bottom:2px">2. Pagos delegados de incapacidad temporal</h1>
-      <div class="chev-row green">
-        <div class="chev chev-start">1. Identificación del perímetro</div>
-        <div class="chev">2. Clasificación de prestaciones</div>
-        <div class="chev">3. Conciliación y cuantificación</div>
-        <div class="chev">4. Recuperación de importes</div>
-      </div>
-      <div class="chev-cols four-steps green">
-        <div class="chev-col"><ul><li>Identificar todas las situaciones de IT correspondientes al periodo no prescrito, con carácter general hasta los últimos 4 años.</li></ul></div>
-        <div class="chev-col"><ul><li>Clasificar cada expediente según su contingencia y determinar el periodo de pago delegado y el importe asociado.</li></ul></div>
-        <div class="chev-col"><ul><li>Comparar los importes abonados por Alstom en pago delegado con los importes efectivamente compensados en las liquidaciones de cotizaciones.</li></ul></div>
-        <div class="chev-col"><ul><li>Presentar las solicitudes de reintegro ante la entidad competente, aportando la documentación justificativa y realizando el seguimiento hasta su resolución.</li></ul></div>
-      </div>
-      <div class="doc-band green">
-        <h4><i data-lucide="folder-open"></i>Documentos necesarios</h4>
-        <div class="doc-cols" style="margin-top:8px">
-          <ul><li>Extractos de nóminas en formato Excel/CSV</li><li>Fichero de seguimiento de las prestaciones si disponible, con la fecha de principio y de fin de prestación y el tipo de contingencia</li></ul>
-          <ul><li>DCL de cada año (Documento de Cálculo de la Liquidación)</li><li>RLC correspondientes (Recibos de Liquidación de Cotizaciones)</li></ul>
+      <div class="mx-split">
+        <div class="mx-list">
+          <div class="mx-item"><div class="mx-num">1</div><div><h4>Identificación del perímetro</h4><p>Identificar todas las situaciones de IT del periodo no prescrito, con carácter general hasta los últimos 4 años.</p></div></div>
+          <div class="mx-item"><div class="mx-num">2</div><div><h4>Clasificación de prestaciones</h4><p>Clasificar cada expediente según su contingencia y determinar el periodo de pago delegado y el importe asociado.</p></div></div>
+          <div class="mx-item"><div class="mx-num">3</div><div><h4>Conciliación y cuantificación</h4><p>Comparar los importes abonados por Alstom en pago delegado con los efectivamente compensados en las liquidaciones de cotizaciones.</p></div></div>
+          <div class="mx-item"><div class="mx-num">4</div><div><h4>Recuperación de importes</h4><p>Presentar las solicitudes de reintegro ante la entidad competente, con la documentación justificativa y el seguimiento hasta su resolución.</p></div></div>
+        </div>
+        <div class="mx-visual">
+          <div class="mx-img"><img src="https://ayming-france.github.io/assets/imagery/ijss/Recuperer-ij.jpg" alt=""></div>
         </div>
       </div>
+    </div>
+    <div class="company-logo"><img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming"></div>
+  </section>
+
+  <section class="slide" data-chapter="documentos">
+    <div class="slide-inner">
+      <h1 class="slide-title" style="margin-bottom:2px">Documentos necesarios</h1>
+      <p class="content-paragraph" style="margin:0 0 4px; font-size:14px">Lo que necesitamos de Alstom para arrancar cada área del estudio.</p>
+      <div class="docs2">
+        <div class="docs2-card a">
+          <div class="docs2-head">
+            <div class="docs2-ic"><i data-lucide="percent"></i></div>
+            <div><div class="n">Área 1</div><h4>Tipos de cotización AT/EP</h4></div>
+          </div>
+          <ul>
+            <li>Listado de centros de trabajo, y lista de empleados y su ocupación para cada uno</li>
+            <li>Licencias de actividad y cualquier documentación que describa las operaciones de cada centro</li>
+            <li>Listado o catálogo de puestos</li>
+            <li>Descripciones de los puestos</li>
+            <li>Evaluaciones de riesgos laborales por puesto</li>
+            <li>Resolución, acta de inspección, requerimiento o correspondencia sobre la actividad aplicada en 2019</li>
+          </ul>
+        </div>
+        <div class="docs2-card b">
+          <div class="docs2-head">
+            <div class="docs2-ic"><i data-lucide="calendar-days"></i></div>
+            <div><div class="n">Área 2</div><h4>Pagos delegados de incapacidad temporal</h4></div>
+          </div>
+          <ul>
+            <li>Extractos de nóminas en formato Excel o CSV</li>
+            <li>Fichero de seguimiento de las prestaciones, con la fecha de inicio y de fin y el tipo de contingencia</li>
+            <li>DCL de cada año (Documento de Cálculo de la Liquidación)</li>
+            <li>RLC correspondientes (Recibos de Liquidación de Cotizaciones)</li>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="company-logo"><img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming"></div>
@@ -1071,7 +1149,7 @@
           <img class="team-photo" src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/equipo-jose.png" alt="Jos&eacute; Encarnaci&oacute;n Saiter">
           <div class="team-name">Jos&eacute; Encarnaci&oacute;n Saiter</div>
           <div class="team-role">Responsable comercial de la oferta RR. HH.</div>
-          <p class="team-detail">Interlocutor comercial de la misi&oacute;n. Experiencia en cotizaciones AT/EP y en su seguimiento con Acciline. Traslada la necesidad del cliente a los equipos t&eacute;cnicos y coordina el acompa&ntilde;amiento de principio a fin.</p>
+          <p class="team-detail">Interlocutor comercial de la misi&oacute;n, con trayectoria en la gama de ofertas de RR. HH. de Ayming. Especializado en prevenci&oacute;n de riesgos profesionales, cotizaciones AT/EP y el software de RR. HH. del grupo. Traslada la necesidad del cliente a los equipos t&eacute;cnicos y coordina el acompa&ntilde;amiento de principio a fin.</p>
         </div>
         <div class="team-card">
           <img class="team-photo" src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/equipo-axel.jpg" alt="Axel Mart&iacute;nez">
@@ -1187,22 +1265,22 @@
       <p class="content-paragraph" style="margin:0 0 12px; font-size:14px">Sea cual sea el pa&iacute;s, hablamos el mismo idioma, el del rendimiento de RR. HH.</p>
       <div class="gl-grid">
         <div class="gl-col">
-          <div class="gl-photo"><div class="gl-img"><img src="https://ayming-france.github.io/assets/imagery/stock/unsplash-1521737711867-e3b97375f902-600x400.jpg" alt=""></div><div class="gl-cross"></div></div>
+          <div class="gl-photo"><div class="gl-img"><img src="https://ayming-france.github.io/assets/imagery/stock/unsplash-1521737711867-e3b97375f902-600x400.jpg" alt=""></div></div>
           <h4>Equipos locales</h4>
           <p>Consultores nativos que hablan con sus equipos, sus empleados y las administraciones.</p>
         </div>
         <div class="gl-col">
-          <div class="gl-photo"><div class="gl-img"><img src="https://ayming-france.github.io/assets/imagery/stock/unsplash-1454165804606-c3d57bc86b40-600x400.jpg" alt=""></div><div class="gl-cross"></div></div>
+          <div class="gl-photo"><div class="gl-img"><img src="https://ayming-france.github.io/assets/imagery/stock/unsplash-1454165804606-c3d57bc86b40-600x400.jpg" alt=""></div></div>
           <h4>Procesos armonizados</h4>
           <p>Un mismo m&eacute;todo aplicado en cada pa&iacute;s, con las normas locales respetadas.</p>
         </div>
         <div class="gl-col">
-          <div class="gl-photo"><div class="gl-img"><img src="https://ayming-france.github.io/assets/imagery/stock/unsplash-1521791136064-7986c2920216-600x400.jpg" alt=""></div><div class="gl-cross"></div></div>
+          <div class="gl-photo"><div class="gl-img"><img src="https://ayming-france.github.io/assets/imagery/stock/unsplash-1521791136064-7986c2920216-600x400.jpg" alt=""></div></div>
           <h4>Interlocutor &uacute;nico</h4>
           <p>Un solo contacto global que coordina, con seguimiento del avance en tiempo real.</p>
         </div>
         <div class="gl-col">
-          <div class="gl-photo"><div class="gl-img"><img src="https://ayming-france.github.io/assets/imagery/stock/unsplash-1551288049-bebda4e38f71-600x400.jpg" alt=""></div><div class="gl-cross"></div></div>
+          <div class="gl-photo"><div class="gl-img"><img src="https://ayming-france.github.io/assets/imagery/stock/unsplash-1551288049-bebda4e38f71-600x400.jpg" alt=""></div></div>
           <h4>Consolidaci&oacute;n</h4>
           <p>Vista de grupo, pa&iacute;s, centro o equipo, con la granularidad que ustedes decidan.</p>
         </div>
