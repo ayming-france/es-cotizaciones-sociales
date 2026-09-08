@@ -136,7 +136,8 @@
     .num-item + .num-item { border-top: 1px solid #eef4f8; }
     .num-item strong { color: #00456d; font-weight: 700; }
 
-    .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px 26px; margin-top: 12px; max-width: 1080px; margin-left: auto; margin-right: auto; }
+    .team-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 22px 26px; margin-top: 12px; max-width: 1080px; margin-left: auto; margin-right: auto; }
+    .team-card { flex: 0 1 calc(33.333% - 18px); }
     .team-card { background: #fff; border: 1px solid #e9f0f5; border-radius: 16px; padding: 20px 18px;
       box-shadow: 0 6px 22px rgba(0,69,109,.06); text-align: center; }
     .team-photo, .team-initials { width: 92px; height: 92px; border-radius: 50%; margin: 0 auto 12px; display: block; }
@@ -443,9 +444,16 @@
     .rp-transbar span { display: flex; align-items: center; height: 22px; padding-left: 12px; border-radius: 6px;
       background: repeating-linear-gradient(90deg,#eef4f8,#eef4f8 9px,#e2edf4 9px,#e2edf4 18px);
       font-size: 10px; font-weight: 700; color: #8393a0; letter-spacing: .04em; }
-    .rp-phase { font-size: 11px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; padding: 12px 0 2px; }
-    .rp-phase.a { color: #1a7fc2; }
-    .rp-phase.b { color: #0a9b74; }
+    .rp-phase { display: flex; align-items: center; gap: 11px; font-size: 12.5px; font-weight: 800;
+      letter-spacing: .18em; text-transform: uppercase; padding: 16px 0 5px; text-align: left; }
+    .rp-phase::before { content: ''; width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
+    .rp-phase::after { content: ''; flex: 1 1 auto; height: 2px; border-radius: 2px; }
+    .rp-phase.a { color: #0fa7e2; }
+    .rp-phase.a::before { background: #0fa7e2; }
+    .rp-phase.a::after { background: linear-gradient(90deg, rgba(15,167,226,.5), rgba(15,167,226,0)); }
+    .rp-phase.b { color: #0ab38c; }
+    .rp-phase.b::before { background: #0ab38c; }
+    .rp-phase.b::after { background: linear-gradient(90deg, rgba(10,179,140,.5), rgba(10,179,140,0)); }
     .rp-left { padding: 9px 16px 11px 0; border-top: 1px solid #eef3f7; }
     .rp-wpname { font-size: 13.5px; font-weight: 700; color: #00456d; margin-bottom: 7px;
       display: flex; align-items: center; gap: 9px; }
@@ -462,8 +470,8 @@
     .rp-date { font-size: 10.5px; font-weight: 700; color: #6b7d8a; white-space: nowrap; }
     .rp-track { position: relative; border-top: 1px solid #eef3f7; }
     .rp-bar { position: absolute; top: 13px; height: 11px; border-radius: 6px; box-shadow: 0 2px 7px rgba(0,69,109,.14); }
-    .rp-bar.a { background: linear-gradient(90deg,#2f9fe0,#1a7fc2); }
-    .rp-bar.b { background: linear-gradient(90deg,#14c09b,#0a9b74); }
+    .rp-bar.a { background: linear-gradient(90deg,#3cbdf0,#0fa7e2); }
+    .rp-bar.b { background: linear-gradient(90deg,#2fcda8,#0ab38c); }
     .rp-foot { max-width: 1200px; margin: 12px auto 0; display: flex; gap: 18px; align-items: center;
       font-size: 10.5px; color: #8393a0; }
     .rp-foot .rp-key { display: flex; align-items: center; gap: 6px; }
@@ -496,18 +504,17 @@
       <div class="nav-item" data-slide="10"><span class="nav-item-number">09</span>Metodolog&iacute;a</div>
       <div class="nav-item" data-slide="16"><span class="nav-item-number">10</span>Planning</div>
       <div class="nav-item" data-slide="17"><span class="nav-item-number">11</span>Calendario</div>
-      <div class="nav-item" data-slide="18"><span class="nav-item-number">12</span>Datos y acceso</div>
-      <div class="nav-item" data-slide="19"><span class="nav-item-number">13</span>KPI y SLA</div>
-      <div class="nav-item" data-slide="21"><span class="nav-item-number">14</span>Equipo</div>
-      <div class="nav-item" data-slide="22"><span class="nav-item-number">15</span>Referencias</div>
-      <div class="nav-item" data-slide="24"><span class="nav-item-number">16</span>Internacional</div>
-      <div class="nav-item" data-slide="30"><span class="nav-item-number">17</span>Preguntas</div>
-      <div class="nav-item" data-slide="31"><span class="nav-item-number">18</span>Oferta econ&oacute;mica</div>
-      <div class="nav-item" data-slide="32"><span class="nav-item-number">19</span>Condiciones generales</div>
+      <div class="nav-item" data-slide="18"><span class="nav-item-number">12</span>KPI y SLA</div>
+      <div class="nav-item" data-slide="20"><span class="nav-item-number">13</span>Equipo</div>
+      <div class="nav-item" data-slide="21"><span class="nav-item-number">14</span>Referencias</div>
+      <div class="nav-item" data-slide="23"><span class="nav-item-number">15</span>Internacional</div>
+      <div class="nav-item" data-slide="29"><span class="nav-item-number">16</span>Preguntas</div>
+      <div class="nav-item" data-slide="30"><span class="nav-item-number">17</span>Oferta econ&oacute;mica</div>
+      <div class="nav-item" data-slide="31"><span class="nav-item-number">18</span>Condiciones generales</div>
     </div>
   </nav>
 
-  <div class="slide-counter"><span class="current">1</span>/33</div>
+  <div class="slide-counter"><span class="current">1</span>/32</div>
 
   <main class="presentation">
 
@@ -908,7 +915,7 @@
       <div class="ph-grid">
         <div class="ph a"><div class="ph-tag">Fase A1 &middot; WP1</div><div class="ph-name">Encuadre</div><div class="ph-dur">2 semanas</div><div class="ph-bar"></div><ul><li>Recolecci&oacute;n de la documentaci&oacute;n necesaria</li><li>Per&iacute;metro</li><li>Plan de trabajo</li><li>Calendario</li></ul><div class="ph-out"><b>Entregables</b>Listado de documentaci&oacute;n<br>Plan de proyecto y etapas<br></div></div>
         <div class="ph a"><div class="ph-tag">Fase A2 &middot; WP2</div><div class="ph-name">Diagn&oacute;stico</div><div class="ph-dur">2 semanas</div><div class="ph-bar"></div><ul><li>Revisi&oacute;n de las pr&aacute;cticas actuales</li><li>CNAE aplicado</li><li>Tipos AT/EP</li><li>Cotizaciones abonadas</li><li>Pagos delegados de IT</li></ul><div class="ph-out"><b>Entregables</b>Informe de evaluaci&oacute;n jur&iacute;dica y t&eacute;cnica<br>Resumen de riesgos<br></div></div>
-        <div class="ph a"><div class="ph-tag">Fase A3 &middot; WP3</div><div class="ph-name">Validaci&oacute;n</div><div class="ph-dur">3 semanas</div><div class="ph-bar"></div><ul><li>Determinaci&oacute;n de los cambios adecuados</li><li>C&oacute;digos CNAE apropiados</li><li>Revisi&oacute;n de las ocupaciones</li><li>Detecci&oacute;n de prestaciones de IT no compensadas</li></ul><div class="ph-out"><b>Entregables</b>Informe de an&aacute;lisis de clasificaci&oacute;n y prestaciones de IT<br>Documentaci&oacute;n de justificaci&oacute;n t&eacute;cnica<br></div></div>
+        <div class="ph a"><div class="ph-tag">Fase A3 &middot; WP3</div><div class="ph-name">Validaci&oacute;n</div><div class="ph-dur">4 semanas</div><div class="ph-bar"></div><ul><li>Determinaci&oacute;n de los cambios adecuados</li><li>C&oacute;digos CNAE apropiados</li><li>Revisi&oacute;n de las ocupaciones</li><li>Detecci&oacute;n de prestaciones de IT no compensadas</li></ul><div class="ph-out"><b>Entregables</b>Informe de an&aacute;lisis de clasificaci&oacute;n y prestaciones de IT<br>Documentaci&oacute;n de justificaci&oacute;n t&eacute;cnica<br></div></div>
         <div class="ph a"><div class="ph-tag">Fase A4 &middot; WP4</div><div class="ph-name">Cuantificaci&oacute;n</div><div class="ph-dur">2 semanas</div><div class="ph-bar"></div><ul><li>C&aacute;lculo de las sobrecotizaciones y de los importes recuperables, tanto en AT/EP como en pagos delegados de IT</li></ul><div class="ph-out"><b>Entregables</b>Informe de revisi&oacute;n de cotizaciones<br>Listado de regularizaciones identificadas<br></div></div>
         <div class="ph b"><div class="ph-tag">Fase B5 &middot; WP5</div><div class="ph-name">Regularizaci&oacute;n</div><div class="ph-dur">2 semanas</div><div class="ph-bar"></div><ul><li>Presentaci&oacute;n de las solicitudes y defensa ante los organismos competentes</li></ul><div class="ph-out"><b>Entregables</b>Escritos jur&iacute;dicos listos<br>Informe sobre los procedimientos<br></div></div>
         <div class="ph b"><div class="ph-tag">Fase B6 &middot; WP7</div><div class="ph-name">Recuperaci&oacute;n</div><div class="ph-dur">Seg&uacute;n la administraci&oacute;n</div><div class="ph-bar"></div><ul><li>Seguimiento hasta la recuperaci&oacute;n efectiva de los importes</li></ul><div class="ph-out"><b>Entregables</b>Informe de seguimiento de recuperaciones<br>Informe peri&oacute;dico de reembolsos<br>Informe final de resultados<br></div></div>
@@ -996,24 +1003,6 @@
     <div class="company-logo"><img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming"></div>
   </section>
 
-  <section class="slide" data-chapter="datos">
-    <div class="slide-inner">
-      <h1 class="slide-title">Lo que necesitamos de Alstom, y cuándo</h1>
-      <div class="req-list">
-        <div class="req-row"><span class="req-actor alstom">Alstom</span><div><div class="req-el">Asignación de las cuentas de cotización a la autorización RED</div><div class="req-src">Sede Electrónica · Representante legal</div></div><span class="req-time">1 sesión, firma electrónica</span></div>
-        <div class="req-row"><span class="req-actor alstom">Alstom</span><div><div class="req-el">Apoderamiento para recursos y notificaciones</div><div class="req-src">Registro Electrónico de Apoderamientos</div></div><span class="req-time">1 sesión, trámite aparte</span></div>
-        <div class="req-row"><span class="req-actor ayming">Ayming</span><div><div class="req-el">RLC, DCL, ITA, IDC y vida laboral de la empresa</div><div class="req-src">Sistema RED, una vez concedido el acceso</div></div><span class="req-time">Por nuestra cuenta</span></div>
-        <div class="req-row"><span class="req-actor alstom">Alstom</span><div><div class="req-el">Extractos de nómina y contratos</div><div class="req-src">Proveedor de nómina</div></div><span class="req-time">2 a 3 semanas</span></div>
-        <div class="req-row"><span class="req-actor alstom">Alstom</span><div><div class="req-el">Relación de centros, catálogo de puestos y funciones</div><div class="req-src">RR. HH.</div></div><span class="req-time">2 semanas</span></div>
-        <div class="req-row"><span class="req-actor alstom">Alstom</span><div><div class="req-el">Evaluaciones de riesgos por puesto</div><div class="req-src">Servicio de prevención</div></div><span class="req-time">2 semanas</span></div>
-        <div class="req-row"><span class="req-actor alstom">Alstom</span><div><div class="req-el">Documentación de 2019, resolución, acta o correspondencia</div><div class="req-src">Jurídico</div></div><span class="req-time">1 semana</span></div>
-        <div class="req-row"><span class="req-actor ambos">Ambos</span><div><div class="req-el">Validación de los puestos mixtos y casos límite</div><div class="req-src">Sesión de trabajo conjunta</div></div><span class="req-time">2 sesiones de 2 h</span></div>
-      </div>
-      <p class="content-paragraph" style="margin-top:14px">El acceso a los datos depende de dos firmas distintas y del proveedor de nómina. Primer acceso previsto entre una y dos semanas desde la firma, si la autorización RED ya está activa.</p>
-    </div>
-    <div class="company-logo"><img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming"></div>
-  </section>
-
   <section class="slide" data-chapter="kpi">
     <div class="slide-inner">
       <h1 class="slide-title">Indicadores y compromisos de servicio</h1>
@@ -1075,6 +1064,12 @@
           <div class="team-name">Axel Mart&iacute;nez</div>
           <div class="team-role">Analista de datos y n&oacute;mina</div>
           <p class="team-detail">Tratamiento de los datos de n&oacute;mina y cotizaci&oacute;n. Cuantificaci&oacute;n de los importes y preparaci&oacute;n de los expedientes de regularizaci&oacute;n.</p>
+        </div>
+        <div class="team-card">
+          <img class="team-photo" src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/equipo-maddalena.png" alt="Maddalena Iadarola">
+          <div class="team-name">Maddalena Iadarola</div>
+          <div class="team-role">Consultora, soporte al proyecto</div>
+          <p class="team-detail">Consultora del equipo Ayming. Soporte al diagn&oacute;stico y al trabajo de campo, en coordinaci&oacute;n con la direcci&oacute;n del proyecto.</p>
         </div>
         <div class="team-card pending">
           <div class="team-initials"><i data-lucide="user-round"></i></div>
