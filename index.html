@@ -56,6 +56,16 @@
     .fee-example { margin-top: 14px; background: #f4fbf8; border-left: 4px solid #0ab38c; padding: 12px 18px; border-radius: 0 8px 8px 0; text-align: left; }
     .fee-example-label { font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #0ab38c; margin-bottom: 4px; }
     .fee-example p { font-size: .85rem; color: #3d4d5a; margin: 0; }
+    .scenarios-block { max-width: 1180px; margin: 14px auto 0; }
+    .scenarios-label { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #9aa8b3; margin: 0 0 6px; text-align: left; }
+    .scenarios-table { width: 100%; border-collapse: collapse; font-size: .8rem; }
+    .scenarios-table th { text-align: left; background: #00456d; color: #fff; padding: 7px 12px; font-weight: 600; }
+    .scenarios-table th:last-child, .scenarios-table td:last-child { text-align: right; }
+    .scenarios-table td { padding: 6px 12px; border-bottom: 1px solid #e6eef4; color: #3d4d5a; }
+    .scenarios-table tr:nth-child(even) td { background: #f7fbfd; }
+    .scenarios-table td:first-child { font-weight: 600; color: #00456d; }
+    .scenarios-table td:last-child { font-weight: 700; color: #11a9e6; }
+    .scenarios-caption { margin: 6px 0 0; font-size: 11px; color: #6b7d8a; text-align: left; }
     .doc-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; margin-top: 18px; text-align: left; }
     .doc-cols h4 { color: #00456d; font-size: .95rem; margin-bottom: 10px; }
     .doc-cols ul { text-align: left; padding-left: 18px; }
@@ -648,11 +658,13 @@
       box-shadow: 0 8px 24px rgba(0,69,109,.06); text-align: left; }
     .docs2-card.a { border-top: 3px solid #0fa7e2; }
     .docs2-card.b { border-top: 3px solid #0ab38c; }
+    .docs2-card.c { border-top: 3px solid #00456d; grid-column: 1 / -1; }
     .docs2-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
     .docs2-ic { width: 40px; height: 40px; border-radius: 11px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
     .docs2-ic svg { width: 21px; height: 21px; }
     .docs2-card.a .docs2-ic { background: #e9f5fc; } .docs2-card.a .docs2-ic svg { color: #11a9e6; }
     .docs2-card.b .docs2-ic { background: #e4f6ef; } .docs2-card.b .docs2-ic svg { color: #0ab38c; }
+    .docs2-card.c .docs2-ic { background: #eef3f7; } .docs2-card.c .docs2-ic svg { color: #00456d; }
     .docs2-head .n { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #9aa8b3; }
     .docs2-head h4 { font-size: 16px; color: #00456d; margin: 1px 0 0; }
     .docs2-card ul { list-style: none; margin: 0; padding: 0; }
@@ -660,6 +672,13 @@
     .docs2-card li::before { content: ''; position: absolute; left: 0; top: 8px; width: 7px; height: 7px; border-radius: 2px; }
     .docs2-card.a li::before { background: #11a9e6; }
     .docs2-card.b li::before { background: #0ab38c; }
+    .docs2-card.c li::before { background: #00456d; }
+    .docs-coverage { max-width: 1180px; margin: 18px auto 0; display: flex; gap: 14px; align-items: flex-start;
+      background: linear-gradient(90deg, rgba(15,167,226,.08), rgba(10,179,140,.08)); border-left: 4px solid #0ab38c;
+      border-radius: 0 12px 12px 0; padding: 12px 18px; }
+    .docs-coverage i, .docs-coverage svg { width: 22px; height: 22px; color: #0ab38c; flex-shrink: 0; margin-top: 2px; }
+    .docs-coverage p { margin: 0; font-size: 13px; color: #3d4d5a; line-height: 1.5; text-align: left; }
+    .docs-coverage strong { color: #00456d; }
 
     /* Animation d'entree du retroplanning (slide calendario). */
     @keyframes rpIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
@@ -1090,6 +1109,19 @@
             <li>RLC correspondientes (Recibos de Liquidación de Cotizaciones)</li>
           </ul>
         </div>
+        <div class="docs2-card c">
+          <div class="docs2-head">
+            <div class="docs2-ic"><i data-lucide="key-round"></i></div>
+            <div><div class="n">Acceso general</div><h4>Sistema RED y ficheros de cotización</h4></div>
+          </div>
+          <ul>
+            <li>Acceso al Sistema RED y a los ficheros de cotización (RNT y RLC), junto con los datos de nómina y de seguridad social descritos en el pliego.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="docs-coverage">
+        <i data-lucide="check-circle-2"></i>
+        <p><strong>Cobertura del pliego.</strong> Confirmamos las doce actividades del perímetro obligatorio, de la revisión CNAE al cobro efectivo, sin exclusiones; la única dependencia es la puesta a disposición de los datos y accesos de esta página.</p>
       </div>
     </div>
     <div class="company-logo"><img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming"></div>
@@ -1317,22 +1349,81 @@
   </section>
 
   <section class="slide" data-chapter="kpi">
+    <style>
+      /* Embudo de valor + tarjetas de indicadores, a la place de la table plate.
+         Meme famille de carte blanche que modelo-flow (chevrons) et sphere-card
+         (icone + titre + une ligne), adaptee a 4 etapes puis 4 indicateurs. */
+      .slide[data-chapter="kpi"] .kpi-funnel-label { text-align: center; font-size: 11px; font-weight: 700;
+        letter-spacing: .16em; text-transform: uppercase; color: #9aa8b3; margin: 4px 0 10px; }
+      .slide[data-chapter="kpi"] .kpi-funnel { display: flex; align-items: stretch; gap: 0;
+        width: 100%; max-width: 1180px; margin: 0 auto; }
+      .slide[data-chapter="kpi"] .kpi-funnel-step { flex: 1; background: #fff; border: 1px solid #e9f0f5;
+        border-radius: 14px; padding: 16px 15px 13px; box-shadow: 0 6px 20px rgba(0,69,109,.06); text-align: left; }
+      .slide[data-chapter="kpi"] .kpi-funnel-step h4 { font-size: 13.5px; color: #00456d; font-weight: 700;
+        margin: 0 0 6px; line-height: 1.2; }
+      .slide[data-chapter="kpi"] .kpi-funnel-step p { font-size: 11px; color: #6b7d8a; line-height: 1.4; margin: 0; }
+      .slide[data-chapter="kpi"] .kpi-funnel-chevron { flex: 0 0 28px; display: flex; align-items: center; justify-content: center; }
+      .slide[data-chapter="kpi"] .kpi-funnel-chevron svg { width: 18px; height: 18px; color: #11a9e6; }
+      .slide[data-chapter="kpi"] .kpi-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+        width: 100%; max-width: 1180px; margin: 22px auto 0; }
+      .slide[data-chapter="kpi"] .kpi-card { background: #fff; border: 1px solid #e9f0f5; border-radius: 14px;
+        padding: 16px 15px 14px; box-shadow: 0 6px 20px rgba(0,69,109,.06); text-align: left; }
+      .slide[data-chapter="kpi"] .kpi-ic { width: 38px; height: 38px; border-radius: 50%; background: #e9f5fc;
+        display: flex; align-items: center; justify-content: center; margin-bottom: 10px; }
+      .slide[data-chapter="kpi"] .kpi-ic svg { width: 19px; height: 19px; color: #11a9e6; }
+      .slide[data-chapter="kpi"] .kpi-card h4 { font-size: 13.5px; color: #00456d; font-weight: 700; margin: 0 0 6px; }
+      .slide[data-chapter="kpi"] .kpi-card p { font-size: 11px; color: #4a5b68; line-height: 1.45; margin: 0; }
+      .slide[data-chapter="kpi"] .kpi-note { max-width: 1180px; margin: 14px auto 0; padding-top: 10px;
+        border-top: 1px solid #eef4f8; text-align: center; font-size: 11.5px; color: #6b7d8a; }
+    </style>
     <div class="slide-inner">
-      <h1 class="slide-title">Indicadores y compromisos de servicio</h1>
-      <table class="kpi-table">
-        <thead><tr><th>Indicador</th><th>Compromiso</th><th>Frecuencia</th></tr></thead>
-        <tbody>
-          <tr><td>Definición de los KPI con Alstom</td><td>Una semana desde la apertura de la misión</td><td>Una vez</td></tr>
-          <tr><td>Plazo de realización del diagnóstico</td><td>Según el calendario acordado en el kick off</td><td>Una vez</td></tr>
-          <tr><td>Plazo del primer informe</td><td>Punto de seguimiento n.º 1</td><td>Una vez</td></tr>
-          <tr><td>Oportunidades identificadas y valor estimado</td><td>Detalle por expediente y por cuenta de cotización</td><td>Mensual</td></tr>
-          <tr><td>Solicitudes presentadas y solicitudes aceptadas</td><td>Seguimiento nominativo, con motivo en caso de rechazo</td><td>Mensual</td></tr>
-          <tr><td>Valor reconocido por la administración</td><td>Distinguido del valor estimado, sin agregarlos nunca</td><td>Mensual</td></tr>
-          <tr><td>Valor efectivamente recibido por Alstom</td><td>Base de cálculo de nuestros honorarios</td><td>Mensual</td></tr>
-          <tr><td>Resultado de los procedimientos</td><td>Cerrados con éxito, desestimados o pendientes</td><td>Mensual</td></tr>
-          <tr><td>Cumplimiento del reporting</td><td>Informe en la fecha comprometida</td><td>Mensual</td></tr>
-        </tbody>
-      </table>
+      <h1 class="slide-title" style="margin-bottom:2px">Indicadores y compromisos de servicio</h1>
+      <p class="content-paragraph" style="margin:0 0 18px; font-size:13.5px">Los indicadores que el pliego exige, más los que evitan perder dinero por el camino.</p>
+      <div class="kpi-funnel-label">El embudo del valor, cada mes</div>
+      <div class="kpi-funnel">
+        <div class="kpi-funnel-step">
+          <h4>Valor estimado</h4>
+          <p>Oportunidades identificadas, por expediente y cuenta</p>
+        </div>
+        <div class="kpi-funnel-chevron"><i data-lucide="chevron-right"></i></div>
+        <div class="kpi-funnel-step">
+          <h4>Valor solicitado</h4>
+          <p>Solicitudes presentadas, seguimiento nominativo</p>
+        </div>
+        <div class="kpi-funnel-chevron"><i data-lucide="chevron-right"></i></div>
+        <div class="kpi-funnel-step">
+          <h4>Valor reconocido</h4>
+          <p>Resoluciones de la administración, nunca agregado al estimado</p>
+        </div>
+        <div class="kpi-funnel-chevron"><i data-lucide="chevron-right"></i></div>
+        <div class="kpi-funnel-step">
+          <h4>Valor recibido por Alstom</h4>
+          <p>Base de cálculo de nuestros honorarios</p>
+        </div>
+      </div>
+      <div class="kpi-cards">
+        <div class="kpi-card">
+          <div class="kpi-ic"><i data-lucide="clock"></i></div>
+          <h4>Plazos</h4>
+          <p>Diagnóstico e informe inicial según el calendario del kick off, informe mensual en fecha.</p>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-ic"><i data-lucide="check-check"></i></div>
+          <h4>Eficacia</h4>
+          <p>Tasa de aceptación de solicitudes y resultado de cada procedimiento: con éxito, desestimado o pendiente.</p>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-ic"><i data-lucide="hourglass"></i></div>
+          <h4>Riesgo de prescripción</h4>
+          <p>Importe próximo a la ventana de 4 años: lo que hay que reclamar antes de que prescriba.</p>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-ic"><i data-lucide="bell-ring"></i></div>
+          <h4>Silencio administrativo</h4>
+          <p>Expedientes que superan los 6 meses sin resolución, con el recurso activado a tiempo.</p>
+        </div>
+      </div>
+      <p class="kpi-note">Definición de los KPI con Alstom, una semana desde la apertura de la misión.</p>
     </div>
     <div class="company-logo"><img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming"></div>
   </section>
@@ -1770,6 +1861,20 @@
           <li>Para las regularizaciones iniciadas por Ayming que generan efectos futuros, la remuneración de Ayming estará limitada al equivalente de 2 años de ahorro.</li>
         </ol>
       </div>
+      </div>
+      <div class="scenarios-block">
+        <p class="scenarios-label">Los cinco escenarios del pliego</p>
+        <table class="scenarios-table">
+          <thead><tr><th>Economías realizadas</th><th>Honorarios</th><th>Valor neto conservado por Alstom</th></tr></thead>
+          <tbody>
+            <tr><td>100.000 €</td><td>20.000 €</td><td>80.000 €</td></tr>
+            <tr><td>250.000 €</td><td>50.000 €</td><td>200.000 €</td></tr>
+            <tr><td>500.000 €</td><td>100.000 €</td><td>400.000 €</td></tr>
+            <tr><td>1.000.000 €</td><td>185.000 €</td><td>815.000 €</td></tr>
+            <tr><td>2.000.000 €</td><td>325.000 €</td><td>1.675.000 €</td></tr>
+          </tbody>
+        </table>
+        <p class="scenarios-caption">Tipo efectivo decreciente: del 20 % al 16,3 % en el escenario más alto.</p>
       </div>
       <div class="fee-example">
         <p>Por ejemplo: identificamos 1.050 k€ de economías totales para Alstom. La facturación de Ayming sería: 500 × 20 % + 500 × 17 % + 50 × 14 % = 100 + 85 + 7 = 192 k€.</p>
