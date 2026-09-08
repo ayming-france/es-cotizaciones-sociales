@@ -122,29 +122,34 @@
     .wp-tag { display: inline-block; background: #00456d; color: #fff; font-size: 11px;
       font-weight: 700; letter-spacing: .08em; padding: 4px 10px; border-radius: 4px; margin-bottom: 10px; }
 
-    /* Sintesis ejecutiva, colonnes a puces. */
-    .sintesis-cols .column-card { text-align: left; }
-    .sintesis-cols .column-card h3 { text-align: center; }
-    .sintesis-list { list-style: none; margin: 10px 0 0; padding: 0; text-align: left; }
-    .sintesis-list li { position: relative; padding-left: 16px; margin-bottom: 8px; font-size: 13px; color: #3d4d5a; line-height: 1.5; }
-    .sintesis-list li::before { content: ""; position: absolute; left: 0; top: 7px; width: 6px; height: 6px; border-radius: 50%; background: #11a9e6; }
-    .sintesis-cols .card-image {
-      width: 64px;
-      height: 64px;
-      background: #e9f5fc;
-      border-radius: 50%;
-      overflow: visible;
-      box-shadow: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 12px;
-    }
-    .sintesis-cols .card-image svg {
-      width: 30px;
-      height: 30px;
-      color: #11a9e6;
-    }
+    /* Una solucion ideal, gabarit type Manpower : titre en haut a gauche, grille
+       2 colonnes x 3 lignes icone+texte sur ~62% de large, photo plein cadre sur
+       les ~38% restants, au ras du bord droit de la diapositive. Remplace les
+       3 colonnes a puces (badge repris du meme rond #e9f5fc / icone #11a9e6). */
+    .uis-layout { display: grid; grid-template-columns: 1.63fr 1fr; align-items: stretch;
+      gap: 0; width: 100%; max-width: none; margin-top: 4px; }
+    .uis-main { padding-right: 44px; display: flex; flex-direction: column; justify-content: center; }
+    .uis-title { text-align: left; margin: 0 0 20px; }
+    .uis-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 30px; }
+    .uis-item { text-align: left; }
+    .uis-ic { width: 58px; height: 58px; border-radius: 50%; background: #e9f5fc;
+      display: flex; align-items: center; justify-content: center; margin-bottom: 10px; }
+    .uis-ic svg { width: 26px; height: 26px; color: #11a9e6; }
+    .uis-item p { font-size: 13.5px; line-height: 1.5; color: #3d4d5a; margin: 0; }
+    /* Cadre photo : etire jusqu'au bord reel de la diapositive, meme mecanisme de
+       compensation que le hero de l'introduction (marge fitSlide + decalage
+       nav-collapsed), mesure a 1280px puis verifie sans scrollbar horizontale. */
+    .uis-photo { position: relative; overflow: hidden; margin-right: -24px; margin-top: -60px; margin-bottom: -60px; }
+    .uis-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .uis-plus { position: absolute; pointer-events: none; opacity: .35; z-index: 1;
+      background:
+        linear-gradient(#11a9e6, #11a9e6) center / 100% 14% no-repeat,
+        linear-gradient(#11a9e6, #11a9e6) center / 14% 100% no-repeat; }
+    .uis-plus-1 { top: 26px; right: 26px; width: 46px; height: 46px; }
+    .uis-plus-2 { bottom: 34px; right: 60px; width: 30px; height: 30px; opacity: .25;
+      background:
+        linear-gradient(#0ab38c, #0ab38c) center / 100% 16% no-repeat,
+        linear-gradient(#0ab38c, #0ab38c) center / 16% 100% no-repeat; }
 
     /* Cartes numerotees, reprises du gabarit de l'equipe (slide 4 du draft V1). */
     .num-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 8px; }
@@ -388,6 +393,13 @@
     .slide-introduction .slide-inner { padding-left: 0; padding-right: 0; max-width: none; }
     .slide-introduction .intro-hero { width: 100%; max-width: none; margin-left: 0; margin-right: 0; }
 
+    /* fitSlide recentre le slide-inner en reservant 16px de marge par rapport au
+       viewport, mais le slide part deja decale de 20px a droite par le nav-collapsed
+       du moteur. Cote droit, la marge tombe pile sur ces 16px ; cote gauche l'ecart
+       cumule les deux (2x20+16=56px, verifie a la mesure). On etire le hero de 42px
+       vers la gauche pour ramener les deux bords pres du meme 16px, sans toucher le moteur. */
+    .slide-introduction .intro-hero { margin-left: -42px; width: calc(100% + 42px); }
+
     /* Indice, slide 2 del draft V1. */
     .toc { max-width: 940px; margin: 10px auto 0; display: flex; flex-direction: column; gap: 9px; }
     .toc-row { display: grid; grid-template-columns: 72px 1fr; align-items: center; gap: 18px;
@@ -543,10 +555,22 @@
     .mt-layout { display: grid; grid-template-columns: .82fr 1.55fr; gap: 54px; max-width: 1200px; margin: 6px auto 0; align-items: center; }
     .mt-title { font-size: 34px; font-weight: 700; line-height: 1.2; text-align: left;
       background: linear-gradient(90deg,#0fa7e2,#0ab38c); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    /* Arc en fond, calcule sur les positions reelles des 3 icones (colonne 52px,
+       ligne 1 plus haute a cause de ses 4 puces : centres a y=26 / 206.79 / 342.47
+       relatif au haut de .mt-rows). Cercle circonscrit a ces 3 points avec le
+       groupe du milieu decale de 75px : centre (-100,184), rayon 202. Le bord
+       droit du cercle passe par les 3 badges, le reste part hors champ derriere
+       le titre. Diametre volontairement plus petit que la fourchette deco
+       habituelle (1000-1300px) car l'ecart vertical reel entre les icones ne
+       laisse pas la place a un si grand rayon sans perdre le passage par les 3 points. */
     .mt-rows { position: relative; display: flex; flex-direction: column; gap: 24px; }
-    .mt-curve { position: absolute; left: 0; top: 30px; bottom: 30px; width: 52px; z-index: 0; pointer-events: none; }
-    .mt-curve path { fill: none; stroke: #cfe0ec; stroke-width: 2; vector-effect: non-scaling-stroke; }
+    .mt-rows::before {
+      content: ''; position: absolute; z-index: 0; pointer-events: none;
+      left: -303px; top: -18px; width: 405px; height: 405px; border-radius: 50%;
+      border: 2px solid rgba(17, 169, 230, .18);
+    }
     .mt-row { position: relative; z-index: 1; display: grid; grid-template-columns: 52px 1fr; gap: 20px; align-items: start; }
+    .mt-row:nth-child(2) { margin-left: 75px; width: calc(100% - 75px); }
     .mt-ic { width: 52px; height: 52px; border-radius: 14px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;
       background: linear-gradient(135deg,#3cbdf0,#0fa7e2); box-shadow: 0 6px 16px rgba(15,167,226,.30); }
     .mt-ic svg { width: 26px; height: 26px; color: #fff; }
@@ -796,38 +820,40 @@
 
   <section class="slide" data-chapter="valeur">
     <div class="slide-inner">
-      <h1 class="slide-title">Una solución ideal</h1>
-      <div class="three-columns sintesis-cols">
-        <div class="column-card">
-          <div class="card-image"><i data-lucide="target"></i></div>
-          <h3>Revisión integral</h3>
-          <ul class="sintesis-list">
-            <li>Revisión de CNAE.</li>
-            <li>Diagnóstico 360º de los puestos de trabajo, ocupaciones y tipos aplicados.</li>
-            <li>Análisis basado en datos históricos y en la realidad operativa.</li>
-            <li>Revisión exhaustiva de los pagos delegados de IT, identificando los importes no compensados y oportunidades de recuperación.</li>
-          </ul>
+      <div class="uis-layout">
+        <div class="uis-main">
+          <h1 class="slide-title uis-title">Una solución ideal</h1>
+          <div class="uis-grid">
+            <div class="uis-item">
+              <div class="uis-ic"><i data-lucide="scan-search"></i></div>
+              <p>Revisión integral de la clasificación: códigos CNAE y diagnóstico 360º de los puestos, ocupaciones y tipos aplicados, sobre datos históricos y realidad operativa.</p>
+            </div>
+            <div class="uis-item">
+              <div class="uis-ic"><i data-lucide="file-search"></i></div>
+              <p>Revisión exhaustiva de los pagos delegados de IT, identificando los importes no compensados y las oportunidades de recuperación.</p>
+            </div>
+            <div class="uis-item">
+              <div class="uis-ic"><i data-lucide="calculator"></i></div>
+              <p>Cuantificación de los importes recuperables y de los ahorros recurrentes.</p>
+            </div>
+            <div class="uis-item">
+              <div class="uis-ic"><i data-lucide="landmark"></i></div>
+              <p>Gestión completa ante los organismos: solicitudes, requerimientos y defensa administrativa, hasta el reintegro efectivo y la corrección de las parametrizaciones.</p>
+            </div>
+            <div class="uis-item">
+              <div class="uis-ic"><i data-lucide="users"></i></div>
+              <p>Equipo de expertos con dedicación completa y capacidad de movilización inmediata.</p>
+            </div>
+            <div class="uis-item">
+              <div class="uis-ic"><i data-lucide="monitor-check"></i></div>
+              <p>Gobernanza clara: reporting periódico, trazabilidad de las posiciones, transparencia sobre los riesgos y herramientas digitales para el intercambio de información.</p>
+            </div>
+          </div>
         </div>
-        <div class="column-card">
-          <div class="card-image"><i data-lucide="cog"></i></div>
-          <h3>Resultados tangibles</h3>
-          <ul class="sintesis-list">
-            <li>Cuantificación de los importes recuperables y ahorros recurrentes.</li>
-            <li>Preparación y presentación de solicitudes ante los organismos competentes.</li>
-            <li>Gestión de requerimientos y defensa durante la fase administrativa.</li>
-            <li>Seguimiento hasta la recuperación efectiva de los importes y corrección de las parametrizaciones futuras.</li>
-          </ul>
-        </div>
-        <div class="column-card">
-          <div class="card-image"><i data-lucide="users"></i></div>
-          <h3>Ejecución segura y transparente</h3>
-          <ul class="sintesis-list">
-            <li>Equipo de expertos con dedicación completa.</li>
-            <li>Capacidad de movilización inmediata.</li>
-            <li>Gobernanza clara, reporting periódico.</li>
-            <li>Trazabilidad de las posiciones adoptadas y transparencia sobre los riesgos.</li>
-            <li>Herramientas digitales para facilitar el intercambio de información y el seguimiento.</li>
-          </ul>
+        <div class="uis-photo">
+          <span class="uis-plus uis-plus-1"></span>
+          <span class="uis-plus uis-plus-2"></span>
+          <img src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/alstom-almacen-cover.jpg" alt="Técnica de Alstom en un almacén">
         </div>
       </div>
     </div>
@@ -850,13 +876,13 @@
     <div class="slide-inner">
       <div class="intro-hero">
         <div class="intro-hero-collage">
-          <img src="https://ayming-france.github.io/assets/imagery/stock/unsplash-1551836022-4c4c79ecde51-400x300.jpg" alt="Equipos">
-          <img src="https://ayming-france.github.io/assets/imagery/stock/unsplash-1573497491208-6b1acb260507-400x300.jpg" alt="Reunión">
-          <img src="https://ayming-france.github.io/assets/imagery/stock/unsplash-1460925895917-afdab827c52f-600x400.jpg" alt="Datos">
+          <img src="https://ayming-france.github.io/assets/imagery/stock/unsplash-1551836022-4c4c79ecde51-w1600.jpg" alt="Equipos">
+          <img src="https://ayming-france.github.io/assets/imagery/stock/unsplash-1573497491208-6b1acb260507-w1600.jpg" alt="Reunión">
+          <img src="https://ayming-france.github.io/assets/imagery/stock/unsplash-1460925895917-afdab827c52f-w1600.jpg" alt="Datos">
           <img src="https://ayming-france.github.io/assets/imagery/charges-sociales/charges-3.jpg" alt="Análisis">
-          <img src="https://ayming-france.github.io/assets/imagery/stock/unsplash-1551836022-4c4c79ecde51-400x300.jpg" alt="Equipos">
-          <img src="https://ayming-france.github.io/assets/imagery/stock/unsplash-1573497491208-6b1acb260507-400x300.jpg" alt="Reunión">
-          <img src="https://ayming-france.github.io/assets/imagery/stock/unsplash-1460925895917-afdab827c52f-600x400.jpg" alt="Datos">
+          <img src="https://ayming-france.github.io/assets/imagery/stock/unsplash-1551836022-4c4c79ecde51-w1600.jpg" alt="Equipos">
+          <img src="https://ayming-france.github.io/assets/imagery/stock/unsplash-1573497491208-6b1acb260507-w1600.jpg" alt="Reunión">
+          <img src="https://ayming-france.github.io/assets/imagery/stock/unsplash-1460925895917-afdab827c52f-w1600.jpg" alt="Datos">
           <img src="https://ayming-france.github.io/assets/imagery/charges-sociales/charges-3.jpg" alt="Análisis">
         </div>
         <div class="intro-hero-logo"><img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming"></div>
@@ -870,7 +896,7 @@
       </div>
       <!-- Cifras de Ayming International HR facilitadas por el porteur el 8 de septiembre de 2026. -->
       <div class="intro-content">
-        <p class="intro-pitch">Para grupos industriales con estructuras complejas en España que quieren validar sus criterios de cotización y recuperar lo pagado de más, y a los que ni la revisión interna ni la asesoría generalista dan una respuesta especializada, Ayming International HR es la práctica de costes sociales y riesgo profesional del grupo Ayming, que revisa la clasificación y los pagos delegados, recupera los importes indebidos y corrige la parametrización para que el ahorro se mantenga. A diferencia de un enfoque puntual, trabajamos con honorarios a éxito, con 95 consultores dedicados a los costes sociales y 40 años de práctica, y ya acompañamos a Alstom en España en materia de fiscalidad local.</p>
+        <p class="intro-pitch">Para grupos industriales que quieren pagar lo justo en sus cotizaciones sociales, Ayming International HR revisa la clasificación y los pagos delegados, recupera los importes indebidos y corrige la parametrización, con honorarios a éxito. A diferencia de la asesoría generalista, es lo único que hacemos, y ya acompañamos a Alstom en España.</p>
       </div>
     </div>
   </section>
@@ -1013,7 +1039,6 @@
       <div class="mt-layout">
         <div class="mt-title">Metodolog&iacute;a de trabajo</div>
         <div class="mt-rows">
-          <svg class="mt-curve" viewBox="0 0 52 100" preserveAspectRatio="none"><path d="M26,1 C18,30 18,30 26,50 C34,70 34,70 26,99"/></svg>
           <div class="mt-row">
             <div class="mt-ic"><i data-lucide="calendar-check"></i></div>
             <div class="mt-body">
