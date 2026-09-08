@@ -48,7 +48,11 @@
     .kpi-table td:first-child, .fee-table td:first-child { font-weight: 600; color: #00456d; }
     .fee-table { font-size: .95rem; }
     .fee-table td:last-child { font-weight: 700; color: #11a9e6; text-align: right; }
-    .fee-note { margin-top: 18px; background: #f2f9fd; border-left: 4px solid #11a9e6; padding: 14px 18px; border-radius: 0 8px 8px 0; font-size: .85rem; color: #3d4d5a; text-align: left; }
+    .fee-cols { display: grid; grid-template-columns: 1.15fr 1fr; gap: 26px; align-items: start; margin-top: 10px; }
+    .fee-cols .fee-table { margin-top: 0; }
+    .fee-note { background: #00456d; color: #fff; padding: 20px 24px; border-radius: 16px; font-size: .85rem; text-align: left; box-shadow: 0 8px 24px rgba(0,69,109,.18); }
+    .fee-note p { color: #fff !important; }
+    .fee-note li { color: #eaf3f9; margin-bottom: 8px; line-height: 1.5; }
     .fee-example { margin-top: 14px; background: #f4fbf8; border-left: 4px solid #0ab38c; padding: 12px 18px; border-radius: 0 8px 8px 0; text-align: left; }
     .fee-example-label { font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #0ab38c; margin-bottom: 4px; }
     .fee-example p { font-size: .85rem; color: #3d4d5a; margin: 0; }
@@ -1752,6 +1756,7 @@
     <div class="slide-inner">
       <h1 class="slide-title" style="margin-bottom:4px">Oferta económica</h1>
       <p class="content-paragraph" style="margin:0 0 8px; font-size:13.5px">Nuestro modelo de remuneración se basa en honorarios de éxito sobre las economías generadas.</p>
+      <div class="fee-cols">
       <table class="fee-table">
         <thead><tr><th>Importe total de las economías generadas</th><th>% Honorarios</th></tr></thead>
         <tbody>
@@ -1762,11 +1767,12 @@
         </tbody>
       </table>
       <div class="fee-note">
-        <p style="font-weight:700; color:#00456d; margin:0 0 8px">Definición de las economías generadas</p>
+        <p style="font-weight:700; margin:0 0 8px">Definición de la noción de "economías generadas"</p>
         <ol style="margin:0; padding-left:18px">
           <li>Todos los abonos o créditos confirmados por la Administración, así como los importes recuperados por Ayming correspondientes a periodos anteriores.</li>
           <li>Para las regularizaciones iniciadas por Ayming que generan efectos futuros, la remuneración de Ayming estará limitada al equivalente de 2 años de ahorro.</li>
         </ol>
+      </div>
       </div>
       <div class="fee-example">
         <p>Por ejemplo: identificamos 1.050 k€ de economías totales para Alstom. La facturación de Ayming sería: 500 × 20 % + 500 × 17 % + 50 × 14 % = 100 + 85 + 7 = 192 k€.</p>
