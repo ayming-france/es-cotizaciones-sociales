@@ -422,6 +422,54 @@
     .cg-head h4 { font-size: 14.5px; color: #00456d; margin: 0; }
     .cg-card p { margin: 0; font-size: 12.5px; color: #4a5b68; line-height: 1.5; text-align: left; }
     ul, ol, li { text-align: left; }
+
+    /* Retroplanning : calendrier + responsabilites en une vue globale. Composant
+       propre a la slide calendario, colonne gauche = livrable + acteur, grille de
+       droite = quand (barre de duree par lot). */
+    .rp { max-width: 1200px; margin: 10px auto 0; }
+    .rp-head, .rp-wp, .rp-trans { display: grid; grid-template-columns: minmax(340px,1.45fr) 2.15fr; align-items: stretch; }
+    .rp-hlabel { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      color: #9aa8b3; display: flex; align-items: flex-end; padding: 0 14px 8px 0; }
+    .rp-months { display: grid; grid-template-columns: repeat(4,1fr); align-self: end; }
+    .rp-months span { text-align: center; font-size: 12.5px; font-weight: 700; color: #fff; padding: 9px 0; }
+    .rp-months span:nth-child(1) { background: #2f7ec2; border-radius: 8px 0 0 0; }
+    .rp-months span:nth-child(2) { background: #1c6aac; }
+    .rp-months span:nth-child(3) { background: #0d5793; }
+    .rp-months span:nth-child(4) { background: #00456d; border-radius: 0 8px 0 0; }
+    .rp-translbl { font-size: 11px; font-weight: 700; color: #7c8b96; display: flex; align-items: center;
+      gap: 7px; padding: 8px 14px 8px 0; }
+    .rp-translbl i, .rp-translbl svg { width: 14px; height: 14px; color: #7c8b96; }
+    .rp-transbar { position: relative; padding: 6px 0; }
+    .rp-transbar span { display: flex; align-items: center; height: 22px; padding-left: 12px; border-radius: 6px;
+      background: repeating-linear-gradient(90deg,#eef4f8,#eef4f8 9px,#e2edf4 9px,#e2edf4 18px);
+      font-size: 10px; font-weight: 700; color: #8393a0; letter-spacing: .04em; }
+    .rp-phase { font-size: 11px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; padding: 12px 0 2px; }
+    .rp-phase.a { color: #1a7fc2; }
+    .rp-phase.b { color: #0a9b74; }
+    .rp-left { padding: 9px 16px 11px 0; border-top: 1px solid #eef3f7; }
+    .rp-wpname { font-size: 13.5px; font-weight: 700; color: #00456d; margin-bottom: 7px;
+      display: flex; align-items: center; gap: 9px; }
+    .rp-dur { font-size: 10px; font-weight: 700; color: #6b7d8a; background: #f0f5f9;
+      padding: 2px 9px; border-radius: 20px; letter-spacing: .02em; white-space: nowrap; }
+    .rp-del { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 5px; }
+    .rp-del li { display: grid; grid-template-columns: 60px 1fr auto; gap: 9px; align-items: center; text-align: left; }
+    .rp-txt { font-size: 11.5px; color: #4a5b68; line-height: 1.3; }
+    .rp-chip { font-size: 8px; font-weight: 800; letter-spacing: .02em; text-transform: uppercase;
+      color: #fff; padding: 4px 0; border-radius: 5px; text-align: center; }
+    .rp-chip.ay { background: #0ab38c; }
+    .rp-chip.al { background: #00456d; }
+    .rp-chip.bo { background: linear-gradient(135deg,#12aeea,#0ab38c); }
+    .rp-date { font-size: 10.5px; font-weight: 700; color: #6b7d8a; white-space: nowrap; }
+    .rp-track { position: relative; border-top: 1px solid #eef3f7; }
+    .rp-bar { position: absolute; top: 13px; height: 11px; border-radius: 6px; box-shadow: 0 2px 7px rgba(0,69,109,.14); }
+    .rp-bar.a { background: linear-gradient(90deg,#2f9fe0,#1a7fc2); }
+    .rp-bar.b { background: linear-gradient(90deg,#14c09b,#0a9b74); }
+    .rp-foot { max-width: 1200px; margin: 12px auto 0; display: flex; gap: 18px; align-items: center;
+      font-size: 10.5px; color: #8393a0; }
+    .rp-foot .rp-key { display: flex; align-items: center; gap: 6px; }
+    .rp-foot .rp-dot { width: 10px; height: 10px; border-radius: 3px; }
+    .rp-foot .rp-dot.ay { background: #0ab38c; } .rp-foot .rp-dot.al { background: #00456d; }
+    .rp-foot .rp-dot.bo { background: linear-gradient(135deg,#12aeea,#0ab38c); }
   </style>
 </head>
 <body data-audience="client" data-no-partners>
@@ -872,48 +920,77 @@
 
   <section class="slide" data-chapter="calendario">
     <div class="slide-inner">
-      <h1 class="slide-title" style="margin-bottom:6px">Calendario de intervenci&oacute;n</h1>
-      <p class="content-paragraph" style="margin:0 0 4px; font-size:14px">Fase transversal a lo largo de toda la misi&oacute;n, gesti&oacute;n del proceso, informes peri&oacute;dicos, custodia documental y coordinaci&oacute;n entre todos los agentes.</p>
-      <div class="gantt">
-        <div class="gantt-row">
-          <div class="gantt-row-label"></div>
-          <div class="gantt-months-grid"><span>SEP</span><span>OCT</span><span>NOV</span><span>DIC</span><span>ENE</span></div>
+      <h1 class="slide-title" style="margin-bottom:6px">Calendario y responsabilidades</h1>
+      <p class="content-paragraph" style="margin:0 0 4px; font-size:14px">Dos fases y seis lotes de trabajo, con el entregable de cada etapa, qui&eacute;n lo aporta y su fecha. La gesti&oacute;n transversal cubre toda la misi&oacute;n.</p>
+      <div class="rp">
+        <div class="rp-head">
+          <div class="rp-hlabel">Etapas &middot; entregables &middot; responsables</div>
+          <div class="rp-months"><span>SEP</span><span>OCT</span><span>NOV</span><span>DIC</span></div>
         </div>
-        <div class="gantt-phase">
-          <div class="gantt-phase-spacer">Fase A</div>
-          <div class="gantt-track">
-            <div class="gantt-bar bar-1" style="left:2%; width:16%;"></div>
-            <div class="gantt-label lbl-1" style="left:2%; max-width:270px;"><strong>15.09 adjudicaci&oacute;n</strong><br>Firma, cuentas de cotizaci&oacute;n y apoderamiento</div>
+        <div class="rp-trans">
+          <div class="rp-translbl"><i data-lucide="repeat"></i>Gesti&oacute;n transversal &middot; WP6</div>
+          <div class="rp-transbar"><span>Coordinaci&oacute;n, informes peri&oacute;dicos y custodia documental a lo largo de toda la misi&oacute;n</span></div>
+        </div>
+
+        <div class="rp-phase a">Fase A</div>
+        <div class="rp-wp">
+          <div class="rp-left">
+            <div class="rp-wpname">Encuadre <span class="rp-dur">2 semanas</span></div>
+            <ul class="rp-del">
+              <li><span class="rp-chip bo">Ambos</span><span class="rp-txt">Kick-off</span><span class="rp-date">01.10</span></li>
+              <li><span class="rp-chip al">Alstom</span><span class="rp-txt">Transmisi&oacute;n de los documentos necesarios</span><span class="rp-date">ASAP</span></li>
+              <li><span class="rp-chip ay">Ayming</span><span class="rp-txt">Transmisi&oacute;n del plan de trabajo, per&iacute;metro y calendario</span><span class="rp-date">15.10</span></li>
+            </ul>
           </div>
+          <div class="rp-track"><div class="rp-bar a" style="left:25%; width:14%;"></div></div>
         </div>
-        <div class="gantt-phase">
-          <div class="gantt-phase-spacer"></div>
-          <div class="gantt-track">
-            <div class="gantt-bar bar-2" style="left:20%; width:18%;"></div>
-            <div class="gantt-label lbl-2" style="left:20%; max-width:270px;"><strong>01.10 kick off</strong><br>Plan de proyecto y lista de documentaci&oacute;n</div>
+        <div class="rp-wp">
+          <div class="rp-left">
+            <div class="rp-wpname">Diagn&oacute;stico <span class="rp-dur">2 semanas</span></div>
+            <ul class="rp-del">
+              <li><span class="rp-chip ay">Ayming</span><span class="rp-txt">Informe de evaluaci&oacute;n jur&iacute;dica y t&eacute;cnica, resumen de riesgos</span><span class="rp-date">02.11</span></li>
+              <li><span class="rp-chip bo">Ambos</span><span class="rp-txt">Punto de seguimiento n.&ordm; 1, Q&amp;A</span><span class="rp-date">09.11</span></li>
+            </ul>
           </div>
+          <div class="rp-track"><div class="rp-bar a" style="left:39%; width:19%;"></div></div>
         </div>
-        <div class="gantt-phase">
-          <div class="gantt-phase-spacer"></div>
-          <div class="gantt-track">
-            <div class="gantt-bar bar-3" style="left:40%; width:18%;"></div>
-            <div class="gantt-label lbl-3" style="left:40%; max-width:300px;"><strong>02.11 seguimiento n.&ordm; 1</strong><br>Informe de evaluaci&oacute;n, reclasificaci&oacute;n propuesta, puestos y pagos no reintegrados</div>
+        <div class="rp-wp">
+          <div class="rp-left">
+            <div class="rp-wpname">Validaci&oacute;n <span class="rp-dur">4 semanas</span></div>
+            <ul class="rp-del">
+              <li><span class="rp-chip ay">Ayming</span><span class="rp-txt">Propuesta de reclasificaci&oacute;n CNAE y de gesti&oacute;n de las prestaciones de IT</span><span class="rp-date">02.12</span></li>
+              <li><span class="rp-chip bo">Ambos</span><span class="rp-txt">Punto de seguimiento n.&ordm; 2, Q&amp;A</span><span class="rp-date">09.12</span></li>
+            </ul>
           </div>
+          <div class="rp-track"><div class="rp-bar a" style="left:58%; width:24%;"></div></div>
         </div>
-        <div class="gantt-phase">
-          <div class="gantt-phase-spacer">Fase B</div>
-          <div class="gantt-track">
-            <div class="gantt-bar bar-4" style="left:60%; width:18%;"></div>
-            <div class="gantt-label lbl-4" style="left:52%; max-width:280px;"><strong>02.12 seguimiento n.&ordm; 2</strong><br>Regularizaciones identificadas y an&aacute;lisis financiero</div>
+
+        <div class="rp-phase b">Fase B</div>
+        <div class="rp-wp">
+          <div class="rp-left">
+            <div class="rp-wpname">Cuantificaci&oacute;n y regularizaci&oacute;n <span class="rp-dur">2 semanas</span></div>
+            <ul class="rp-del">
+              <li><span class="rp-chip ay">Ayming</span><span class="rp-txt">Transmisi&oacute;n de la revisi&oacute;n de cotizaciones, listado de regularizaciones identificadas</span><span class="rp-date">15.12</span></li>
+              <li><span class="rp-chip ay">Ayming</span><span class="rp-txt">Escritos jur&iacute;dicos listos, informe sobre los procedimientos</span><span class="rp-date">15.12</span></li>
+              <li><span class="rp-chip bo">Ambos</span><span class="rp-txt">Punto de seguimiento n.&ordm; 3, Q&amp;A</span><span class="rp-date">18.12</span></li>
+            </ul>
           </div>
+          <div class="rp-track"><div class="rp-bar b" style="left:78%; width:12%;"></div></div>
         </div>
-        <div class="gantt-phase">
-          <div class="gantt-phase-spacer"></div>
-          <div class="gantt-track">
-            <div class="gantt-bar bar-5" style="left:80%; width:17%;"></div>
-            <div class="gantt-label lbl-5" style="left:56%; max-width:300px;"><strong>05.01 seguimiento n.&ordm; 3</strong><br>Solicitudes llave en mano y env&iacute;o a la administraci&oacute;n</div>
+        <div class="rp-wp">
+          <div class="rp-left">
+            <div class="rp-wpname">Recuperaci&oacute;n <span class="rp-dur">2 semanas</span></div>
+            <ul class="rp-del">
+              <li><span class="rp-chip ay">Ayming</span><span class="rp-txt">Informe de seguimiento de recuperaciones y de reembolsos</span><span class="rp-date">antes del 31.12</span></li>
+            </ul>
           </div>
+          <div class="rp-track"><div class="rp-bar b" style="left:88%; width:12%;"></div></div>
         </div>
+      </div>
+      <div class="rp-foot">
+        <div class="rp-key"><span class="rp-dot ay"></span>Ayming</div>
+        <div class="rp-key"><span class="rp-dot al"></span>Alstom</div>
+        <div class="rp-key"><span class="rp-dot bo"></span>Ambos, punto de seguimiento y Q&amp;A</div>
       </div>
     </div>
     <div class="company-logo"><img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming"></div>
