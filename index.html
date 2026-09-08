@@ -173,6 +173,22 @@
     .area-card { border-top: 3px solid #11a9e6; }
     .area-card.green { border-top-color: #0ab38c; }
     .area-card.green .area-chip svg { color: #0ab38c; }
+    /* En-tete workflow : badge numerote, titre, icone distincte par aire. */
+    .area-head { padding-bottom: 14px; border-bottom: 1px solid #eef3f7; }
+    .area-badge { width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 21px; font-weight: 800; color: #fff; box-shadow: 0 6px 16px rgba(0,69,109,.16); }
+    .area-badge.b1 { background: linear-gradient(135deg,#12aeea,#1a7fc2); }
+    .area-badge.b2 { background: linear-gradient(135deg,#12c19b,#0a9b74); }
+    .area-htext { flex: 1; min-width: 0; }
+    .area-ic { width: 40px; height: 40px; border-radius: 11px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; }
+    .area-ic svg { width: 22px; height: 22px; }
+    .area-card .area-ic { background: #e9f5fc; }
+    .area-card .area-ic svg { color: #11a9e6; }
+    .area-card.green .area-ic { background: #e4f6ef; }
+    .area-card.green .area-ic svg { color: #0ab38c; }
+    .area-card.green .area-num { color: #6aa08f; }
     /* Les barres de jours ne tiennent pas sur un tiers de largeur : liste compacte a la place. */
     .dl { margin-top: 2px; }
     .dl-lab { display: flex; align-items: center; gap: 6px; font-size: 10.5px; font-weight: 700;
@@ -571,8 +587,9 @@
 
         <div class="area-card">
           <div class="area-head">
-            <div class="area-chip"><i data-lucide="percent"></i></div>
-            <div><div class="area-num">&Aacute;rea 1</div><div class="area-title">Tipos de cotizaci&oacute;n AT/EP</div></div>
+            <div class="area-badge b1">1</div>
+            <div class="area-htext"><div class="area-num">&Aacute;rea 1</div><div class="area-title">Tipos de cotizaci&oacute;n AT/EP</div></div>
+            <div class="area-ic"><i data-lucide="percent"></i></div>
           </div>
           <p class="area-lead"><strong>Seg&uacute;n el c&oacute;digo CNAE,</strong> por la actividad econ&oacute;mica principal. Pueden coexistir varios si corresponden a actividades claramente separadas.</p>
           <p class="area-lead"><strong>Seg&uacute;n la ocupaci&oacute;n de cada empleado,</strong> la normativa prev&eacute; tipos espec&iacute;ficos que pueden ser inferiores al de la actividad de la empresa.</p>
@@ -594,10 +611,11 @@
           </div>
         </div>
 
-        <div class="area-card">
+        <div class="area-card green">
           <div class="area-head">
-            <div class="area-chip"><i data-lucide="calendar-days"></i></div>
-            <div><div class="area-num">&Aacute;rea 2</div><div class="area-title">Pagos delegados de incapacidad temporal</div></div>
+            <div class="area-badge b2">2</div>
+            <div class="area-htext"><div class="area-num">&Aacute;rea 2</div><div class="area-title">Pagos delegados de incapacidad temporal</div></div>
+            <div class="area-ic"><i data-lucide="calendar-days"></i></div>
           </div>
           <p class="area-lead">La empresa <strong>adelanta la prestaci&oacute;n</strong> y la deduce de su liquidaci&oacute;n hasta el reintegro efectivo. La l&iacute;nea muestra, por d&iacute;as de baja, qu&eacute; recupera y qu&eacute; soporta.</p>
           <div class="ds-row">
