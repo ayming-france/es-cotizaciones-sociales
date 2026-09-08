@@ -122,6 +122,13 @@
     .wp-tag { display: inline-block; background: #00456d; color: #fff; font-size: 11px;
       font-weight: 700; letter-spacing: .08em; padding: 4px 10px; border-radius: 4px; margin-bottom: 10px; }
 
+    /* Sintesis ejecutiva, colonnes a puces. */
+    .sintesis-cols .column-card { text-align: left; }
+    .sintesis-cols .column-card h3 { text-align: center; }
+    .sintesis-list { list-style: none; margin: 10px 0 0; padding: 0; text-align: left; }
+    .sintesis-list li { position: relative; padding-left: 16px; margin-bottom: 8px; font-size: 13px; color: #3d4d5a; line-height: 1.5; }
+    .sintesis-list li::before { content: ""; position: absolute; left: 0; top: 7px; width: 6px; height: 6px; border-radius: 50%; background: #11a9e6; }
+
     /* Cartes numerotees, reprises du gabarit de l'equipe (slide 4 du draft V1). */
     .num-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 8px; }
     .num-card { background: #fff; border: 1px solid #e9f0f5; border-radius: 16px;
@@ -161,15 +168,15 @@
     .team-org-team { flex: 1 1 73%; }
     .team-org-lead .team-card { padding: 16px 16px; overflow: visible; }
     .team-photo-cut { width: 100%; max-width: 116px; height: 108px; object-fit: contain; object-position: center;
-      margin: 0 auto 10px; display: block; }
+      filter: grayscale(1); margin: 0 auto 10px; display: block; }
     .team-org-lead .team-photo-cut { max-width: 126px; height: 146px; margin-bottom: 8px; }
     .team-grid-6 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px 12px; margin-top: 0; max-width: none; }
     .team-grid-6 .team-card { padding: 8px 10px 9px; }
     .team-grid-6 .team-name { font-size: 12px; }
     .team-grid-6 .team-role { font-size: 10px; margin: 1px 0 4px; }
     .team-grid-6 .team-detail { font-size: 9.5px; line-height: 1.34; }
-    .team-grid-6 .team-photo-cut { max-width: 64px; height: 74px; margin-bottom: 4px; }
-    .team-grid-6 .team-initials { width: 50px; height: 50px; margin-bottom: 5px; }
+    .team-grid-6 .team-photo-cut { max-width: 78px; height: 88px; margin-bottom: 4px; }
+    .team-grid-6 .team-initials { width: 76px; height: 76px; margin-bottom: 5px; }
 
     .geo-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 12px; max-width: 1080px; margin: 22px auto 0; }
     .geo-item { background: #fff; border: 1px solid #e9f0f5; border-radius: 12px; padding: 14px 8px;
@@ -599,25 +606,26 @@
       <div class="nav-item" data-slide="4"><span class="nav-item-number">04</span>Retos</div>
       <div class="nav-item" data-slide="5"><span class="nav-item-number">05</span>Contexto</div>
       <div class="nav-item" data-slide="6"><span class="nav-item-number">06</span>Situaci&oacute;n resuelta</div>
+      <div class="nav-item" data-slide="7"><span class="nav-item-number">07</span>S&iacute;ntesis</div>
     </div>
     <div class="nav-section">
       <div class="nav-section-title">Nuestra propuesta</div>
-      <div class="nav-item" data-slide="8"><span class="nav-item-number">07</span>Ayming</div>
-      <div class="nav-item" data-slide="9"><span class="nav-item-number">08</span>Dos &aacute;reas</div>
-      <div class="nav-item" data-slide="10"><span class="nav-item-number">09</span>Metodolog&iacute;a</div>
-      <div class="nav-item" data-slide="14"><span class="nav-item-number">10</span>Planning</div>
-      <div class="nav-item" data-slide="15"><span class="nav-item-number">11</span>Calendario</div>
-      <div class="nav-item" data-slide="16"><span class="nav-item-number">12</span>KPI y SLA</div>
-      <div class="nav-item" data-slide="18"><span class="nav-item-number">13</span>Equipo</div>
-      <div class="nav-item" data-slide="19"><span class="nav-item-number">14</span>Referencias</div>
-      <div class="nav-item" data-slide="20"><span class="nav-item-number">15</span>Internacional</div>
-      <div class="nav-item" data-slide="27"><span class="nav-item-number">16</span>Preguntas</div>
-      <div class="nav-item" data-slide="28"><span class="nav-item-number">17</span>Oferta econ&oacute;mica</div>
-      <div class="nav-item" data-slide="29"><span class="nav-item-number">18</span>Condiciones generales</div>
+      <div class="nav-item" data-slide="9"><span class="nav-item-number">08</span>Ayming</div>
+      <div class="nav-item" data-slide="10"><span class="nav-item-number">09</span>Dos &aacute;reas</div>
+      <div class="nav-item" data-slide="11"><span class="nav-item-number">10</span>Metodolog&iacute;a</div>
+      <div class="nav-item" data-slide="15"><span class="nav-item-number">11</span>Planning</div>
+      <div class="nav-item" data-slide="16"><span class="nav-item-number">12</span>Calendario</div>
+      <div class="nav-item" data-slide="17"><span class="nav-item-number">13</span>KPI y SLA</div>
+      <div class="nav-item" data-slide="19"><span class="nav-item-number">14</span>Equipo</div>
+      <div class="nav-item" data-slide="20"><span class="nav-item-number">15</span>Referencias</div>
+      <div class="nav-item" data-slide="21"><span class="nav-item-number">16</span>Internacional</div>
+      <div class="nav-item" data-slide="28"><span class="nav-item-number">17</span>Preguntas</div>
+      <div class="nav-item" data-slide="29"><span class="nav-item-number">18</span>Oferta econ&oacute;mica</div>
+      <div class="nav-item" data-slide="30"><span class="nav-item-number">19</span>Condiciones generales</div>
     </div>
   </nav>
 
-  <div class="slide-counter"><span class="current">1</span>/30</div>
+  <div class="slide-counter"><span class="current">1</span>/31</div>
 
   <main class="presentation">
 
@@ -763,6 +771,46 @@
         </div>
       </div>
       </div>
+      </div>
+    </div>
+    <div class="company-logo"><img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming"></div>
+  </section>
+
+  <section class="slide" data-chapter="valeur">
+    <div class="slide-inner">
+      <h1 class="slide-title">Síntesis ejecutiva</h1>
+      <div class="three-columns sintesis-cols">
+        <div class="column-card">
+          <div class="card-image"><i data-lucide="target"></i></div>
+          <h3>Revisión integral</h3>
+          <ul class="sintesis-list">
+            <li>Revisión de CNAE.</li>
+            <li>Diagnóstico 360º de los puestos de trabajo, ocupaciones y tipos aplicados.</li>
+            <li>Análisis basado en datos históricos y en la realidad operativa.</li>
+            <li>Revisión exhaustiva de los pagos delegados de IT, identificando los importes no compensados y oportunidades de recuperación.</li>
+          </ul>
+        </div>
+        <div class="column-card">
+          <div class="card-image"><i data-lucide="cog"></i></div>
+          <h3>Resultados tangibles</h3>
+          <ul class="sintesis-list">
+            <li>Cuantificación de los importes recuperables y ahorros recurrentes.</li>
+            <li>Preparación y presentación de solicitudes ante los organismos competentes.</li>
+            <li>Gestión de requerimientos y defensa durante la fase administrativa.</li>
+            <li>Seguimiento hasta la recuperación efectiva de los importes y corrección de las parametrizaciones futuras.</li>
+          </ul>
+        </div>
+        <div class="column-card">
+          <div class="card-image"><i data-lucide="users"></i></div>
+          <h3>Ejecución segura y transparente</h3>
+          <ul class="sintesis-list">
+            <li>Equipo de expertos con dedicación completa.</li>
+            <li>Capacidad de movilización inmediata.</li>
+            <li>Gobernanza clara, reporting periódico.</li>
+            <li>Trazabilidad de las posiciones adoptadas y transparencia sobre los riesgos.</li>
+            <li>Herramientas digitales para facilitar el intercambio de información y el seguimiento.</li>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="company-logo"><img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming"></div>
@@ -1148,19 +1196,19 @@
               <p class="team-detail">Consultora en costes sociales y fiscalidad. Diagn&oacute;stico, cuantificaci&oacute;n y regularizaci&oacute;n ante organismos p&uacute;blicos.</p>
             </div>
             <div class="team-card">
-              <img class="team-photo-cut" src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/equipo-jose-framed2.png?v=4" alt="Jos&eacute; Encarnaci&oacute;n Saiter">
+              <img class="team-photo-cut" src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/equipo-jose-cut-v2.png?v=1" alt="Jos&eacute; Encarnaci&oacute;n Saiter">
               <div class="team-name">Jos&eacute; Encarnaci&oacute;n Saiter</div>
               <div class="team-role">Responsable comercial de la oferta RR. HH.</div>
               <p class="team-detail">Interlocutor comercial de la misi&oacute;n. Trayectoria en la gama de ofertas de RR. HH. de Ayming, especializado en prevenci&oacute;n de riesgos, cotizaciones AT/EP y el software de RR. HH. Coordina el acompa&ntilde;amiento de principio a fin.</p>
             </div>
             <div class="team-card">
-              <img class="team-photo-cut" src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/equipo-axel-framed2.png?v=4" alt="Axel Mart&iacute;nez">
+              <img class="team-photo-cut" src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/equipo-axel-cut-v2.png?v=1" alt="Axel Mart&iacute;nez">
               <div class="team-name">Axel Mart&iacute;nez</div>
               <div class="team-role">Analista de datos y n&oacute;mina</div>
               <p class="team-detail">Tratamiento de los datos de n&oacute;mina y cotizaci&oacute;n. Cuantificaci&oacute;n de los importes y preparaci&oacute;n de los expedientes de regularizaci&oacute;n.</p>
             </div>
             <div class="team-card">
-              <img class="team-photo-cut" src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/equipo-maddalena-framed2.png?v=4" alt="Maddalena Iadarola">
+              <img class="team-photo-cut" src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/equipo-maddalena-cut-v2.png?v=1" alt="Maddalena Iadarola">
               <div class="team-name">Maddalena Iadarola</div>
               <div class="team-role">Consultora, soporte al proyecto</div>
               <p class="team-detail">Consultora del equipo Ayming. Soporte al diagn&oacute;stico y al trabajo de campo, en coordinaci&oacute;n con la direcci&oacute;n del proyecto.</p>
