@@ -492,25 +492,10 @@
     .gl-col h4 { font-size: 16px; color: #00456d; margin: 26px 0 6px; }
     .gl-col p { font-size: 12.5px; color: #4a5b68; line-height: 1.5; margin: 0; text-align: left; }
 
-    /* Metodo, style Feu Vert : titre avec icone, liste a gauche, grande image a droite. */
-    .slide[data-chapter="metodo-1"] .slide-title,
-    .slide[data-chapter="metodo-2"] .slide-title { text-align: left; margin: 0; }
-    .mx-head { display: flex; align-items: center; gap: 16px; max-width: 1220px; margin: 0 auto; }
-    .mx-tic { width: 52px; height: 52px; border-radius: 14px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
-    .mx-tic svg { width: 27px; height: 27px; }
-    .slide[data-chapter="metodo-1"] .mx-tic { background: #e9f5fc; }
-    .slide[data-chapter="metodo-1"] .mx-tic svg { color: #11a9e6; }
-    .slide[data-chapter="metodo-2"] .mx-tic { background: #e4f6ef; }
-    .slide[data-chapter="metodo-2"] .mx-tic svg { color: #0ab38c; }
-    .mx-split { display: grid; grid-template-columns: .92fr 1.08fr; gap: 50px; max-width: 1220px; margin: 30px auto 0; align-items: center; }
-    .mx-list { display: flex; flex-direction: column; gap: 22px; }
-    .mx-item { text-align: left; }
-    .mx-item h4 { font-size: 16px; color: #00456d; margin: 0 0 4px; }
-    .mx-item p { font-size: 13px; color: #4a5b68; line-height: 1.5; margin: 0; text-align: left; }
-    .mx-visual { position: relative; }
-    .mx-img { border-radius: 20px; overflow: hidden; aspect-ratio: 16 / 10;
-      box-shadow: 0 0 68px 6px rgba(20,180,230,.28), 0 22px 50px rgba(0,69,109,.16); }
-    .mx-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    /* Variante value-detail : chaque item devient titre + sous-texte au lieu d'une puce coche. */
+    .value-detail-list.vd-titled li { display: block; margin-bottom: 20px; }
+    .value-detail-list.vd-titled li h4 { font-size: 18px; font-weight: 700; color: #00456d; margin: 0 0 4px; line-height: 1.25; }
+    .value-detail-list.vd-titled li p { font-size: 15px; color: #4a5b68; line-height: 1.5; margin: 0; }
 
     /* Slide Documentos necesarios : deux colonnes, une par aire. */
     .docs2 { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; max-width: 1180px; margin: 22px auto 0; }
@@ -844,36 +829,36 @@
   </section>
 
   <section class="slide" data-chapter="metodo-1">
-    <div class="slide-inner">
-      <div class="mx-head"><div class="mx-tic"><i data-lucide="percent"></i></div><h1 class="slide-title">1. Tipos de cotización AT/EP</h1></div>
-      <div class="mx-split">
-        <div class="mx-list">
-          <div class="mx-item"><h4>Cartografía de actividades</h4><p>Analizar las prácticas de Alstom e identificar las actividades realmente desarrolladas en cada centro.</p></div>
-          <div class="mx-item"><h4>Mapping de ocupaciones</h4><p>Identificar las ocupaciones del Cuadro II que pueden dar lugar a un tipo AT/EP específico distinto del derivado del CNAE.</p></div>
-          <div class="mx-item"><h4>Cuantificación del impacto</h4><p>Comparar el tipo efectivamente aplicado con el que habría correspondido y cuantificar las sobrecotizaciones históricas y el ahorro futuro.</p></div>
-          <div class="mx-item"><h4>Solicitud y regularización</h4><p>Preparar las solicitudes de devolución y regularización ante la Seguridad Social, con soporte documental.</p></div>
-        </div>
-        <div class="mx-visual">
-          <div class="mx-img"><img src="https://ayming-france.github.io/assets/imagery/arrets-longue-duree/at-mp-4.jpg" alt=""></div>
-        </div>
+    <div class="value-detail-layout">
+      <div class="value-detail-content">
+        <h2>1. Tipos de cotización AT/EP</h2>
+        <ul class="value-detail-list vd-titled">
+          <li><h4>Cartografía de actividades</h4><p>Analizar las prácticas de Alstom e identificar las actividades realmente desarrolladas en cada centro.</p></li>
+          <li><h4>Mapping de ocupaciones</h4><p>Identificar las ocupaciones del Cuadro II que pueden dar lugar a un tipo AT/EP específico distinto del derivado del CNAE.</p></li>
+          <li><h4>Cuantificación del impacto</h4><p>Comparar el tipo efectivamente aplicado con el que habría correspondido y cuantificar las sobrecotizaciones históricas y el ahorro futuro.</p></li>
+          <li><h4>Solicitud y regularización</h4><p>Preparar las solicitudes de devolución y regularización ante la Seguridad Social, con soporte documental.</p></li>
+        </ul>
+      </div>
+      <div class="value-detail-visual">
+        <div class="value-image-container"><img src="https://ayming-france.github.io/assets/imagery/arrets-longue-duree/at-mp-4.jpg" alt="Tipos de cotización AT/EP"></div>
       </div>
     </div>
     <div class="company-logo"><img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming"></div>
   </section>
 
   <section class="slide" data-chapter="metodo-2">
-    <div class="slide-inner">
-      <div class="mx-head"><div class="mx-tic"><i data-lucide="calendar-days"></i></div><h1 class="slide-title">2. Pagos delegados de incapacidad temporal</h1></div>
-      <div class="mx-split">
-        <div class="mx-list">
-          <div class="mx-item"><h4>Identificación del perímetro</h4><p>Identificar todas las situaciones de IT del periodo no prescrito, con carácter general hasta los últimos 4 años.</p></div>
-          <div class="mx-item"><h4>Clasificación de prestaciones</h4><p>Clasificar cada expediente según su contingencia y determinar el periodo de pago delegado y el importe asociado.</p></div>
-          <div class="mx-item"><h4>Conciliación y cuantificación</h4><p>Comparar los importes abonados por Alstom en pago delegado con los efectivamente compensados en las liquidaciones de cotizaciones.</p></div>
-          <div class="mx-item"><h4>Recuperación de importes</h4><p>Presentar las solicitudes de reintegro ante la entidad competente, con la documentación justificativa y el seguimiento hasta su resolución.</p></div>
-        </div>
-        <div class="mx-visual">
-          <div class="mx-img"><img src="https://ayming-france.github.io/assets/imagery/ijss/Recuperer-ij.jpg" alt=""></div>
-        </div>
+    <div class="value-detail-layout">
+      <div class="value-detail-content">
+        <h2>2. Pagos delegados de incapacidad temporal</h2>
+        <ul class="value-detail-list vd-titled">
+          <li><h4>Identificación del perímetro</h4><p>Identificar todas las situaciones de IT del periodo no prescrito, con carácter general hasta los últimos 4 años.</p></li>
+          <li><h4>Clasificación de prestaciones</h4><p>Clasificar cada expediente según su contingencia y determinar el periodo de pago delegado y el importe asociado.</p></li>
+          <li><h4>Conciliación y cuantificación</h4><p>Comparar los importes abonados por Alstom en pago delegado con los efectivamente compensados en las liquidaciones de cotizaciones.</p></li>
+          <li><h4>Recuperación de importes</h4><p>Presentar las solicitudes de reintegro ante la entidad competente, con la documentación justificativa y el seguimiento hasta su resolución.</p></li>
+        </ul>
+      </div>
+      <div class="value-detail-visual">
+        <div class="value-image-container"><img src="https://ayming-france.github.io/assets/imagery/ijss/Recuperer-ij.jpg" alt="Pagos delegados de incapacidad temporal"></div>
       </div>
     </div>
     <div class="company-logo"><img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming"></div>
