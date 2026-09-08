@@ -154,22 +154,22 @@
     .team-detail { font-size: 12px; color: #5a6b78; line-height: 1.5; text-align: center; }
     .team-detail em { color: #9aa8b3; font-style: normal; }
 
-    .team-org { display: flex; gap: 22px; align-items: flex-start; max-width: 1120px; margin: 10px auto 0; }
+    .team-org { display: flex; gap: 22px; align-items: stretch; max-width: 1120px; margin: 10px auto 0; }
     .team-band { background: #11a9e6; color: #fff; font-weight: 700; font-size: 12px; text-transform: uppercase;
       letter-spacing: .06em; text-align: center; border-radius: 999px; padding: 7px 12px; margin-bottom: 12px; }
-    .team-org-lead { flex: 0 0 30%; }
-    .team-org-team { flex: 1 1 70%; }
-    .team-org-lead .team-card { padding: 22px 16px; }
-    .team-photo-cut { width: 100%; max-width: 150px; height: 118px; object-fit: contain; object-position: bottom;
-      border-radius: 10px; background: #f4f8fb; filter: grayscale(1); margin: 0 auto 12px; display: block; box-shadow: none; }
-    .team-org-lead .team-photo-cut { max-width: 170px; height: 150px; }
-    .team-grid-6 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px 14px; margin-top: 0; max-width: none; }
-    .team-grid-6 .team-card { padding: 12px 12px 14px; }
-    .team-grid-6 .team-name { font-size: 13px; }
-    .team-grid-6 .team-role { font-size: 11px; margin: 2px 0 5px; }
-    .team-grid-6 .team-detail { font-size: 10.5px; line-height: 1.4; }
-    .team-grid-6 .team-photo-cut { max-width: 78px; height: 62px; margin-bottom: 8px; }
-    .team-grid-6 .team-initials { width: 62px; height: 62px; margin-bottom: 8px; }
+    .team-org-lead { flex: 0 0 27%; display: flex; flex-direction: column; }
+    .team-org-team { flex: 1 1 73%; }
+    .team-org-lead .team-card { padding: 20px 16px; flex: 1 1 auto; display: flex; flex-direction: column; justify-content: center; }
+    .team-photo-cut { width: 100%; max-width: 116px; height: 108px; object-fit: contain; object-position: center top;
+      filter: grayscale(1); margin: 0 auto 10px; display: block; }
+    .team-org-lead .team-photo-cut { max-width: 172px; height: 166px; }
+    .team-grid-6 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px 14px; margin-top: 0; max-width: none; }
+    .team-grid-6 .team-card { padding: 12px 11px 13px; }
+    .team-grid-6 .team-name { font-size: 12.5px; }
+    .team-grid-6 .team-role { font-size: 10.5px; margin: 2px 0 5px; }
+    .team-grid-6 .team-detail { font-size: 10px; line-height: 1.38; }
+    .team-grid-6 .team-photo-cut { max-width: 74px; height: 60px; margin-bottom: 7px; }
+    .team-grid-6 .team-initials { width: 58px; height: 58px; margin-bottom: 7px; }
 
     .geo-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 12px; max-width: 1080px; margin: 22px auto 0; }
     .geo-item { background: #fff; border: 1px solid #e9f0f5; border-radius: 12px; padding: 14px 8px;
@@ -501,7 +501,7 @@
 
     /* Global y local : 4 colonnes photo, style Feu Vert en marque Ayming. */
     .gl-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 1200px; margin: 20px auto 0; }
-    .gl-col { display: flex; flex-direction: column; text-align: left; }
+    .gl-col { display: flex; flex-direction: column; text-align: center; }
     .gl-photo { position: relative; }
     .gl-img { border-radius: 16px; overflow: hidden; aspect-ratio: 4 / 3.1; box-shadow: 0 10px 26px rgba(0,69,109,.15); }
     .gl-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -509,8 +509,8 @@
       background: linear-gradient(135deg,#0fa7e2,#0ab38c); display: flex; align-items: center; justify-content: center;
       box-shadow: 0 7px 16px rgba(10,179,140,.34); z-index: 2; }
     .gl-cross::before { content: '+'; color: #fff; font-weight: 800; font-size: 24px; line-height: 1; margin-top: -2px; }
-    .gl-col h4 { font-size: 16px; color: #00456d; margin: 26px 0 6px; }
-    .gl-col p { font-size: 12.5px; color: #4a5b68; line-height: 1.5; margin: 0; text-align: left; }
+    .gl-col h4 { font-size: 16px; color: #11a9e6; margin: 26px 0 6px; text-align: center; }
+    .gl-col p { font-size: 12.5px; color: #4a5b68; line-height: 1.5; margin: 0; text-align: center; }
 
     /* Variante value-detail : chaque item devient titre + sous-texte au lieu d'une puce coche. */
     .value-detail-list.vd-titled li { display: block; margin-bottom: 20px; }
