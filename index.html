@@ -539,8 +539,7 @@
     .rp-date { font-size: 10.5px; font-weight: 700; color: #6b7d8a; white-space: nowrap; }
     .rp-track { position: relative; border-top: 1px solid #eef3f7; }
     .rp-bar { position: absolute; top: 13px; height: 11px; border-radius: 6px; box-shadow: 0 2px 7px rgba(0,69,109,.14); }
-    .rp-bar.a { background: linear-gradient(90deg,#3cbdf0,#0fa7e2); }
-    .rp-bar.b { background: linear-gradient(90deg,#2fcda8,#0ab38c); }
+    .rp-bar.a, .rp-bar.b { background: #c3ced6; }
     .rp-foot { max-width: 1200px; margin: 12px auto 0; display: flex; gap: 18px; align-items: center;
       font-size: 10.5px; color: #8393a0; }
     .rp-foot .rp-key { display: flex; align-items: center; gap: 6px; }
@@ -732,10 +731,11 @@
       <div class="nav-item" data-slide="24"><span class="nav-item-number">15</span>Equipo</div>
       <div class="nav-item" data-slide="27"><span class="nav-item-number">16</span>Oferta econ&oacute;mica</div>
       <div class="nav-item" data-slide="28"><span class="nav-item-number">17</span>Condiciones generales</div>
+      <div class="nav-item" data-slide="29"><span class="nav-item-number">18</span>Lo esencial</div>
     </div>
   </nav>
 
-  <div class="slide-counter"><span class="current">1</span>/29</div>
+  <div class="slide-counter"><span class="current">1</span>/31</div>
 
   <main class="presentation">
 
@@ -1443,7 +1443,7 @@
         padding: 3px 10px; border-radius: 999px; margin-bottom: 8px; }
     </style>
     <div class="slide-inner">
-      <h1 class="slide-title">Una estrategia ya en práctica</h1>
+      <h1 class="slide-title">Nuestra estrategia en marcha, tres ejemplos</h1>
       <p class="content-paragraph" style="font-size:14px">No solo esta oferta funciona así: tres ejemplos del grupo, en servicios gestionados, software y consultoría.</p>
       <div class="pruebas-grid">
         <div class="pruebas-card p1">
@@ -1451,7 +1451,7 @@
           <div class="pruebas-body">
             <span class="pruebas-chip">Servicios gestionados</span>
             <h3>Declaraciones de accidentes en 28+ países</h3>
-            <p>Ayming International declara con los formularios y sistemas locales de cada país: Net-entreprises en Francia, Sistema Delt@ en España, la denuncia INAIL en Italia.</p>
+            <p>Ayming International declara con los formularios y sistemas locales de cada país: Net-entreprises en Francia, Sistema Delt@ y CoNTA en España, la denuncia INAIL en Italia.</p>
           </div>
         </div>
         <div class="pruebas-card p3">
@@ -1565,6 +1565,7 @@
             <img src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/clientes/seat.png" alt="SEAT">
             <img src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/clientes/danone.png" alt="Danone">
             <img src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/clientes/glovo.png" alt="Glovo">
+            <img src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/clientes/veolia.png" alt="Veolia">
           </div>
         </div>
         <div class="cl-div"></div>
@@ -1630,8 +1631,8 @@
           </div>
           <ul class="equipo-bullets">
             <li>Interlocutor &uacute;nico de la misi&oacute;n.</li>
-            <li>Experiencia: <span class="por-completar">por completar</span></li>
-            <li>Cualificaci&oacute;n: <span class="por-completar">por completar</span></li>
+            <li>En Ayming desde 2019, entre las ofertas de RR. HH. y la pr&aacute;ctica digital (Acciline+).</li>
+            <li>M&aacute;ster por la Universidad Clermont Auvergne. Triling&uuml;e espa&ntilde;ol, franc&eacute;s e ingl&eacute;s.</li>
             <li>Ubicaci&oacute;n: Toulouse.</li>
             <li>Dedicaci&oacute;n: 50 %.</li>
           </ul>
@@ -1662,7 +1663,7 @@
           </div>
           <ul class="equipo-bullets">
             <li>Experto en an&aacute;lisis de datos y n&oacute;mina.</li>
-            <li>Experiencia: <span class="por-completar">por completar</span></li>
+            <li>5 a&ntilde;os de experiencia.</li>
             <li>Cualificaci&oacute;n: <span class="por-completar">por completar</span></li>
             <li>Ubicaci&oacute;n: Lyon.</li>
             <li>Dedicaci&oacute;n: 10 %.</li>
@@ -1692,7 +1693,7 @@
             <div class="equipo-icon"><i data-lucide="scale"></i></div>
           </div>
           <ul class="equipo-bullets">
-            <li>Interno o externo: <span class="por-completar">por completar</span></li>
+            <li>Externo, v&iacute;a despacho elegido de com&uacute;n acuerdo.</li>
           </ul>
         </div>
         <div class="equipo-card">
@@ -1888,6 +1889,77 @@
         <div class="cg-card"><div class="cg-head"><i data-lucide="plane"></i><h4>Gastos de viaje</h4></div><p>Según las directrices de Alstom para viajes de terceros. Desplazamientos fuera de Madrid facturados a coste, sin recargo y con justificantes. Hotel hasta 120 euros por noche, comidas dentro de los topes fijados, tren obligatorio en trayectos de menos de cuatro horas.</p></div>
         <div class="cg-card"><div class="cg-head"><i data-lucide="receipt"></i><h4>Pago</h4></div><p>Factura emitida tras la aprobación de los entregables por Alstom, con número de pedido y de línea, descripción del servicio y datos bancarios. Pago a sesenta días fin de mes desde la fecha de una factura conforme. Honorarios exigibles solo cuando el ahorro está reconocido, cobrado, y han transcurrido sesenta días.</p></div>
         <div class="cg-card"><div class="cg-head"><i data-lucide="gauge"></i><h4>SLA</h4></div><p>Los indicadores y compromisos de servicio de la sección 2. KPI definidos con Alstom en la primera semana, informe mensual en la fecha comprometida, seguimiento nominativo de cada solicitud, y distinción entre valor estimado, reconocido y recibido.</p></div>
+      </div>
+    </div>
+    <div class="company-logo"><img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming"></div>
+  </section>
+
+  <section class="slide" data-chapter="retener">
+    <style>
+      .slide[data-chapter="retener"] .retener-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; width: 100%; max-width: 1160px; margin-top: 10px; }
+      .slide[data-chapter="retener"] .retener-card { background: #fff; border: 1px solid #e9f0f5; border-radius: 14px; padding: 20px 18px; box-shadow: 0 6px 22px rgba(0,69,109,.06); text-align: left; }
+      .slide[data-chapter="retener"] .retener-ic { width: 44px; height: 44px; border-radius: 50%; background: #e9f5fc; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
+      .slide[data-chapter="retener"] .retener-ic svg { width: 21px; height: 21px; color: #11a9e6; }
+      .slide[data-chapter="retener"] .retener-card p { font-size: 13.5px; line-height: 1.45; color: #3d4d5a; margin: 0; }
+      .slide[data-chapter="retener"] .retener-stat { margin: 26px auto 0; max-width: 640px; background: #f7fbfd; border-radius: 16px; padding: 18px 30px; text-align: center; }
+      .slide[data-chapter="retener"] .retener-stat .n { font-size: 44px; font-weight: 800; line-height: 1; letter-spacing: -1px;
+        background: linear-gradient(90deg, var(--gradient-blue-start), var(--gradient-green-end)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+      .slide[data-chapter="retener"] .retener-stat .l { font-size: 12.5px; color: #5a6b78; margin-top: 6px; }
+    </style>
+    <div class="slide-inner">
+      <h1 class="slide-title">Lo esencial de nuestra propuesta</h1>
+      <div class="retener-grid">
+        <div class="retener-card">
+          <div class="retener-ic"><i data-lucide="rocket"></i></div>
+          <p>Listos para empezar: arrancamos una semana después de la firma.</p>
+        </div>
+        <div class="retener-card">
+          <div class="retener-ic"><i data-lucide="calendar-check"></i></div>
+          <p>Todo el perímetro no contencioso cubierto antes del 31.12.2026.</p>
+        </div>
+        <div class="retener-card">
+          <div class="retener-ic"><i data-lucide="users"></i></div>
+          <p>Equipos dedicados a sus expedientes.</p>
+        </div>
+        <div class="retener-card">
+          <div class="retener-ic"><i data-lucide="database"></i></div>
+          <p>Herramientas propias de conciliación de reembolsos, volumen con calidad.</p>
+        </div>
+      </div>
+      <div class="retener-stat">
+        <div class="n">100 M€</div>
+        <div class="l">conciliados cada año en prestaciones ligadas al absentismo</div>
+      </div>
+    </div>
+    <div class="company-logo"><img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming"></div>
+  </section>
+
+  <section class="slide" data-chapter="gracias">
+    <style>
+      .slide[data-chapter="gracias"] .gracias-subtitle { font-size: 16px; color: #5a6b78; margin: 6px 0 0; }
+      .slide[data-chapter="gracias"] .gracias-contacts { display: flex; justify-content: center; gap: 24px; margin-top: 40px; }
+      .slide[data-chapter="gracias"] .gracias-card { background: #fff; border: 1px solid #e9f0f5; border-radius: 14px; padding: 20px 26px; box-shadow: 0 6px 22px rgba(0,69,109,.06); text-align: left; min-width: 260px; }
+      .slide[data-chapter="gracias"] .gracias-name { font-size: 15px; font-weight: 700; color: #00456d; }
+      .slide[data-chapter="gracias"] .gracias-role { font-size: 12px; font-style: italic; color: #5a6b78; margin: 2px 0 10px; }
+      .slide[data-chapter="gracias"] .gracias-line { font-size: 12.5px; color: #3d4d5a; margin-bottom: 4px; }
+      .slide[data-chapter="gracias"] .gracias-line:last-child { margin-bottom: 0; }
+    </style>
+    <div class="slide-inner">
+      <h1 class="slide-title" style="font-size:56px">Gracias</h1>
+      <p class="gracias-subtitle">Hablemos de su caso.</p>
+      <div class="gracias-contacts">
+        <div class="gracias-card">
+          <div class="gracias-name">José Encarnación Saiter</div>
+          <div class="gracias-role">Engagement Lead</div>
+          <div class="gracias-line">Email: <span class="por-completar">por completar</span></div>
+          <div class="gracias-line">Teléfono: <span class="por-completar">por completar</span></div>
+        </div>
+        <div class="gracias-card">
+          <div class="gracias-name">Olivier Meynard</div>
+          <div class="gracias-role">Director del proyecto</div>
+          <div class="gracias-line">Email: <span class="por-completar">por completar</span></div>
+          <div class="gracias-line">Teléfono: <span class="por-completar">por completar</span></div>
+        </div>
       </div>
     </div>
     <div class="company-logo"><img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming"></div>
