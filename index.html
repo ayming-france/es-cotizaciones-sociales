@@ -182,37 +182,23 @@
     .num-item + .num-item { border-top: 1px solid #eef4f8; }
     .num-item strong { color: #00456d; font-weight: 700; }
 
-    .team-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 22px 26px; margin-top: 12px; max-width: 1080px; margin-left: auto; margin-right: auto; }
-    .team-card { flex: 0 1 calc(33.333% - 18px); }
-    .team-card { background: #fff; border: 1px solid #e9f0f5; border-radius: 16px; padding: 20px 18px;
-      box-shadow: 0 6px 22px rgba(0,69,109,.06); text-align: center; }
-    .team-photo, .team-initials { width: 92px; height: 92px; border-radius: 50%; margin: 0 auto 12px; display: block; }
-    .team-photo { object-fit: cover; box-shadow: 0 4px 14px rgba(0,69,109,.18); }
-    .team-initials { background: linear-gradient(135deg,#cfe0ea,#d9e9e3); color: #fff;
-      display: flex; align-items: center; justify-content: center; font-size: 26px; font-weight: 700; letter-spacing: .02em; }
-    .team-initials svg { width: 38px; height: 38px; color: #fff; }
-    .team-card:not(.pending) .team-initials { background: linear-gradient(135deg,#0fa7e2,#0ab38c); }
-    .team-name { font-size: 15px; font-weight: 700; color: #00456d; }
-    .team-role { font-size: 12.5px; color: #11a9e6; font-weight: 600; margin: 3px 0 8px; }
-    .team-detail { font-size: 12px; color: #5a6b78; line-height: 1.5; text-align: center; }
-    .team-detail em { color: #9aa8b3; font-style: normal; }
-
-    .team-org { display: flex; gap: 20px; align-items: flex-start; max-width: 1100px; margin: 2px auto 0; }
-    .team-band { background: #11a9e6; color: #fff; font-weight: 700; font-size: 12px; text-transform: uppercase;
-      letter-spacing: .06em; text-align: center; border-radius: 999px; padding: 7px 12px; margin-bottom: 12px; }
-    .team-org-lead { flex: 0 0 27%; display: flex; flex-direction: column; }
-    .team-org-team { flex: 1 1 73%; }
-    .team-org-lead .team-card { padding: 16px 16px; overflow: visible; }
-    .team-photo-cut { width: 100%; max-width: 116px; height: 108px; object-fit: contain; object-position: center;
-      filter: grayscale(1); margin: 0 auto 10px; display: block; }
-    .team-org-lead .team-photo-cut { max-width: 126px; height: 146px; margin-bottom: 8px; }
-    .team-grid-6 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px 12px; margin-top: 0; max-width: none; }
-    .team-grid-6 .team-card { padding: 8px 10px 9px; }
-    .team-grid-6 .team-name { font-size: 12px; }
-    .team-grid-6 .team-role { font-size: 10px; margin: 1px 0 4px; }
-    .team-grid-6 .team-detail { font-size: 9.5px; line-height: 1.34; }
-    .team-grid-6 .team-photo-cut { max-width: 78px; height: 88px; margin-bottom: 4px; }
-    .team-grid-6 .team-initials { width: 76px; height: 76px; margin-bottom: 5px; }
+    /* Cartes equipo v2 : nom + role a gauche, photo ronde a droite, puces a completer en dessous. */
+    .equipo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px 12px; width: 100%; max-width: 1000px; margin: 10px auto 0; }
+    .equipo-card { background: #fff; border: 1px solid #e9f0f5; border-radius: 14px; padding: 10px 12px 11px;
+      box-shadow: 0 6px 20px rgba(0,69,109,.06); }
+    .equipo-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
+    .equipo-name { font-size: 12.5px; font-weight: 700; color: #00456d; line-height: 1.25; }
+    .equipo-role { font-size: 10px; font-style: italic; color: #5a6b78; margin-top: 2px; line-height: 1.25; }
+    .equipo-photo { width: 46px; height: 46px; border-radius: 50%; overflow: hidden; flex-shrink: 0; background: #eef4f8; }
+    .equipo-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; filter: grayscale(1); display: block; }
+    .equipo-icon { width: 46px; height: 46px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center;
+      justify-content: center; background: linear-gradient(135deg,#0fa7e2,#0ab38c); }
+    .equipo-icon svg { width: 22px; height: 22px; color: #fff; }
+    .equipo-bullets { margin: 0; padding-left: 14px; text-align: left; }
+    .equipo-bullets li { font-size: 10px; line-height: 1.4; color: #3f4c56; margin-bottom: 2px; }
+    .equipo-bullets li:last-child { margin-bottom: 0; }
+    .por-completar { display: inline-block; background: #e9f5fc; color: #11a9e6; font-size: 8px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .03em; border-radius: 999px; padding: 1px 6px; }
 
     .geo-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 12px; max-width: 1080px; margin: 22px auto 0; }
     .geo-item { background: #fff; border: 1px solid #e9f0f5; border-radius: 12px; padding: 14px 8px;
@@ -794,9 +780,9 @@
     <div class="layout-split">
       <div class="content-side">
         <h1 class="slide-title">Paga de m&aacute;s por una clasificaci&oacute;n que nadie ha vuelto a revisar</h1>
-        <p class="content-paragraph">Las pr&aacute;cticas administrativas recientes y la jurisprudencia consolidada exigen clasificar cada puesto por su actividad real, <strong>m&aacute;s all&aacute; del c&oacute;digo formal.</strong></p>
+        <p class="content-paragraph">Las reglas del juego han cambiado: la jurisprudencia consolidada y la pr&aacute;ctica de la Inspecci&oacute;n miran <strong>lo que cada persona hace de verdad</strong>, no el c&oacute;digo que se declar&oacute; un d&iacute;a.</p>
         <p class="content-paragraph">La diferencia entre el tipo que aplica la empresa y el que la TGSS considera correcto termina en <strong>actas, sanciones o litigios,</strong> y una clasificaci&oacute;n equivocada se paga de m&aacute;s cada mes.</p>
-        <p class="content-paragraph highlight">En Ayming creemos que una empresa no deber&iacute;a descubrir su exposici&oacute;n el d&iacute;a en que la Inspecci&oacute;n llama a la puerta. La misma revisi&oacute;n que recupera lo pagado de m&aacute;s es la que cierra el riesgo, y las dos direcciones se miran a la vez o no se miran.</p>
+        <p class="content-paragraph highlight">En Ayming creemos que una empresa no deber&iacute;a vivir pendiente de su conformidad ni pagar m&aacute;s de lo que le corresponde. Una misma revisi&oacute;n cierra el riesgo y recupera lo pagado de m&aacute;s.</p>
       </div>
       <div class="visual-side">
         <div class="image-container">
@@ -1595,56 +1581,111 @@
     <div class="slide-inner">
       <h1 class="slide-title" style="margin-bottom:2px">Equipo del proyecto</h1>
       <p class="content-paragraph" style="margin:0 0 3px; font-size:13px">Equipo hispanohablante para el trabajo de campo y la relaci&oacute;n con la administraci&oacute;n, con direcci&oacute;n desde la pr&aacute;ctica de RR. HH. internacional.</p>
-      <div class="team-org">
-        <div class="team-org-lead">
-          <div class="team-band">Direcci&oacute;n del proyecto</div>
-          <div class="team-card">
-            <img class="team-photo-cut" src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/equipo-olivier-cut-v2.png?v=1" alt="Olivier Meynard">
-            <div class="team-name">Olivier Meynard</div>
-            <div class="team-role">Direcci&oacute;n del proyecto</div>
-            <p class="team-detail">Director Asociado Internacional. M&aacute;s de 28 a&ntilde;os en externalizaci&oacute;n de procesos, gesti&oacute;n de la calidad y direcci&oacute;n de proyectos.</p>
+      <div class="equipo-grid">
+        <div class="equipo-card">
+          <div class="equipo-head">
+            <div>
+              <div class="equipo-name">Olivier Meynard</div>
+              <div class="equipo-role">Director del proyecto</div>
+            </div>
+            <div class="equipo-photo"><img src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/equipo-olivier-cut-v2.png?v=1" alt="Olivier Meynard"></div>
           </div>
+          <ul class="equipo-bullets">
+            <li>Direcci&oacute;n del proyecto y relaci&oacute;n con Alstom</li>
+            <li>A&ntilde;os de experiencia relevante: <span class="por-completar">por completar</span></li>
+            <li>Cualificaci&oacute;n: <span class="por-completar">por completar</span></li>
+            <li>Ubicaci&oacute;n: <span class="por-completar">por completar</span></li>
+            <li>Dedicaci&oacute;n al proyecto: <span class="por-completar">por completar</span></li>
+          </ul>
         </div>
-        <div class="team-org-team">
-          <div class="team-band">Equipo del proyecto</div>
-          <div class="team-grid team-grid-6">
-            <div class="team-card">
-              <img class="team-photo-cut" src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/equipo-lola-cut-v2.png?v=1" alt="Lola Brayard">
-              <div class="team-name">Lola Brayard</div>
-              <div class="team-role">Especialista en Seguridad Social</div>
-              <p class="team-detail">Consultora en costes sociales y fiscalidad. Diagn&oacute;stico, cuantificaci&oacute;n y regularizaci&oacute;n ante organismos p&uacute;blicos.</p>
+        <div class="equipo-card">
+          <div class="equipo-head">
+            <div>
+              <div class="equipo-name">Jos&eacute; Encarnaci&oacute;n Saiter</div>
+              <div class="equipo-role">Engagement Lead</div>
             </div>
-            <div class="team-card">
-              <img class="team-photo-cut" src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/equipo-jose-cut-v2.png?v=1" alt="Jos&eacute; Encarnaci&oacute;n Saiter">
-              <div class="team-name">Jos&eacute; Encarnaci&oacute;n Saiter</div>
-              <div class="team-role">Responsable comercial de la oferta RR. HH.</div>
-              <p class="team-detail">Interlocutor comercial de la misi&oacute;n. Trayectoria en la gama de ofertas de RR. HH. de Ayming, especializado en prevenci&oacute;n de riesgos, cotizaciones AT/EP y el software de RR. HH. Coordina el acompa&ntilde;amiento de principio a fin.</p>
-            </div>
-            <div class="team-card">
-              <img class="team-photo-cut" src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/equipo-axel-cut-v2.png?v=1" alt="Axel Mart&iacute;nez">
-              <div class="team-name">Axel Mart&iacute;nez</div>
-              <div class="team-role">Analista de datos y n&oacute;mina</div>
-              <p class="team-detail">Tratamiento de los datos de n&oacute;mina y cotizaci&oacute;n. Cuantificaci&oacute;n de los importes y preparaci&oacute;n de los expedientes de regularizaci&oacute;n.</p>
-            </div>
-            <div class="team-card">
-              <img class="team-photo-cut" src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/equipo-maddalena-cut-v2.png?v=1" alt="Maddalena Iadarola">
-              <div class="team-name">Maddalena Iadarola</div>
-              <div class="team-role">Consultora, soporte al proyecto</div>
-              <p class="team-detail">Consultora del equipo Ayming. Soporte al diagn&oacute;stico y al trabajo de campo, en coordinaci&oacute;n con la direcci&oacute;n del proyecto.</p>
-            </div>
-            <div class="team-card pending">
-              <div class="team-initials"><i data-lucide="user-round"></i></div>
-              <div class="team-name">Por designar</div>
-              <div class="team-role">Experto en derecho laboral</div>
-              <p class="team-detail"><em>Perfil exigido por el pliego, pendiente de nombrar</em></p>
-            </div>
-            <div class="team-card pending">
-              <div class="team-initials"><i data-lucide="user-round"></i></div>
-              <div class="team-name">Por designar</div>
-              <div class="team-role">Abogado contencioso administrativo</div>
-              <p class="team-detail"><em>Colegiaci&oacute;n a indicar. Perfil exigido por el pliego.</em></p>
-            </div>
+            <div class="equipo-photo"><img src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/equipo-jose-cut-v2.png?v=1" alt="Jos&eacute; Encarnaci&oacute;n Saiter"></div>
           </div>
+          <ul class="equipo-bullets">
+            <li>Coordinaci&oacute;n de la misi&oacute;n e interlocutor &uacute;nico</li>
+            <li>A&ntilde;os de experiencia relevante: <span class="por-completar">por completar</span></li>
+            <li>Cualificaci&oacute;n: <span class="por-completar">por completar</span></li>
+            <li>Ubicaci&oacute;n: <span class="por-completar">por completar</span></li>
+            <li>Dedicaci&oacute;n al proyecto: <span class="por-completar">por completar</span></li>
+          </ul>
+        </div>
+        <div class="equipo-card">
+          <div class="equipo-head">
+            <div>
+              <div class="equipo-name">Lola Brayard</div>
+              <div class="equipo-role">Especialista en Seguridad Social</div>
+            </div>
+            <div class="equipo-photo"><img src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/equipo-lola-cut-v2.png?v=1" alt="Lola Brayard"></div>
+          </div>
+          <ul class="equipo-bullets">
+            <li>&Aacute;reas principales: <span class="por-completar">por completar</span></li>
+            <li>A&ntilde;os de experiencia relevante: <span class="por-completar">por completar</span></li>
+            <li>Cualificaci&oacute;n: <span class="por-completar">por completar</span></li>
+            <li>Ubicaci&oacute;n: <span class="por-completar">por completar</span></li>
+            <li>Dedicaci&oacute;n al proyecto: <span class="por-completar">por completar</span></li>
+          </ul>
+        </div>
+        <div class="equipo-card">
+          <div class="equipo-head">
+            <div>
+              <div class="equipo-name">Axel Mart&iacute;nez</div>
+              <div class="equipo-role">Analista de datos y n&oacute;mina</div>
+            </div>
+            <div class="equipo-photo"><img src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/equipo-axel-cut-v2.png?v=1" alt="Axel Mart&iacute;nez"></div>
+          </div>
+          <ul class="equipo-bullets">
+            <li>Capacidades de an&aacute;lisis de datos y n&oacute;mina: <span class="por-completar">por completar</span></li>
+            <li>A&ntilde;os de experiencia relevante: <span class="por-completar">por completar</span></li>
+            <li>Cualificaci&oacute;n: <span class="por-completar">por completar</span></li>
+            <li>Ubicaci&oacute;n: <span class="por-completar">por completar</span></li>
+            <li>Dedicaci&oacute;n al proyecto: <span class="por-completar">por completar</span></li>
+          </ul>
+        </div>
+        <div class="equipo-card">
+          <div class="equipo-head">
+            <div>
+              <div class="equipo-name">Maddalena Iadarola</div>
+              <div class="equipo-role">Consultora, soporte al proyecto</div>
+            </div>
+            <div class="equipo-photo"><img src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/equipo-maddalena-cut-v2.png?v=1" alt="Maddalena Iadarola"></div>
+          </div>
+          <ul class="equipo-bullets">
+            <li>A&ntilde;os de experiencia relevante: <span class="por-completar">por completar</span></li>
+            <li>Cualificaci&oacute;n: <span class="por-completar">por completar</span></li>
+            <li>Ubicaci&oacute;n: <span class="por-completar">por completar</span></li>
+            <li>Dedicaci&oacute;n al proyecto: <span class="por-completar">por completar</span></li>
+          </ul>
+        </div>
+        <div class="equipo-card">
+          <div class="equipo-head">
+            <div>
+              <div class="equipo-name">Experto en derecho laboral</div>
+              <div class="equipo-role">Por designar</div>
+            </div>
+            <div class="equipo-icon"><i data-lucide="scale"></i></div>
+          </div>
+          <ul class="equipo-bullets">
+            <li>Cobertura por confirmar: experto del grupo o despacho externo.</li>
+          </ul>
+        </div>
+        <div class="equipo-card">
+          <div class="equipo-head">
+            <div>
+              <div class="equipo-name">Abogado contencioso-administrativo</div>
+              <div class="equipo-role">Despacho espa&ntilde;ol independiente, elegido de com&uacute;n acuerdo</div>
+            </div>
+            <div class="equipo-icon"><i data-lucide="landmark"></i></div>
+          </div>
+          <ul class="equipo-bullets">
+            <li>Despacho y socio responsable: <span class="por-completar">por completar</span></li>
+            <li>N.&ordm; de colegiado: <span class="por-completar">por completar</span></li>
+            <li>Experiencia en procedimientos contencioso-administrativos: <span class="por-completar">por completar</span></li>
+          </ul>
         </div>
       </div>
     </div>
