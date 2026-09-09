@@ -705,7 +705,11 @@
     .slide[data-chapter="calendario"].active .rp > :nth-child(7) .rp-bar { animation: rpBarGrow .55s cubic-bezier(.22,1,.36,1) .70s forwards; }
     .slide[data-chapter="calendario"].active .rp > :nth-child(9) .rp-bar { animation: rpBarGrow .55s cubic-bezier(.22,1,.36,1) .90s forwards; }
     .slide[data-chapter="calendario"].active .rp > :nth-child(10) .rp-bar { animation: rpBarGrow .55s cubic-bezier(.22,1,.36,1) 1.0s forwards; }
-  </style>
+      /* Bandeau de certifications de la couverture : fond blanc volontaire, les PNG
+       ont des fonds blancs opaques et le patchwork se voyait dans l'export PPTX. */
+    .slide.cover .cover-right .cert-strip { background: #fff; border-radius: 14px;
+      padding: 12px 18px; left: auto; right: 24px; box-shadow: 0 4px 14px rgba(0,69,109,.10); }
+</style>
 </head>
 <body data-audience="client" data-no-partners>
 
