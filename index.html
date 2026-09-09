@@ -55,15 +55,19 @@
     .kpi-table td:first-child, .fee-table td:first-child { font-weight: 600; color: #00456d; }
     .fee-table { font-size: .95rem; }
     .fee-table td:last-child { font-weight: 700; color: #11a9e6; text-align: right; }
-    .fee-cols { display: grid; grid-template-columns: 1.15fr 1fr; gap: 26px; align-items: start; margin-top: 10px; }
-    .fee-cols .fee-table { margin-top: 0; }
+    /* Composition en deux colonnes equilibrees plutot que le tableau des
+       scenarios centre en pleine largeur en dessous de tout : chaque colonne
+       empile deux blocs de meme largeur, sommets alignes. */
+    .oferta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; align-items: start; max-width: 1180px; margin: 10px auto 0; }
+    .oferta-col { display: flex; flex-direction: column; gap: 16px; }
+    .oferta-col > .fee-table { margin-top: 0; }
     .fee-note { background: #00456d; color: #fff; padding: 20px 24px; border-radius: 16px; font-size: .85rem; text-align: left; box-shadow: 0 8px 24px rgba(0,69,109,.18); }
     .fee-note p { color: #fff !important; }
     .fee-note li { color: #eaf3f9; margin-bottom: 8px; line-height: 1.5; }
-    .fee-example { margin-top: 14px; background: #f4fbf8; border-left: 4px solid #0ab38c; padding: 12px 18px; border-radius: 0 8px 8px 0; text-align: left; }
+    .fee-example { background: #f4fbf8; border-left: 4px solid #0ab38c; padding: 12px 18px; border-radius: 0 8px 8px 0; text-align: left; }
     .fee-example-label { font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #0ab38c; margin-bottom: 4px; }
     .fee-example p { font-size: .85rem; color: #3d4d5a; margin: 0; }
-    .scenarios-block { max-width: 1180px; margin: 14px auto 0; }
+    .scenarios-block { margin: 0; }
     .scenarios-label { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #9aa8b3; margin: 0 0 6px; text-align: left; }
     .scenarios-table { width: 100%; border-collapse: collapse; font-size: .8rem; }
     .scenarios-table th { text-align: left; background: #00456d; color: #fff; padding: 7px 12px; font-weight: 600; }
@@ -646,29 +650,27 @@
     .value-detail-content .area-title { font-size: 27px; line-height: 1.15; }
 
     /* Slide Documentos necesarios : deux colonnes, une par aire. */
-    .docs2 { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; max-width: 1180px; margin: 22px auto 0; }
-    .docs2-card { background: #fff; border: 1px solid #e9f0f5; border-radius: 16px; padding: 22px 26px;
-      box-shadow: 0 8px 24px rgba(0,69,109,.06); text-align: left; }
-    .docs2-card.a { border-top: 3px solid #0fa7e2; }
-    .docs2-card.b { border-top: 3px solid #0ab38c; }
-    .docs2-card.c { border-top: 3px solid #00456d; grid-column: 1 / -1; }
-    .docs2-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
-    .docs2-ic { width: 40px; height: 40px; border-radius: 11px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
-    .docs2-ic svg { width: 21px; height: 21px; }
-    .docs2-card.a .docs2-ic { background: #e9f5fc; } .docs2-card.a .docs2-ic svg { color: #11a9e6; }
-    .docs2-card.b .docs2-ic { background: #e4f6ef; } .docs2-card.b .docs2-ic svg { color: #0ab38c; }
-    .docs2-card.c .docs2-ic { background: #eef3f7; } .docs2-card.c .docs2-ic svg { color: #00456d; }
-    .docs2-head .n { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #9aa8b3; }
-    .docs2-head h4 { font-size: 16px; color: #00456d; margin: 1px 0 0; }
-    .docs2-card ul { list-style: none; margin: 0; padding: 0; }
-    .docs2-card li { position: relative; padding-left: 20px; margin-bottom: 9px; font-size: 13px; color: #3d4d5a; line-height: 1.5; }
-    .docs2-card li::before { content: ''; position: absolute; left: 0; top: 8px; width: 7px; height: 7px; border-radius: 2px; }
-    .docs2-card.a li::before { background: #11a9e6; }
-    .docs2-card.b li::before { background: #0ab38c; }
-    .docs2-card.c li::before { background: #00456d; }
-    /* Carte large "En general" : 7 items, repartis sur deux colonnes pour eviter
-       une carte demesurement haute au-dessus des deux cartes plus courtes. */
-    .docs2-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; }
+    /* Panneau clair, trois colonnes separees par des filets fins : composition
+       plus aerienne que les anciennes cartes a bordures et ombres marquees.
+       "En general" (7 items) recoit une colonne plus large que les deux autres. */
+    .docs3 { display: grid; grid-template-columns: 1.3fr 1fr 1fr; max-width: 1180px; margin: 20px auto 0;
+      background: #fbfdfe; border-radius: 14px; }
+    .docs3-col { padding: 18px 26px; border-left: 1px solid #e6eef4; text-align: left; }
+    .docs3-col:first-child { border-left: none; }
+    .docs3-head { display: flex; align-items: center; gap: 9px; margin-bottom: 11px; }
+    .docs3-ic { width: 26px; height: 26px; border-radius: 7px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+    .docs3-ic svg { width: 14px; height: 14px; }
+    .docs3-col.a .docs3-ic { background: #e9f5fc; } .docs3-col.a .docs3-ic svg { color: #11a9e6; }
+    .docs3-col.b .docs3-ic { background: #e4f6ef; } .docs3-col.b .docs3-ic svg { color: #0ab38c; }
+    .docs3-col.c .docs3-ic { background: #eef3f7; } .docs3-col.c .docs3-ic svg { color: #00456d; }
+    .docs3-head h4 { font-size: 12.5px; font-weight: 700; color: #00456d; margin: 0; text-transform: uppercase; letter-spacing: .04em; }
+    .docs3-list { list-style: none; margin: 0; padding: 0; }
+    .docs3-list li { position: relative; padding-left: 13px; margin-bottom: 6px; font-size: 13px; color: #3d4d5a; line-height: 1.35; }
+    .docs3-list li::before { content: ''; position: absolute; left: 0; top: 6px; width: 5px; height: 5px; border-radius: 50%; }
+    .docs3-col.a .docs3-list li::before { background: #11a9e6; }
+    .docs3-col.b .docs3-list li::before { background: #0ab38c; }
+    .docs3-col.c .docs3-list li::before { background: #00456d; }
+    .docs3-list li:last-child { margin-bottom: 0; }
     .docs-coverage { max-width: 1180px; margin: 18px auto 0; display: flex; gap: 14px; align-items: flex-start;
       background: linear-gradient(90deg, rgba(15,167,226,.08), rgba(10,179,140,.08)); border-left: 4px solid #0ab38c;
       border-radius: 0 12px 12px 0; padding: 12px 18px; }
@@ -1078,13 +1080,13 @@
     <div class="slide-inner">
       <h1 class="slide-title">Documentos necesarios</h1>
       <p class="content-paragraph" style="font-size:14px">Lo que necesitamos de Alstom para arrancar cada área del estudio.</p>
-      <div class="docs2">
-        <div class="docs2-card c">
-          <div class="docs2-head">
-            <div class="docs2-ic"><i data-lucide="folder"></i></div>
-            <div><h4>En general</h4></div>
+      <div class="docs3">
+        <div class="docs3-col c">
+          <div class="docs3-head">
+            <div class="docs3-ic"><i data-lucide="folder"></i></div>
+            <h4>En general</h4>
           </div>
-          <ul class="docs2-cols">
+          <ul class="docs3-list">
             <li>Listado de entidades, centros de trabajo y CCC, con CNAE actual e histórico</li>
             <li>Histórico de fusiones, adquisiciones y reorganizaciones que hayan afectado al perímetro analizado</li>
             <li>Maestro histórico de empleados: ID, entidad/CCC, centro, puesto, fechas de alta/baja/cambio de puesto y código de ocupación aplicado</li>
@@ -1094,22 +1096,22 @@
             <li>Resolución, acta de inspección, requerimiento o correspondencia de 2019 relacionada con el código CNAE</li>
           </ul>
         </div>
-        <div class="docs2-card a">
-          <div class="docs2-head">
-            <div class="docs2-ic"><i data-lucide="percent"></i></div>
-            <div><h4>Tipos AT/EP</h4></div>
+        <div class="docs3-col a">
+          <div class="docs3-head">
+            <div class="docs3-ic"><i data-lucide="percent"></i></div>
+            <h4>Tipos AT/EP</h4>
           </div>
-          <ul>
+          <ul class="docs3-list">
             <li>Descripciones de puestos de trabajo, con sus correspondientes evaluaciones de riesgos laborales</li>
             <li>Documentación de la actividad desarrollada en cada centro: licencias de actividad, descripción de las actividades, documentación PRL, cualquier documento que permita acreditar la separación funcional y operativa de las actividades</li>
           </ul>
         </div>
-        <div class="docs2-card b">
-          <div class="docs2-head">
-            <div class="docs2-ic"><i data-lucide="calendar-days"></i></div>
-            <div><h4>Pagos delegados de IT</h4></div>
+        <div class="docs3-col b">
+          <div class="docs3-head">
+            <div class="docs3-ic"><i data-lucide="calendar-days"></i></div>
+            <h4>Pagos delegados de IT</h4>
           </div>
-          <ul>
+          <ul class="docs3-list">
             <li>Convenios de asociación con Mutuas e histórico de cobertura por CCC, indicando las contingencias cubiertas</li>
             <li>Fichero FIE/FIER si disponible</li>
             <li>Detalle de prestaciones abonadas en pago delegado: trabajador, contingencia, fechas, base reguladora e importe abonado</li>
@@ -1833,40 +1835,44 @@
     <div class="slide-inner">
       <h1 class="slide-title">Oferta económica</h1>
       <p class="content-paragraph" style="font-size:13.5px">Nuestro modelo de remuneración se basa en honorarios de éxito sobre las economías generadas.</p>
-      <div class="fee-cols">
-      <table class="fee-table">
-        <thead><tr><th>Importe total de las economías generadas</th><th>% Honorarios</th></tr></thead>
-        <tbody>
-          <tr><td>Hasta 500.000 €</td><td>20 %</td></tr>
-          <tr><td>De 500.001 € hasta 1.000.000 €</td><td>17 %</td></tr>
-          <tr><td>De 1.000.001 € hasta 2.000.000 €</td><td>14 %</td></tr>
-          <tr><td>Más de 2.000.000 €</td><td>10 %</td></tr>
-        </tbody>
-      </table>
-      <div class="fee-note">
-        <p style="font-weight:700; margin:0 0 8px">Definición de la noción de "economías generadas"</p>
-        <ol style="margin:0; padding-left:18px">
-          <li>Todos los abonos o créditos confirmados por la Administración, así como los importes recuperados por Ayming correspondientes a periodos anteriores.</li>
-          <li>Para las regularizaciones iniciadas por Ayming que generan efectos futuros, la remuneración de Ayming estará limitada al equivalente de 2 años de ahorro.</li>
-        </ol>
-      </div>
-      </div>
-      <div class="scenarios-block">
-        <p class="scenarios-label">Los cinco escenarios del pliego</p>
-        <table class="scenarios-table">
-          <thead><tr><th>Economías realizadas</th><th>Honorarios</th><th>Valor neto conservado por Alstom</th></tr></thead>
-          <tbody>
-            <tr><td>100.000 €</td><td>20.000 €</td><td>80.000 €</td></tr>
-            <tr><td>250.000 €</td><td>50.000 €</td><td>200.000 €</td></tr>
-            <tr><td>500.000 €</td><td>100.000 €</td><td>400.000 €</td></tr>
-            <tr><td>1.000.000 €</td><td>185.000 €</td><td>815.000 €</td></tr>
-            <tr><td>2.000.000 €</td><td>325.000 €</td><td>1.675.000 €</td></tr>
-          </tbody>
-        </table>
-        <p class="scenarios-caption">Tipo efectivo decreciente: del 20 % al 16,3 % en el escenario más alto.</p>
-      </div>
-      <div class="fee-example">
-        <p>Por ejemplo: identificamos 1.050 k€ de economías totales para Alstom. La facturación de Ayming sería: 500 × 20 % + 500 × 17 % + 50 × 14 % = 100 + 85 + 7 = 192 k€.</p>
+      <div class="oferta-grid">
+        <div class="oferta-col">
+          <table class="fee-table">
+            <thead><tr><th>Importe total de las economías generadas</th><th>% Honorarios</th></tr></thead>
+            <tbody>
+              <tr><td>Hasta 500.000 €</td><td>20 %</td></tr>
+              <tr><td>De 500.001 € hasta 1.000.000 €</td><td>17 %</td></tr>
+              <tr><td>De 1.000.001 € hasta 2.000.000 €</td><td>14 %</td></tr>
+              <tr><td>Más de 2.000.000 €</td><td>10 %</td></tr>
+            </tbody>
+          </table>
+          <div class="scenarios-block">
+            <p class="scenarios-label">Los cinco escenarios del pliego</p>
+            <table class="scenarios-table">
+              <thead><tr><th>Economías realizadas</th><th>Honorarios</th><th>Valor neto conservado por Alstom</th></tr></thead>
+              <tbody>
+                <tr><td>100.000 €</td><td>20.000 €</td><td>80.000 €</td></tr>
+                <tr><td>250.000 €</td><td>50.000 €</td><td>200.000 €</td></tr>
+                <tr><td>500.000 €</td><td>100.000 €</td><td>400.000 €</td></tr>
+                <tr><td>1.000.000 €</td><td>185.000 €</td><td>815.000 €</td></tr>
+                <tr><td>2.000.000 €</td><td>325.000 €</td><td>1.675.000 €</td></tr>
+              </tbody>
+            </table>
+            <p class="scenarios-caption">Tipo efectivo decreciente: del 20 % al 16,3 % en el escenario más alto.</p>
+          </div>
+        </div>
+        <div class="oferta-col">
+          <div class="fee-note">
+            <p style="font-weight:700; margin:0 0 8px">Definición de la noción de "economías generadas"</p>
+            <ol style="margin:0; padding-left:18px">
+              <li>Todos los abonos o créditos confirmados por la Administración, así como los importes recuperados por Ayming correspondientes a periodos anteriores.</li>
+              <li>Para las regularizaciones iniciadas por Ayming que generan efectos futuros, la remuneración de Ayming estará limitada al equivalente de 2 años de ahorro.</li>
+            </ol>
+          </div>
+          <div class="fee-example">
+            <p>Por ejemplo: identificamos 1.050 k€ de economías totales para Alstom. La facturación de Ayming sería: 500 × 20 % + 500 × 17 % + 50 × 14 % = 100 + 85 + 7 = 192 k€.</p>
+          </div>
+        </div>
       </div>
     </div>
     <div class="company-logo"><img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming"></div>
