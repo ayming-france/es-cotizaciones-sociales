@@ -11,6 +11,13 @@
   <link rel="stylesheet" href="https://ayming-france.github.io/assets/engine/slides.css">
   <style>
     /* Bloc local propre à ce deck. À promouvoir dans le moteur si un 2e deck en a besoin. */
+
+    /* Espacement titre/sous-titre : les marges inline resserrees (2-8px) qui collaient
+       le sous-titre au titre ont ete retirees des attributs style (le token moteur
+       .slide-title { margin-bottom: 50px } gouverne desormais). Cette regle remonte
+       le sous-titre sous le titre et retablit un ecart en dessous de lui. */
+    .slide-inner > .slide-title + .content-paragraph { margin-top: -34px; margin-bottom: 36px; }
+
     .rate-compare { display: grid; grid-template-columns: 1fr auto 1fr; gap: 24px; align-items: center; margin-top: 20px; }
     .rate-box { background: #fff; border-radius: 14px; padding: 22px 18px; text-align: center; box-shadow: 0 6px 22px rgba(0,69,109,.10); }
     .rate-box .rate-value { font-size: 2.6rem; font-weight: 700; color: #00456d; line-height: 1; }
@@ -182,23 +189,23 @@
     .num-item + .num-item { border-top: 1px solid #eef4f8; }
     .num-item strong { color: #00456d; font-weight: 700; }
 
-    /* Cartes equipo v2 : nom + role a gauche, photo ronde a droite, puces a completer en dessous. */
-    .equipo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px 12px; width: 100%; max-width: 1000px; margin: 10px auto 0; }
-    .equipo-card { background: #fff; border: 1px solid #e9f0f5; border-radius: 14px; padding: 10px 12px 11px;
+    /* Cartes equipo v2 : nom + role a gauche, photo ronde a droite (bord de carte), puces a completer en dessous. */
+    .equipo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px 14px; width: 100%; max-width: 1000px; margin: 10px auto 0; }
+    .equipo-card { background: #fff; border: 1px solid #e9f0f5; border-radius: 14px; padding: 12px 14px 13px;
       box-shadow: 0 6px 20px rgba(0,69,109,.06); }
-    .equipo-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
-    .equipo-name { font-size: 12.5px; font-weight: 700; color: #00456d; line-height: 1.25; }
-    .equipo-role { font-size: 10px; font-style: italic; color: #5a6b78; margin-top: 2px; line-height: 1.25; }
-    .equipo-photo { width: 46px; height: 46px; border-radius: 50%; overflow: hidden; flex-shrink: 0; background: #eef4f8; }
+    .equipo-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 7px; }
+    .equipo-name { font-size: 17px; font-weight: 700; color: #00456d; line-height: 1.22; }
+    .equipo-role { font-size: 13px; font-style: italic; color: #5a6b78; margin-top: 3px; line-height: 1.25; }
+    .equipo-photo { width: 68px; height: 68px; border-radius: 50%; overflow: hidden; flex-shrink: 0; background: #eef4f8; }
     .equipo-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; filter: grayscale(1); display: block; }
-    .equipo-icon { width: 46px; height: 46px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center;
+    .equipo-icon { width: 68px; height: 68px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center;
       justify-content: center; background: linear-gradient(135deg,#0fa7e2,#0ab38c); }
-    .equipo-icon svg { width: 22px; height: 22px; color: #fff; }
-    .equipo-bullets { margin: 0; padding-left: 14px; text-align: left; }
-    .equipo-bullets li { font-size: 10px; line-height: 1.4; color: #3f4c56; margin-bottom: 2px; }
+    .equipo-icon svg { width: 32px; height: 32px; color: #fff; }
+    .equipo-bullets { margin: 0; padding-left: 15px; text-align: left; }
+    .equipo-bullets li { font-size: 12.5px; line-height: 1.35; color: #3f4c56; margin-bottom: 3px; }
     .equipo-bullets li:last-child { margin-bottom: 0; }
-    .por-completar { display: inline-block; background: #e9f5fc; color: #11a9e6; font-size: 8px; font-weight: 700;
-      text-transform: uppercase; letter-spacing: .03em; border-radius: 999px; padding: 1px 6px; }
+    .por-completar { display: inline-block; background: #e9f5fc; color: #11a9e6; font-size: 9px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .03em; border-radius: 999px; padding: 1px 7px; }
 
     .geo-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 12px; max-width: 1080px; margin: 22px auto 0; }
     .geo-item { background: #fff; border: 1px solid #e9f0f5; border-radius: 12px; padding: 14px 8px;
@@ -753,7 +760,7 @@
 
   <section class="slide" data-chapter="indice">
     <div class="slide-inner">
-      <h1 class="slide-title" style="margin-bottom:4px">Índice</h1>
+      <h1 class="slide-title">Índice</h1>
       <div class="toc">
         <div class="toc-row"><span class="toc-num">01</span><div class="toc-body"><h4>Contexto y solicitud</h4><p>Su situación, las dos áreas de estudio y lo que nos piden</p></div></div>
         <div class="toc-row"><span class="toc-num">02</span><div class="toc-body"><h4>Nuestra propuesta</h4><p>Metodología, planning, retroplanning, datos y acceso, KPI y SLA, modelo de gestión</p></div></div>
@@ -780,9 +787,9 @@
     <div class="layout-split">
       <div class="content-side">
         <h1 class="slide-title">Paga de m&aacute;s por una clasificaci&oacute;n que nadie ha vuelto a revisar</h1>
-        <p class="content-paragraph">Las reglas del juego han cambiado: la jurisprudencia consolidada y la pr&aacute;ctica de la Inspecci&oacute;n miran <strong>lo que cada persona hace de verdad</strong>, no el c&oacute;digo que se declar&oacute; un d&iacute;a.</p>
+        <p class="content-paragraph">El Tribunal Supremo lo ha dejado claro desde 2018: cada empleado cotiza por <strong>lo que hace de verdad</strong>, no por la actividad declarada de la empresa (STS 1550/2018 y STS 762/2019). Con la nueva tarifa y la migraci&oacute;n CNAE-2025, todo el periodo revisable cae ya bajo estas reglas.</p>
         <p class="content-paragraph">La diferencia entre el tipo que aplica la empresa y el que la TGSS considera correcto termina en <strong>actas, sanciones o litigios,</strong> y una clasificaci&oacute;n equivocada se paga de m&aacute;s cada mes.</p>
-        <p class="content-paragraph highlight">En Ayming creemos que una empresa no deber&iacute;a vivir pendiente de su conformidad ni pagar m&aacute;s de lo que le corresponde. Una misma revisi&oacute;n cierra el riesgo y recupera lo pagado de m&aacute;s.</p>
+        <p class="content-paragraph highlight">En Ayming creemos que una empresa no deber&iacute;a ni temer un acta ni pagar de m&aacute;s. La misma doctrina que sube el tipo del conductor al 6,70 % baja el del ingeniero de oficina al 1,50 %, y nosotros la aplicamos en los dos sentidos.</p>
       </div>
       <div class="visual-side">
         <div class="image-container">
@@ -968,8 +975,8 @@
 
   <section class="slide" data-chapter="mecanismos">
     <div class="slide-inner">
-      <h1 class="slide-title" style="margin-bottom:2px">Dos &aacute;reas de estudio</h1>
-      <p class="content-paragraph" style="margin:0; font-size:14px">Dos mec&aacute;nicas distintas, un mismo conjunto de datos.</p>
+      <h1 class="slide-title">Dos &aacute;reas de estudio</h1>
+      <p class="content-paragraph" style="font-size:14px">Dos mec&aacute;nicas distintas, un mismo conjunto de datos.</p>
       <div class="area-grid">
 
         <div class="area-card">
@@ -1066,8 +1073,8 @@
 
   <section class="slide" data-chapter="documentos">
     <div class="slide-inner">
-      <h1 class="slide-title" style="margin-bottom:2px">Documentos necesarios</h1>
-      <p class="content-paragraph" style="margin:0 0 4px; font-size:14px">Lo que necesitamos de Alstom para arrancar cada área del estudio.</p>
+      <h1 class="slide-title">Documentos necesarios</h1>
+      <p class="content-paragraph" style="font-size:14px">Lo que necesitamos de Alstom para arrancar cada área del estudio.</p>
       <div class="docs2">
         <div class="docs2-card a">
           <div class="docs2-head">
@@ -1128,8 +1135,8 @@
       .slide[data-chapter="seguridad"] .sphere-visual img { width: 100%; height: auto; border-radius: 14px; box-shadow: 0 12px 30px rgba(0,69,109,.14); }
     </style>
     <div class="slide-inner">
-      <h1 class="slide-title" style="margin-bottom:2px">Ayming&nbsp;Share, su espacio de trabajo seguro</h1>
-      <p class="content-paragraph" style="margin:0 0 30px; font-size:13.5px">La plataforma en línea segura y colaborativa de Ayming para el intercambio de documentos de la misión.</p>
+      <h1 class="slide-title">Ayming&nbsp;Share, su espacio de trabajo seguro</h1>
+      <p class="content-paragraph" style="font-size:13.5px">La plataforma en línea segura y colaborativa de Ayming para el intercambio de documentos de la misión.</p>
       <div class="sphere-grid">
         <div class="sphere-card">
           <h4><i data-lucide="users"></i>Compartir y colaborar</h4>
@@ -1215,7 +1222,7 @@
 
   <section class="slide" data-chapter="planning">
     <div class="slide-inner">
-      <h1 class="slide-title" style="margin-bottom:2px">Planning</h1>
+      <h1 class="slide-title">Planning</h1>
       <div class="ph-zones">
         <div class="phz phz-a"><span class="phz-line"></span><span class="phz-label">Fase A <span class="phz-name">&middot; Diagn&oacute;stico y cuantificaci&oacute;n</span></span></div>
         <div class="phz phz-b"><span class="phz-line"></span><span class="phz-label">Fase B <span class="phz-name">&middot; Regularizaci&oacute;n y recuperaci&oacute;n</span></span></div>
@@ -1235,8 +1242,8 @@
 
   <section class="slide" data-chapter="calendario">
     <div class="slide-inner">
-      <h1 class="slide-title" style="margin-bottom:6px">Calendario y responsabilidades</h1>
-      <p class="content-paragraph" style="margin:0 0 4px; font-size:14px">Dos fases y seis lotes de trabajo, con el entregable de cada etapa, qui&eacute;n lo aporta y su fecha. La gesti&oacute;n transversal cubre toda la misi&oacute;n.</p>
+      <h1 class="slide-title">Calendario y responsabilidades</h1>
+      <p class="content-paragraph" style="font-size:14px">Dos fases y seis lotes de trabajo, con el entregable de cada etapa, qui&eacute;n lo aporta y su fecha. La gesti&oacute;n transversal cubre toda la misi&oacute;n.</p>
       <div class="rp">
         <div class="rp-head">
           <div class="rp-hlabel">Etapas &middot; entregables &middot; responsables</div>
@@ -1374,8 +1381,8 @@
       .slide[data-chapter="hr-intl-modelo"] .modelo-close { margin: 22px auto 0; max-width: 1160px; background: #f7fbfd; border-radius: 12px; padding: 16px 24px; text-align: center; font-size: 16px; font-weight: 600; color: #00456d; }
     </style>
     <div class="slide-inner">
-      <h1 class="slide-title" style="margin-bottom:4px">Una respuesta global, una producción local</h1>
-      <p class="content-paragraph" style="margin:0 0 20px; font-size:14px">Ayming International HR centraliza la práctica de costes sociales para movilizar a los mejores especialistas en cada misión, y produce el servicio en el país.</p>
+      <h1 class="slide-title">Una respuesta global, una producción local</h1>
+      <p class="content-paragraph" style="font-size:14px">Ayming International HR centraliza la práctica de costes sociales para movilizar a los mejores especialistas en cada misión, y produce el servicio en el país.</p>
       <div class="modelo-flow">
         <div class="modelo-step s1">
           <div class="modelo-num">1</div>
@@ -1421,8 +1428,8 @@
         padding: 3px 10px; border-radius: 999px; margin-bottom: 8px; }
     </style>
     <div class="slide-inner">
-      <h1 class="slide-title" style="margin-bottom:4px">Una estrategia ya en práctica</h1>
-      <p class="content-paragraph" style="margin:0 0 14px; font-size:14px">No solo esta oferta funciona así: tres ejemplos del grupo, en servicios gestionados, software y consultoría.</p>
+      <h1 class="slide-title">Una estrategia ya en práctica</h1>
+      <p class="content-paragraph" style="font-size:14px">No solo esta oferta funciona así: tres ejemplos del grupo, en servicios gestionados, software y consultoría.</p>
       <div class="pruebas-grid">
         <div class="pruebas-card p1">
           <img class="pruebas-banner" src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/pruebas-at-declaracion.jpg" alt="Declaración de un incidente desde el móvil">
@@ -1457,7 +1464,7 @@
     <div class="slide-inner">
       <div class="ancrage-layout">
         <div class="ancrage-text">
-          <h1 class="slide-title" style="text-align: left; margin-bottom: 24px; font-size:32px">Beneficiarse de la cercanía y la experiencia local necesaria...</h1>
+          <h1 class="slide-title" style="text-align: left; font-size:32px">Beneficiarse de la cercanía y la experiencia local necesaria...</h1>
           <p>Nuestros equipos acompañan a nuestros clientes en su día a día apoyándose en un <strong>ecosistema de profesionales</strong> en todo el país: despachos de abogados independientes especializados en seguridad social, graduados sociales, expertos contables y médicos independientes, con presencia en Madrid, Barcelona y Valencia.</p>
         </div>
         <div class="ancrage-map">
@@ -1579,8 +1586,8 @@
 
   <section class="slide" data-chapter="equipo">
     <div class="slide-inner">
-      <h1 class="slide-title" style="margin-bottom:2px">Equipo del proyecto</h1>
-      <p class="content-paragraph" style="margin:0 0 3px; font-size:13px">Equipo hispanohablante para el trabajo de campo y la relaci&oacute;n con la administraci&oacute;n, con direcci&oacute;n desde la pr&aacute;ctica de RR. HH. internacional.</p>
+      <h1 class="slide-title">Equipo del proyecto</h1>
+      <p class="content-paragraph" style="font-size:13px">Equipo hispanohablante para el trabajo de campo y la relaci&oacute;n con la administraci&oacute;n, con direcci&oacute;n desde la pr&aacute;ctica de RR. HH. internacional.</p>
       <div class="equipo-grid">
         <div class="equipo-card">
           <div class="equipo-head">
@@ -1591,11 +1598,11 @@
             <div class="equipo-photo"><img src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/equipo-olivier-cut-v2.png?v=1" alt="Olivier Meynard"></div>
           </div>
           <ul class="equipo-bullets">
-            <li>Direcci&oacute;n del proyecto y relaci&oacute;n con Alstom</li>
-            <li>A&ntilde;os de experiencia relevante: <span class="por-completar">por completar</span></li>
-            <li>Cualificaci&oacute;n: <span class="por-completar">por completar</span></li>
+            <li>32 a&ntilde;os de experiencia en consultor&iacute;a internacional.</li>
+            <li>Ingeniero, especializado en centros de servicios, costes y regulatorio.</li>
+            <li>Director Asociado Internacional de Ayming.</li>
             <li>Ubicaci&oacute;n: <span class="por-completar">por completar</span></li>
-            <li>Dedicaci&oacute;n al proyecto: <span class="por-completar">por completar</span></li>
+            <li>Dedicaci&oacute;n: <span class="por-completar">por completar</span></li>
           </ul>
         </div>
         <div class="equipo-card">
@@ -1607,11 +1614,11 @@
             <div class="equipo-photo"><img src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/equipo-jose-cut-v2.png?v=1" alt="Jos&eacute; Encarnaci&oacute;n Saiter"></div>
           </div>
           <ul class="equipo-bullets">
-            <li>Coordinaci&oacute;n de la misi&oacute;n e interlocutor &uacute;nico</li>
-            <li>A&ntilde;os de experiencia relevante: <span class="por-completar">por completar</span></li>
+            <li>Interlocutor &uacute;nico de la misi&oacute;n.</li>
+            <li>Experiencia: <span class="por-completar">por completar</span></li>
             <li>Cualificaci&oacute;n: <span class="por-completar">por completar</span></li>
             <li>Ubicaci&oacute;n: <span class="por-completar">por completar</span></li>
-            <li>Dedicaci&oacute;n al proyecto: <span class="por-completar">por completar</span></li>
+            <li>Dedicaci&oacute;n: <span class="por-completar">por completar</span></li>
           </ul>
         </div>
         <div class="equipo-card">
@@ -1623,11 +1630,11 @@
             <div class="equipo-photo"><img src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/equipo-lola-cut-v2.png?v=1" alt="Lola Brayard"></div>
           </div>
           <ul class="equipo-bullets">
-            <li>&Aacute;reas principales: <span class="por-completar">por completar</span></li>
-            <li>A&ntilde;os de experiencia relevante: <span class="por-completar">por completar</span></li>
-            <li>Cualificaci&oacute;n: <span class="por-completar">por completar</span></li>
+            <li>17 a&ntilde;os de experiencia.</li>
+            <li>Licenciada en Ingenier&iacute;a Industrial.</li>
+            <li>Sectores Agro, Industria e Ingenier&iacute;a.</li>
             <li>Ubicaci&oacute;n: <span class="por-completar">por completar</span></li>
-            <li>Dedicaci&oacute;n al proyecto: <span class="por-completar">por completar</span></li>
+            <li>Dedicaci&oacute;n: <span class="por-completar">por completar</span></li>
           </ul>
         </div>
         <div class="equipo-card">
@@ -1639,11 +1646,11 @@
             <div class="equipo-photo"><img src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/equipo-axel-cut-v2.png?v=1" alt="Axel Mart&iacute;nez"></div>
           </div>
           <ul class="equipo-bullets">
-            <li>Capacidades de an&aacute;lisis de datos y n&oacute;mina: <span class="por-completar">por completar</span></li>
-            <li>A&ntilde;os de experiencia relevante: <span class="por-completar">por completar</span></li>
+            <li>Datos y n&oacute;mina: <span class="por-completar">por completar</span></li>
+            <li>Experiencia: <span class="por-completar">por completar</span></li>
             <li>Cualificaci&oacute;n: <span class="por-completar">por completar</span></li>
             <li>Ubicaci&oacute;n: <span class="por-completar">por completar</span></li>
-            <li>Dedicaci&oacute;n al proyecto: <span class="por-completar">por completar</span></li>
+            <li>Dedicaci&oacute;n: <span class="por-completar">por completar</span></li>
           </ul>
         </div>
         <div class="equipo-card">
@@ -1655,10 +1662,10 @@
             <div class="equipo-photo"><img src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/equipo-maddalena-cut-v2.png?v=1" alt="Maddalena Iadarola"></div>
           </div>
           <ul class="equipo-bullets">
-            <li>A&ntilde;os de experiencia relevante: <span class="por-completar">por completar</span></li>
+            <li>Experiencia: <span class="por-completar">por completar</span></li>
             <li>Cualificaci&oacute;n: <span class="por-completar">por completar</span></li>
             <li>Ubicaci&oacute;n: <span class="por-completar">por completar</span></li>
-            <li>Dedicaci&oacute;n al proyecto: <span class="por-completar">por completar</span></li>
+            <li>Dedicaci&oacute;n: <span class="por-completar">por completar</span></li>
           </ul>
         </div>
         <div class="equipo-card">
@@ -1670,7 +1677,7 @@
             <div class="equipo-icon"><i data-lucide="scale"></i></div>
           </div>
           <ul class="equipo-bullets">
-            <li>Cobertura por confirmar: experto del grupo o despacho externo.</li>
+            <li>Interno o externo: <span class="por-completar">por completar</span></li>
           </ul>
         </div>
         <div class="equipo-card">
@@ -1682,9 +1689,9 @@
             <div class="equipo-icon"><i data-lucide="landmark"></i></div>
           </div>
           <ul class="equipo-bullets">
-            <li>Despacho y socio responsable: <span class="por-completar">por completar</span></li>
+            <li>Socio: <span class="por-completar">por completar</span></li>
             <li>N.&ordm; de colegiado: <span class="por-completar">por completar</span></li>
-            <li>Experiencia en procedimientos contencioso-administrativos: <span class="por-completar">por completar</span></li>
+            <li>Experiencia: <span class="por-completar">por completar</span></li>
           </ul>
         </div>
       </div>
@@ -1695,8 +1702,8 @@
   <!-- Slide masquée pour l'appel d'offres Alstom, à réactiver au besoin.
   <section class="slide" data-chapter="hr-intl-2">
     <div class="slide-inner">
-      <h1 class="slide-title" style="margin-bottom:4px">Acompa&ntilde;amos la reducci&oacute;n de sus costes de RR. HH.</h1>
-      <p class="content-paragraph" style="margin:0 0 12px; font-size:14px">Cinco dominios, una misma cadena de trabajo, en todos los pa&iacute;ses donde opera.</p>
+      <h1 class="slide-title">Acompa&ntilde;amos la reducci&oacute;n de sus costes de RR. HH.</h1>
+      <p class="content-paragraph" style="font-size:14px">Cinco dominios, una misma cadena de trabajo, en todos los pa&iacute;ses donde opera.</p>
       <div class="feature-grid-5">
         <div class="feature-item"><div class="feature-icon"><i data-lucide="percent"></i></div><div class="feature-content"><h4>Cotizaciones sociales</h4><p>Tipos, bases y clasificaci&oacute;n</p></div></div>
         <div class="feature-item"><div class="feature-icon"><i data-lucide="gift"></i></div><div class="feature-content"><h4>Beneficios sociales</h4><p>Dispositivos y exenciones</p></div></div>
@@ -1712,8 +1719,8 @@
   <!-- Slide masquée pour l'appel d'offres Alstom, à réactiver au besoin.
   <section class="slide" data-chapter="hr-intl-3">
     <div class="slide-inner">
-      <h1 class="slide-title" style="margin-bottom:4px">Global y local, un solo interlocutor</h1>
-      <p class="content-paragraph" style="margin:0 0 12px; font-size:14px">Sea cual sea el pa&iacute;s, hablamos el mismo idioma, el del rendimiento de RR. HH.</p>
+      <h1 class="slide-title">Global y local, un solo interlocutor</h1>
+      <p class="content-paragraph" style="font-size:14px">Sea cual sea el pa&iacute;s, hablamos el mismo idioma, el del rendimiento de RR. HH.</p>
       <div class="gl-grid">
         <div class="gl-col">
           <div class="gl-photo"><div class="gl-img"><img src="https://ayming-france.github.io/assets/imagery/stock/unsplash-1521737711867-e3b97375f902-600x400.jpg" alt=""></div></div>
@@ -1811,8 +1818,8 @@
 
   <section class="slide" data-chapter="oferta">
     <div class="slide-inner">
-      <h1 class="slide-title" style="margin-bottom:4px">Oferta económica</h1>
-      <p class="content-paragraph" style="margin:0 0 8px; font-size:13.5px">Nuestro modelo de remuneración se basa en honorarios de éxito sobre las economías generadas.</p>
+      <h1 class="slide-title">Oferta económica</h1>
+      <p class="content-paragraph" style="font-size:13.5px">Nuestro modelo de remuneración se basa en honorarios de éxito sobre las economías generadas.</p>
       <div class="fee-cols">
       <table class="fee-table">
         <thead><tr><th>Importe total de las economías generadas</th><th>% Honorarios</th></tr></thead>
@@ -1854,8 +1861,8 @@
 
   <section class="slide" data-chapter="condiciones">
     <div class="slide-inner">
-      <h1 class="slide-title" style="margin-bottom:4px">Condiciones generales</h1>
-      <p class="content-paragraph" style="margin:0 0 8px; font-size:13.5px">Sección 5 del pliego. Aceptación de las condiciones de compra y las cuatro cláusulas del artículo 5.</p>
+      <h1 class="slide-title">Condiciones generales</h1>
+      <p class="content-paragraph" style="font-size:13.5px">Sección 5 del pliego. Aceptación de las condiciones de compra y las cuatro cláusulas del artículo 5.</p>
       <div class="cg-accept"><i data-lucide="file-check-2"></i><p><strong>Ayming acepta las Condiciones Generales de Compra para Suministro Indirecto (Anexo 1)</strong>, que se adjuntan firmadas en la sección 6 junto con la Carta de Ética y Desarrollo Sostenible. <em>Pendiente de confirmar si existe un acuerdo marco vigente entre Alstom España y Ayming, que prevalecería sobre las condiciones generales.</em></p></div>
       <div class="cg-grid">
         <div class="cg-card"><div class="cg-head"><i data-lucide="scale"></i><h4>Ética y desarrollo sostenible</h4></div><p>Cumplimiento de las leyes del país de prestación y de la Carta de Ética de Alstom. Sin pagos indebidos ni de facilitación, declaración de cualquier conflicto de interés, sin regalos ni invitaciones a empleados de Alstom. Datos personales tratados conforme al RGPD, sin transferencia fuera de la UE. Derecho de Alstom a verificar el cumplimiento, con preaviso de treinta días y una inspección in situ al año.</p></div>
