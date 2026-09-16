@@ -153,18 +153,15 @@
     .wp-tag { display: inline-block; background: var(--blue-dark); color: var(--bg-white); font-size: var(--font-11);
       font-weight: var(--weight-bold); letter-spacing: .08em; padding: var(--space-4) var(--space-10); border-radius: 4px; margin-bottom: var(--space-10); }
 
-    /* Una solucion ideal, gabarit type Manpower : titre en haut a gauche, grille
-       2 colonnes x 3 lignes icone+texte sur ~62% de large, photo plein cadre sur
-       les ~38% restants, au ras du bord droit de la diapositive. Remplace les
-       3 colonnes a puces (badge repris du meme rond #e9f5fc / icone var(--blue-primary)). */
-    /* Le slide-inner par defaut ne fait que la hauteur de son contenu (centre par
-       .slide.active), donc la grille et la colonne photo heritaient d'une hauteur
-       intrinseque plus courte que la diapositive. On force la chaine de hauteur
-       jusqu'a l'image pour que .uis-photo puisse vraiment atteindre les deux bords. */
-    .slide[data-chapter="valeur"] .slide-inner { height: 100%; }
-    .uis-layout { display: grid; grid-template-columns: 1.63fr 1fr; align-items: stretch;
-      gap: 0; width: 100%; max-width: none; height: 100%; margin-top: var(--space-4); }
-    .uis-main { padding-right: 44px; display: flex; flex-direction: column; justify-content: center; }
+    /* Una solucion ideal, gabarit type Manpower : titre en haut a gauche, grille 2 colonnes x 3
+       lignes icone+texte a gauche, photo plein cadre sur les 38% de droite.
+       La photo est une enfant directe de la section, posee en absolu contre ses bords : elle ne
+       passe pas par fitSlide, donc elle touche le bord droit quel que soit l'ecran. Quand elle
+       vivait dans la grille, le bord dependait du facteur d'echelle (bande blanche a 1920px) et
+       la hauteur forcee a 100% cachait le debordement du texte a fitSlide, qui le laissait
+       passer sous le bandeau sur un portable. */
+    .slide[data-chapter="valeur"] .slide-inner { max-width: none; width: min(50%, 720px); margin: 0 auto 0 max(0px, calc(30% - min(25%, 360px) - 40px)); }
+    .uis-main { text-align: left; }
     .uis-title { text-align: left; margin: 0 0 var(--space-20); }
     .uis-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-22) 30px; }
     .uis-item { text-align: left; }
@@ -172,14 +169,7 @@
       display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-10); }
     .uis-ic svg { width: 26px; height: 26px; color: var(--blue-primary); }
     .uis-item p { font-size: 13.5px; line-height: var(--leading-normal); color: #3d4d5a; margin: 0; }
-    /* Cadre photo : etire jusqu'au bord reel de la diapositive, meme mecanisme de
-       compensation que le hero de l'introduction (marge fitSlide + decalage
-       nav-collapsed), mesure a 1280px puis verifie sans scrollbar horizontale.
-       En bas, .slide:not(.cover) reserve 60px + --banner-h (la bande de marque),
-       pas seulement 60px : la marge doit annuler les deux ou la photo s'arrete
-       avant le bord reel. */
-    .uis-photo { position: relative; overflow: hidden; margin-right: -24px; margin-top: -60px;
-      margin-bottom: calc(-60px - var(--banner-h)); }
+    .uis-photo { position: absolute; top: 0; right: 0; bottom: var(--banner-h); width: 38%; overflow: hidden; }
     .uis-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; display: block; }
 
     /* Cartes numerotees, reprises du gabarit de l'equipe (slide 4 du draft V1). */
@@ -928,7 +918,6 @@
 
   <section class="slide" data-chapter="valeur">
     <div class="slide-inner">
-      <div class="uis-layout">
         <div class="uis-main">
           <h1 class="slide-title uis-title">Una solución ideal</h1>
           <div class="uis-grid">
@@ -957,11 +946,10 @@
               <p>Gobernanza clara: reporting periódico, trazabilidad de las posiciones, transparencia sobre los riesgos y herramientas digitales para el intercambio de información.</p>
             </div>
           </div>
-        </div>
-        <div class="uis-photo">
-          <img src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/alstom-le-creusot.jpg" alt="Equipo de Alstom en el sitio de Le Creusot">
-        </div>
       </div>
+    </div>
+    <div class="uis-photo">
+      <img src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/alstom-le-creusot.jpg" alt="Equipo de Alstom en el sitio de Le Creusot">
     </div>
     <div class="company-logo"><img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming"></div>
   </section>
@@ -1966,12 +1954,10 @@
 
   <section class="slide" data-chapter="gracias">
     <style>
-      /* Meme mecanisme de photo plein bord que .uis-photo (slide "valeur") : le
-         slide-inner passe a height:100% et des marges negatives annulent le
-         padding de .slide pour atteindre le bord reel a 1280px. */
-      .slide[data-chapter="gracias"] .slide-inner { height: 100%; }
-      .gracias-layout { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; gap: 0; width: 100%; max-width: none; height: 100%; margin-top: var(--space-4); }
-      .gracias-left { padding-right: 50px; display: flex; flex-direction: column; justify-content: center; text-align: left; }
+      /* Meme principe que .uis-photo (slide "valeur") : la photo est posee en absolu contre les
+         bords de la section, hors de fitSlide, et la colonne de texte occupe la moitie gauche. */
+      .slide[data-chapter="gracias"] .slide-inner { max-width: none; width: min(42%, 620px); margin: 0 auto 0 max(0px, calc(25% - min(21%, 310px) - 40px)); }
+      .gracias-left { text-align: left; }
       .gracias-logos { display: flex; align-items: center; gap: var(--space-16); margin-bottom: var(--space-34); }
       .gracias-logos img { height: 40px; width: auto; display: block; }
       .gracias-logos .gl-sep { font-size: var(--font-18); color: #c3ced6; }
@@ -1982,12 +1968,10 @@
       .gc-ic svg { width: 20px; height: 20px; color: var(--bg-white); }
       .gc-text { font-size: var(--font-14); color: var(--blue-dark); font-weight: var(--weight-semibold); line-height: 1.35; }
       .gc-sub { font-size: 12.5px; color: #5a6b78; font-weight: 400; margin-top: 2px; }
-      .gracias-photo { position: relative; overflow: hidden; margin-right: -24px; margin-top: -60px;
-        margin-bottom: calc(-60px - var(--banner-h)); }
+      .gracias-photo { position: absolute; top: 0; right: 0; bottom: var(--banner-h); width: 50%; overflow: hidden; }
       .gracias-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; display: block; }
     </style>
     <div class="slide-inner">
-      <div class="gracias-layout">
         <div class="gracias-left">
           <div class="gracias-logos">
             <img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming">
@@ -2012,10 +1996,9 @@
             <div class="gc-text">Ayming International<div class="gc-sub">114 rue Chaptal, 92300 Levallois-Perret, Francia</div></div>
           </div>
         </div>
-        <div class="gracias-photo">
-          <img src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/alstom-tecnica-tren.jpg" alt="Técnica de Alstom a bordo de un tren">
-        </div>
-      </div>
+    </div>
+    <div class="gracias-photo">
+      <img src="https://ayming-france.github.io/assets/imagery/es-cotizaciones-sociales/alstom-tecnica-tren.jpg" alt="Técnica de Alstom a bordo de un tren">
     </div>
     <div class="company-logo"><img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming"></div>
   </section>
