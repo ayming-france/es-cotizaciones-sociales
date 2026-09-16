@@ -1354,7 +1354,7 @@
         </div>
         <div class="rp-wp">
           <div class="rp-left">
-            <div class="rp-wpname">Recuperaci&oacute;n <span class="rp-dur">2 semanas</span></div>
+            <div class="rp-wpname">Recuperaci&oacute;n <span class="rp-dur">Seg&uacute;n la administraci&oacute;n</span></div>
             <ul class="rp-del">
               <li><span class="rp-chip ay">Ayming</span><span class="rp-txt">Informe de seguimiento de recuperaciones y de reembolsos</span><span class="rp-date">antes del 31.12</span></li>
               <li><span class="rp-chip ay">Ayming</span><span class="rp-txt">Informe final de resultados</span><span class="rp-date">antes del 31.12</span></li>
@@ -2030,30 +2030,6 @@
   <script src="https://ayming-france.github.io/assets/engine/slides.js"></script>
   <script src="https://ayming-france.github.io/assets/engine/lucide.min.js"></script>
   <script>lucide.createIcons();</script>
-
-  <!-- Le moteur ecrit sa propre chrome en francais, sans crochet de langue : bandeau de
-       confidentialite, rappels clavier. Sur un deck client espagnol il faut la traduire.
-       Correctif local, en attendant un mecanisme de langue dans le moteur (voir HANDOFF). -->
-  <script>
-    (function localiseChrome() {
-      var TEXTS = [
-        ['.banner-confidential', 'CONFIDENCIAL \u00b7 Documento propiedad exclusiva de Ayming'],
-        ['.keyboard-hint', null]
-      ];
-      function apply() {
-        var b = document.querySelector('.banner-confidential');
-        if (b) b.textContent = TEXTS[0][1];
-        var h = document.querySelector('.keyboard-hint');
-        if (h) h.innerHTML = '<span>&#8592; &#8594; navegar</span><span>F pantalla completa</span>'
-          + '<span>T herramientas</span><span>P compartir</span>';
-      }
-      apply();
-      // le moteur rend sa chrome apres nous : on repasse quelques fois puis on arrete.
-      var n = 0, id = setInterval(function () { apply(); if (++n > 20) clearInterval(id); }, 150);
-      document.addEventListener('DOMContentLoaded', apply);
-      window.addEventListener('load', apply);
-    })();
-  </script>
 
 </body>
 </html>
