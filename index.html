@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
   <title>Cotizaciones AT/EP y pagos delegados - Alstom España</title>
   <!-- CONFIDENCIEL. Contient le contexte d'un appel d'offres client nommé.
        Ce deck ne doit jamais être déployé sur GitHub Pages ni ajouté au hub.
        Même règle que work/offers/veille-net-entreprises/laposte/. -->
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://ayming-france.github.io/assets/engine/slides.css">
+  <link rel="stylesheet" href="https://ayming-france.github.io/assets/engine/components.css">
   <style>
     /* Bloc local propre à ce deck. À promouvoir dans le moteur si un 2e deck en a besoin. */
 
@@ -1393,24 +1394,6 @@
   </section>
 
   <section class="slide" data-chapter="hr-intl-modelo">
-    <style>
-      /* Reconstruit en recit a 3 temps (le cas est ponctuel, le groupe mobilise,
-         l'Espagne produit) relies par des chevrons, a la place des trois blocs
-         (pastille de chiffres + deux cartes a puces) : l'utilisateur veut une
-         histoire de strategie, pas un inventaire. Les chiffres du groupe restent
-         sur la diapositive "Lider europeo" (implantation), pas ici. */
-      .slide[data-chapter="hr-intl-modelo"] .modelo-flow { display: flex; align-items: stretch; gap: 0; width: 100%; max-width: 1160px; margin-top: var(--space-10); }
-      .slide[data-chapter="hr-intl-modelo"] .modelo-step { flex: 1; background: var(--bg-white); border: 1px solid #e9f0f5; border-radius: var(--radius-xl); padding: var(--space-24) var(--space-22) var(--space-20); box-shadow: 0 6px 24px rgba(var(--blue-dark-rgb), .06); text-align: left; }
-      .slide[data-chapter="hr-intl-modelo"] .modelo-num { width: 32px; height: 32px; border-radius: var(--radius-circle); color: var(--bg-white); font-size: var(--font-14); font-weight: var(--weight-bold); display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-14); }
-      .slide[data-chapter="hr-intl-modelo"] .modelo-step.s1 .modelo-num { background: var(--blue-primary); }
-      .slide[data-chapter="hr-intl-modelo"] .modelo-step.s2 .modelo-num { background: var(--gradient-green-end); }
-      .slide[data-chapter="hr-intl-modelo"] .modelo-step.s3 .modelo-num { background: var(--blue-dark); }
-      .slide[data-chapter="hr-intl-modelo"] .modelo-step h3 { font-size: var(--font-16); color: var(--blue-dark); font-weight: var(--weight-bold); margin: 0 0 var(--space-10); line-height: 1.25; }
-      .slide[data-chapter="hr-intl-modelo"] .modelo-step p { font-size: var(--font-13); color: #4a5b68; line-height: 1.55; margin: 0; }
-      .slide[data-chapter="hr-intl-modelo"] .modelo-chevron { flex: 0 0 40px; display: flex; align-items: center; justify-content: center; }
-      .slide[data-chapter="hr-intl-modelo"] .modelo-chevron svg { width: 24px; height: 24px; color: var(--blue-primary); }
-      .slide[data-chapter="hr-intl-modelo"] .modelo-close { margin: var(--space-22) auto 0; max-width: 1160px; background: #f7fbfd; border-radius: var(--radius-lg); padding: var(--space-16) var(--space-24); text-align: center; font-size: var(--font-16); font-weight: var(--weight-semibold); color: var(--blue-dark); }
-    </style>
     <div class="slide-inner">
       <h1 class="slide-title">Una respuesta global, una producción local</h1>
       <p class="content-paragraph lead-compact">Ayming International HR centraliza la práctica de costes sociales para movilizar a los mejores especialistas en cada misión, y produce el servicio en el país.</p>
@@ -1439,25 +1422,6 @@
   </section>
 
   <section class="slide" data-chapter="hr-intl-pruebas">
-    <style>
-      .slide[data-chapter="hr-intl-pruebas"] .pruebas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-26); width: 100%; max-width: 1160px; margin-top: var(--space-8); }
-      /* Carte image + texte : la photo est en plein bord (overflow:hidden sur la carte
-         fait office de masque pour les coins arrondis du haut), le padding d'origine
-         se deplace sur .pruebas-body qui porte tout le texte. Le badge d'icone rond est
-         retire sur les 3 cartes : redondant a cote d'une photo, la puce de pratique
-         suffit a categoriser. */
-      .slide[data-chapter="hr-intl-pruebas"] .pruebas-card { background: var(--bg-white); border: 1px solid #e9f0f5; border-radius: var(--radius-xl); overflow: hidden; box-shadow: 0 6px 24px rgba(var(--blue-dark-rgb), .06); text-align: left; }
-      .slide[data-chapter="hr-intl-pruebas"] .pruebas-banner { display: block; width: 100%; height: 230px; object-fit: cover; }
-      .slide[data-chapter="hr-intl-pruebas"] .pruebas-body { padding: var(--space-12) var(--space-18) var(--space-12); }
-      .slide[data-chapter="hr-intl-pruebas"] .pruebas-card h3 { font-size: var(--font-15); color: var(--blue-dark); font-weight: var(--weight-bold); margin: 0 0 var(--space-6); line-height: 1.25; }
-      .slide[data-chapter="hr-intl-pruebas"] .pruebas-card p { font-size: 12.5px; color: #4a5b68; line-height: 1.45; margin: 0; }
-      /* Puce de pratique, meme couple couleurs que les badges d'icone de la maquette
-         (fond #e9f5fc / texte var(--blue-primary)), en version pastille pour rester lisible a
-         cote d'un titre de carte. */
-      .slide[data-chapter="hr-intl-pruebas"] .pruebas-chip { display: inline-block; background: #e9f5fc; color: var(--blue-primary);
-        font-size: 10.5px; font-weight: var(--weight-bold); letter-spacing: .06em; text-transform: uppercase;
-        padding: 3px var(--space-10); border-radius: 999px; margin-bottom: var(--space-8); }
-    </style>
     <div class="slide-inner">
       <h1 class="slide-title">Nuestra estrategia en marcha, tres ejemplos</h1>
       <p class="content-paragraph lead-compact">No solo esta oferta funciona así: tres ejemplos del grupo, en servicios gestionados, software y consultoría.</p>
@@ -1507,22 +1471,6 @@
   </section>
 
   <section class="slide" data-chapter="implantation">
-    <style>
-      .slide[data-chapter="implantation"] .impl-stats { display: flex; justify-content: center; gap: 0; width: 100%; max-width: 900px; margin: var(--space-26) auto 0; }
-      .slide[data-chapter="implantation"] .impl-stat { flex: 1; text-align: center; padding: 0 var(--space-12); border-right: 1px solid var(--tint-grey-15); }
-      .slide[data-chapter="implantation"] .impl-stat:last-child { border-right: none; }
-      .slide[data-chapter="implantation"] .impl-stat-num { font-size: 22px; font-weight: var(--weight-bold); color: var(--blue-primary); line-height: var(--leading-tight); white-space: nowrap; }
-      .slide[data-chapter="implantation"] .impl-stat-label { font-size: var(--font-11); font-weight: var(--weight-semibold); color: var(--text-gray); text-transform: uppercase; letter-spacing: .3px; margin-top: var(--space-6); }
-      /* Le SVG porte une importante marge morte interne (haut surtout, un peu a
-         droite), heritee de son propre viewBox. On recadre en zoomant l'image
-         nettement au-dela de sa taille de base puis en la remontant dans un
-         cadre a hauteur fixe et overflow masque, pour ne garder que la carte et
-         ses etiquettes : la bande morte disparait et la carte visible grossit. */
-      .slide[data-chapter="implantation"] .implantation-container { height: 452px; overflow: hidden;
-        align-items: flex-start; margin: 2px auto 0; }
-      .slide[data-chapter="implantation"] .implantation-eu { height: 575px; max-height: none; width: auto;
-        transform: translateY(-122px); }
-    </style>
     <div class="slide-inner">
       <h1 class="slide-title title-implantacion">... con la fuerza de todo el equipo Ayming&nbsp;International&nbsp;HR, líder europeo en costes sociales</h1>
       <div class="implantation-container">
@@ -1540,24 +1488,9 @@
 
   <section class="slide" data-chapter="clientes">
     <style>
-      .slide[data-chapter="clientes"] .slide-inner { max-width: 1160px; }
-      .slide[data-chapter="clientes"] .slide-title { margin-bottom: 48px; }
-      .cl-wrap { display: grid; grid-template-columns: 1.18fr 1px 0.92fr 1px 0.92fr; gap: 0 var(--space-26); width: 100%; align-items: stretch; }
-      .cl-div { width: 1px; background: linear-gradient(180deg, transparent 0%, #d6e0ea 14%, #d6e0ea 86%, transparent 100%); }
-      .cl-col { display: flex; flex-direction: column; align-items: center; text-align: center; }
-      .cl-stat { font-size: 40px; font-weight: var(--weight-black); color: var(--blue-primary); line-height: var(--leading-tight); letter-spacing: -1px; }
-      .cl-label { font-size: var(--font-13); font-weight: var(--weight-bold); color: var(--blue-dark); margin-top: var(--space-9); line-height: var(--leading-snug); min-height: 34px; }
-      .cl-cap { font-size: 11.5px; font-style: italic; color: var(--text-gray); margin-top: 7px; line-height: 1.35; min-height: 34px; padding: 0 var(--space-6); }
-      .cl-alstom { margin: var(--space-10) 0 var(--space-8); }
-      .cl-alstom img { height: 68px; width: auto; }
-      .cl-grid { display: grid; align-items: center; justify-items: center; width: 100%; margin-top: var(--space-16); }
-      .cl-grid.g3 { grid-template-columns: repeat(3, 1fr); gap: var(--space-18) var(--space-16); }
-      .cl-grid.g2 { grid-template-columns: repeat(2, 1fr); gap: var(--space-26) var(--space-20); }
-      .cl-grid img { max-width: 90%; object-fit: contain; }
-      .cl-col-1 .cl-grid img { max-height: 24px; }
-      .cl-col-2 .cl-grid img, .cl-col-3 .cl-grid img { max-height: 38px; }
-      .cl-col-3 .cl-grid img:last-child { grid-column: 1 / -1; justify-self: center; }
-      .cl-col-1 .cl-grid img:last-child { max-height: 38px; grid-column: 1 / -1; justify-self: center; }
+      .slide[data-chapter="clientes"] .cl-alstom { margin: var(--space-10) 0 var(--space-8); }
+      .slide[data-chapter="clientes"] .cl-alstom img { height: 68px; width: auto; }
+      .slide[data-chapter="clientes"] .cl-col-1 .cl-grid img:last-child { max-height: 38px; grid-column: 1 / -1; justify-self: center; }
     </style>
     <div class="slide-inner">
       <h1 class="slide-title">Clientes que ya conf&iacute;an en Ayming</h1>
@@ -1953,24 +1886,6 @@
   </section>
 
   <section class="slide" data-chapter="gracias">
-    <style>
-      /* Meme principe que .uis-photo (slide "valeur") : la photo est posee en absolu contre les
-         bords de la section, hors de fitSlide, et la colonne de texte occupe la moitie gauche. */
-      .slide[data-chapter="gracias"] .slide-inner { max-width: none; width: min(42%, 620px); margin: 0 auto 0 max(0px, calc(25% - min(21%, 310px) - 40px)); }
-      .gracias-left { text-align: left; }
-      .gracias-logos { display: flex; align-items: center; gap: var(--space-16); margin-bottom: var(--space-34); }
-      .gracias-logos img { height: 40px; width: auto; display: block; }
-      .gracias-logos .gl-sep { font-size: var(--font-18); color: #c3ced6; }
-      .gracias-lead { font-size: 22px; font-weight: var(--weight-bold); color: var(--blue-dark); margin: 0 0 var(--space-22); }
-      .gc-row { display: flex; align-items: center; gap: var(--space-16); margin-bottom: var(--space-16); }
-      .gc-row:last-child { margin-bottom: 0; }
-      .gc-ic { width: 44px; height: 44px; border-radius: var(--radius-circle); flex-shrink: 0; background: var(--blue-primary); display: flex; align-items: center; justify-content: center; }
-      .gc-ic svg { width: 20px; height: 20px; color: var(--bg-white); }
-      .gc-text { font-size: var(--font-14); color: var(--blue-dark); font-weight: var(--weight-semibold); line-height: 1.35; }
-      .gc-sub { font-size: 12.5px; color: #5a6b78; font-weight: 400; margin-top: 2px; }
-      .gracias-photo { position: absolute; top: 0; right: 0; bottom: var(--banner-h); width: 50%; overflow: hidden; }
-      .gracias-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; display: block; }
-    </style>
     <div class="slide-inner">
         <div class="gracias-left">
           <div class="gracias-logos">
